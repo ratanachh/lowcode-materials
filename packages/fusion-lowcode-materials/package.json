@@ -7,13 +7,16 @@
   "lowcodeEditMain": "build/lowcode/view.js",
   "stylePath": "style.js",
   "scripts": {
-    "start": "build-scripts start",
-    "build": "build-scripts build",
-    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
-    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build",
+    "lowcode:dev": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build --config ./build.lowcode.js",
     "prepublishOnly": "npm run build && npm run lowcode:build",
     "beta": "npm publish --tag beta",
     "pub": "npm publish"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "files": [
     "es/",

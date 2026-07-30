@@ -53,6 +53,9 @@
     }
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "f2elint commit-file-scan",

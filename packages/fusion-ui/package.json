@@ -17,15 +17,18 @@
   "stylePath": "style.js",
   "scripts": {
     "start": "npm run dumi",
-    "build": "build-scripts build",
-    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
-    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
-    "test": "build-scripts test",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build",
+    "lowcode:dev": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build --config ./build.lowcode.js",
+    "test": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts test",
     "lint": "f2elint scan",
     "lint:fix": "f2elint fix",
     "dumi": "cross-env APP_ROOT=docs dumi dev",
     "dumi:build": "cross-env APP_ROOT=docs dumi build",
     "prepublishOnly": "npm run build && npm run lowcode:build && npm run dumi:build"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "keywords": [
     "react",
