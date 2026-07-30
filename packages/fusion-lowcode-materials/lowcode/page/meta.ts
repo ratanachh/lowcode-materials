@@ -46,7 +46,7 @@ export default [
   {
     componentName: 'Leaf',
     npm: {
-      package: '@alilc/lowcode-materials',
+      package: '@rchh/lowcode-materials',
       version: '{{version}}',
       exportName: 'Typography',
       main: '',

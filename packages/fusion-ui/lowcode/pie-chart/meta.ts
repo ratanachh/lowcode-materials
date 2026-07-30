@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata, IPublicTypeConfigure } from '@alilc/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeConfigure } from '@rchh/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
 import { plotConfigure } from '../common/chart-plot';
 

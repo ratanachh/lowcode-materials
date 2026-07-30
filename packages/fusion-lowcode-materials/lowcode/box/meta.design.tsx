@@ -9,7 +9,7 @@ module.exports = {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: '{{version}}',
     exportName: 'Box',
     main: '',

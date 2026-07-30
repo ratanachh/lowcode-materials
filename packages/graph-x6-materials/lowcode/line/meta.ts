@@ -1,4 +1,4 @@
-import { ComponentMetadata, Snippet } from '@alilc/lowcode-engine';
+import { ComponentMetadata, Snippet } from '@rchh/lowcode-engine';
 
 const LineMeta: ComponentMetadata = {
   componentName: 'Line',
@@ -8,7 +8,7 @@ const LineMeta: ComponentMetadata = {
   tags: ['edge'],
   devMode: 'proCode',
   npm: {
-    package: '@alilc/lce-x6-items',
+    package: '@rchh/lce-x6-items',
     version: '0.1.3',
     exportName: 'Line',
     main: 'src/index.tsx',

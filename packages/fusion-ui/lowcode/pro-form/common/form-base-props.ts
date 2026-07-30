@@ -1,6 +1,6 @@
 import { isEqual, throttle } from 'lodash';
-import { IPublicModelSettingField } from '@alilc/lowcode-types';
-import { material } from '@alilc/lowcode-engine'
+import { IPublicModelSettingField } from '@rchh/lowcode-types';
+import { material } from '@rchh/lowcode-engine'
 
 import { IProps } from '../../types';
 import { formItemShortcutProps as baseFormItemProps } from './form-item-props';

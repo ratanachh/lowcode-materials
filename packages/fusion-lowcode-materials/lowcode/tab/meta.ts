@@ -1,5 +1,5 @@
 import snippets from './snippets';
-import { IPublicModelSettingField } from '@alilc/lowcode-types';
+import { IPublicModelSettingField } from '@rchh/lowcode-types';
 
 export default {
   group: '原子组件',
@@ -8,7 +8,7 @@ export default {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: '{{version}}',
     exportName: 'Tab',
     main: '',

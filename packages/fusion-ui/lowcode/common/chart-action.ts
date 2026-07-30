@@ -1,4 +1,4 @@
-import { IPublicTypeConfigure } from '@alilc/lowcode-types';
+import { IPublicTypeConfigure } from '@rchh/lowcode-types';
 
 export const actionConfigure: NonNullable<IPublicTypeConfigure['props']> = [
   {

@@ -5,7 +5,7 @@ module.exports = {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: 'latest',
     exportName: 'NextTable',
     main: 'lib/index.js',

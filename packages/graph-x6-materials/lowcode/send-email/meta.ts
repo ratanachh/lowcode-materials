@@ -1,4 +1,4 @@
-import { ComponentMetadata, Snippet } from '@alilc/lowcode-engine';
+import { ComponentMetadata, Snippet } from '@rchh/lowcode-engine';
 
 const SendEmailMeta: ComponentMetadata = {
   componentName: 'SendEmail',
@@ -8,7 +8,7 @@ const SendEmailMeta: ComponentMetadata = {
   devMode: 'proCode',
   tags: ['node'],
   npm: {
-    package: '@alilc/lce-x6-items',
+    package: '@rchh/lce-x6-items',
     version: '0.1.3',
     exportName: 'SendEmail',
     main: 'src/index.tsx',

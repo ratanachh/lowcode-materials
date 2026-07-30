@@ -8,7 +8,7 @@ export default {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: 'latest',
     exportName: 'Collapse',
     main: '',

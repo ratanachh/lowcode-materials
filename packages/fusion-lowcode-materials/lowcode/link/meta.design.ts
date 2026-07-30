@@ -3,7 +3,7 @@ export default {
   componentName: 'Link',
   title: '链接',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: 'latest',
     exportName: 'Link',
     main: '',

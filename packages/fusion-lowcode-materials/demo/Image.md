@@ -8,7 +8,7 @@ order: 2
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Image } from '@alilc/lowcode-materials';
+import { Image } from '@rchh/lowcode-materials';
 
 class App extends Component {
   render() {

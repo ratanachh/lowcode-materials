@@ -4,7 +4,7 @@ module.exports = {
   category: '基础元素',
   group: '精选组件',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: 'latest',
     exportName: 'NextText',
     main: 'lib/index.js',

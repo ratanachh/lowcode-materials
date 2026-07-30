@@ -1,4 +1,4 @@
-import { IPublicModelNode } from '@alilc/lowcode-types';
+import { IPublicModelNode } from '@rchh/lowcode-types';
 import snippets from './snippets';
 
 export default {
@@ -11,7 +11,7 @@ export default {
   icon:
     'https://img.alicdn.com/imgextra/i1/O1CN01yR8vcY1M504YbHxzo_!!6000000001382-55-tps-56-56.svg',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: '{{version}}',
     exportName: 'Icon',
     main: '',

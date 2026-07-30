@@ -1,5 +1,5 @@
 {
-  "name": "@alilc/lowcode-materials",
+  "name": "@rchh/lowcode-materials",
   "version": "1.2.1",
   "description": "Fusion Next for LowCode",
   "main": "lib/index.js",
@@ -73,10 +73,10 @@
     }
   ],
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@rchh/lowcode-materials@1.2.1/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.2.1/build/index.html",
+  "homepage": "https://unpkg.com/@rchh/lowcode-materials@1.2.1/build/index.html",
   "exports": {
     ".": {
       "import": "./es/index.js",
@@ -95,5 +95,9 @@
   "lcMeta": {
     "type": "component"
   },
-  "repository": "https://github.com/alibaba/lowcode-materials.git"
+  "repository": "https://github.com/alibaba/lowcode-materials.git",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

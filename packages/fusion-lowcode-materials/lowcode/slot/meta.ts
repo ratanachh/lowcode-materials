@@ -1,7 +1,7 @@
 module.exports = {
   componentName: 'Slot',
   npm: {
-    package: '@alilc/lowcode-materials',
+    package: '@rchh/lowcode-materials',
     version: 'latest',
     exportName: 'Slot',
     main: '',

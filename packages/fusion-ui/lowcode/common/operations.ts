@@ -1,6 +1,6 @@
 import { IProps } from '../types';
 import { hideProp } from '../utils';
-import { IPublicModelSettingField } from '@alilc/lowcode-types';
+import { IPublicModelSettingField } from '@rchh/lowcode-types';
 
 export const operationConfig: IProps = {
   name: 'operationConfig',

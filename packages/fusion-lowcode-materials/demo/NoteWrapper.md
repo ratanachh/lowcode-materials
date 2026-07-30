@@ -8,7 +8,7 @@ order: 4
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { NoteWrapper } from '@alilc/lowcode-materials';
+import { NoteWrapper } from '@rchh/lowcode-materials';
 
 class App extends Component {
   render() {

@@ -1,4 +1,4 @@
-import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { ComponentMetadata, Snippet } from '@rchh/lowcode-types';
 
 const StartEndMeta: ComponentMetadata = {
   componentName: 'StartEnd',
@@ -8,7 +8,7 @@ const StartEndMeta: ComponentMetadata = {
   devMode: 'proCode',
   tags: ['node'],
   npm: {
-    package: '@alilc/lce-x6-items',
+    package: '@rchh/lce-x6-items',
     version: '0.1.3',
     exportName: 'StartEnd',
     main: 'src/index.tsx',

@@ -1,4 +1,4 @@
-import { ComponentMetadata } from "@alilc/lowcode-types";
+import { ComponentMetadata } from "@rchh/lowcode-types";
 import snippets from './snippets';
 
 export default {

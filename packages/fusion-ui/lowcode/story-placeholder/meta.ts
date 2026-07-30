@@ -1,4 +1,4 @@
-import { IPublicModelNode } from '@alilc/lowcode-types';
+import { IPublicModelNode } from '@rchh/lowcode-types';
 import { IComponentDescription, ISnippet } from '../types';
 
 const snippets: ISnippet[] = [

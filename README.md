@@ -21,15 +21,15 @@
 
 [![NPM version][npm-image-fusion]][npm-url-fusion]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@rchh/lowcode-materials@1.2.1/build/lowcode/index.html)
 
 ### 使用 / Usage
 
 #### NPM
 
 ```js
-const { material } from '@alilc/lowcode-engine';
-const assets = require('@alilc/lowcode-materials/dist/assets.json');
+const { material } from '@rchh/lowcode-engine';
+const assets = require('@rchh/lowcode-materials/dist/assets.json');
 
 // in GeneralWorkbench init
 material.setAssets(assets);
@@ -40,27 +40,27 @@ material.setAssets(assets);
 ```js
 // in GeneralWorkbench init
 const assets = await fetch(
-  `https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/dist/assets.json`,
+  `https://alifd.alicdn.com/npm/@rchh/lowcode-materials@1.2.1/dist/assets.json`,
 ).then((res) => res.json());
 material.setAssets(assets);
 ```
 
-[npm-image-fusion]: https://img.shields.io/npm/v/@alilc/lowcode-materials.svg?style=flat-square
-[npm-url-fusion]: http://npmjs.org/package/@alilc/lowcode-materials
+[npm-image-fusion]: https://img.shields.io/npm/v/@rchh/lowcode-materials.svg?style=flat-square
+[npm-url-fusion]: http://npmjs.org/package/@rchh/lowcode-materials
 
 <h2><img width="30" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"> Ant Design For Lowcode</h2>
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
 
 ### 使用 / Usage
 
 #### NPM
 
 ```js
-const { material } from '@alilc/lowcode-engine';
-const assets = require('@alilc/antd-lowcode-materials/build/lowcode/assets-prod.json');
+const { material } from '@rchh/lowcode-engine';
+const assets = require('@rchh/antd-lowcode-materials/build/lowcode/assets-prod.json');
 
 // in GeneralWorkbench init
 material.setAssets(assets);
@@ -71,13 +71,13 @@ material.setAssets(assets);
 ```js
 // in GeneralWorkbench init
 const assets = await fetch(
-  `https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`,
+  `https://alifd.alicdn.com/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`,
 ).then((res) => res.json());
 material.setAssets(assets);
 ```
 
-[npm-image-antd]: https://img.shields.io/npm/v/@alilc/antd-lowcode-materials.svg?style=flat-square
-[npm-url-antd]: http://npmjs.org/package/@alilc/antd-lowcode-materials
+[npm-image-antd]: https://img.shields.io/npm/v/@rchh/antd-lowcode-materials.svg?style=flat-square
+[npm-url-antd]: http://npmjs.org/package/@rchh/antd-lowcode-materials
 
 ## 如何贡献 / How-to-contribute
 

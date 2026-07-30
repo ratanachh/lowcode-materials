@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata, IPublicTypeSnippet, IPublicTypeFieldConfig, IPublicModelSettingField } from '@alilc/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeSnippet, IPublicTypeFieldConfig, IPublicModelSettingField } from '@rchh/lowcode-types';
 
 export interface ISnippet extends IPublicTypeSnippet {
   label?: string;
