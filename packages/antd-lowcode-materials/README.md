@@ -1,8 +1,8 @@
-<h2><img width="30" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"> Ant Design For Lowcode</h2>
+<h2><img width="30" src="../../docs/antd-logo.svg"> Ant Design For Lowcode</h2>
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
+### [在线示例 / DEMO](https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
 
 ### 使用 / Usage
 #### NPM
@@ -17,7 +17,7 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await (await fetch(`https://alifd.alicdn.com/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`)).json();
+const assets = await (await fetch(`https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`)).json();
 material.setAssets(assets);
 ```
 

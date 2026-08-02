@@ -17,11 +17,11 @@
 
 在使用中遇到的任何问题，请在[lowcode-engine](https://github.com/alibaba/lowcode-engine)项目中反馈。
 
-<h2><img width="50" src="https://img.alicdn.com/tfs/TB1YsoiHVzqK1RjSZFCXXbbxVXa-159-99.svg"> Fusion Design For Lowcode</h2>
+<h2><img width="50" src="./docs/fusion-logo.svg"> Fusion Design For Lowcode</h2>
 
 [![NPM version][npm-image-fusion]][npm-url-fusion]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@rchh/lowcode-materials@1.2.1/build/lowcode/index.html)
+### [在线示例 / DEMO](https://cdn.jsdelivr.net/npm/@rchh/lowcode-materials@1.2.1/build/lowcode/index.html)
 
 ### 使用 / Usage
 
@@ -40,7 +40,7 @@ material.setAssets(assets);
 ```js
 // in GeneralWorkbench init
 const assets = await fetch(
-  `https://alifd.alicdn.com/npm/@rchh/lowcode-materials@1.2.1/dist/assets.json`,
+  `https://cdn.jsdelivr.net/npm/@rchh/lowcode-materials@1.2.1/dist/assets.json`,
 ).then((res) => res.json());
 material.setAssets(assets);
 ```
@@ -48,11 +48,11 @@ material.setAssets(assets);
 [npm-image-fusion]: https://img.shields.io/npm/v/@rchh/lowcode-materials.svg?style=flat-square
 [npm-url-fusion]: http://npmjs.org/package/@rchh/lowcode-materials
 
-<h2><img width="30" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"> Ant Design For Lowcode</h2>
+<h2><img width="30" src="./docs/antd-logo.svg"> Ant Design For Lowcode</h2>
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
+### [在线示例 / DEMO](https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
 
 ### 使用 / Usage
 
@@ -71,7 +71,7 @@ material.setAssets(assets);
 ```js
 // in GeneralWorkbench init
 const assets = await fetch(
-  `https://alifd.alicdn.com/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`,
+  `https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`,
 ).then((res) => res.json());
 material.setAssets(assets);
 ```

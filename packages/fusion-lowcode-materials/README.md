@@ -1,8 +1,8 @@
-<h2><img width="50" src="https://img.alicdn.com/tfs/TB1YsoiHVzqK1RjSZFCXXbbxVXa-159-99.svg"> Fusion Design For Lowcode</h2>
+<h2><img width="50" src="../../docs/fusion-logo.svg"> Fusion Design For Lowcode</h2>
 
 [![NPM version][npm-image-fusion]][npm-url-fusion]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
+### [在线示例 / DEMO](https://cdn.jsdelivr.net/npm/@rchh/lowcode-materials@1.2.1/build/lowcode/index.html)
 
 ### 使用 / Usage
 #### NPM
@@ -17,7 +17,7 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await (await fetch(`https://alifd.alicdn.com/npm/@rchh/lowcode-materials@1.2.1/dist/assets.json`)).json();
+const assets = await (await fetch(`https://cdn.jsdelivr.net/npm/@rchh/lowcode-materials@1.2.1/dist/assets.json`)).json();
 material.setAssets(assets);
 ```
 
