@@ -43,23 +43,25 @@
     "**/*.{css,scss,less,acss}": "f2elint exec stylelint"
   },
   "peerDependencies": {
-    "react": "^16.x",
-    "react-dom": "^16.x",
+    "@antv/x6": "^1.6.1",
     "moment": "latest",
-    "@antv/x6": "^1.6.1"
+    "react": "^16.x",
+    "react-dom": "^16.x"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.3",
     "@alifd/build-plugin-lowcode": "^0.3.0",
     "@alifd/theme-2": "^0.4.0",
+    "@antv/x6": "^1.6.1",
     "@types/react": "^16.14.24",
     "@types/react-dom": "^16.9.4",
     "build-plugin-component-multiple": "^1.0.0-beta.5",
     "build-plugin-fusion": "^0.1.0",
     "f2elint": "^1.2.0",
+    "moment": "^2.30.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "@antv/x6": "^1.6.1"
+    "sass": "^1.102.0"
   },
   "dependencies": {
     "@alifd/next": "^1.25.27",
