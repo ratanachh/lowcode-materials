@@ -1,6 +1,6 @@
 {
   "name": "@rchh/antd-lowcode-materials",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Antd for LowCode",
   "main": "lib/index.js",
   "scripts": {
@@ -60,8 +60,8 @@
     "materialSchema": "https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@rchh/antd-lowcode-materials@1.2.2/build/index.html",
-  "repository": "https://github.com/alibaba/lowcode-materials.git",
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "repository": "https://github.com/ratanachh/lowcode-materials.git",
   "exports": {
     "./prototype": {
       "require": "./lowcode_lib/meta.js",
@@ -83,5 +83,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "bugs": "https://github.com/ratanachh/lowcode-materials/issues"
 }

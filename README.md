@@ -11,9 +11,9 @@
 物料（Material）是指能够被沉淀下来的前端能力，一般表现为组件、区块和模板。而低代码物料库，则是一套专门用于低代码开发模式（Lowcode）的物料，它除了包含物料组件，还有一套描述组件信息的低代码引擎物料协议。简单来说，低代码物料库包含了两个部分：
 
 - 组件的实现，即组件的代码和样式
-- 遵循[《低代码引擎物料协议规范》](https://lowcode-engine.cn/material)的物料协议
+- 遵循[《低代码引擎物料协议规范》](https://ratanachh.github.io/lowcode-engine/docs/specs/material-spec)的物料协议
 
-低代码物料应该配合[低代码引擎](https://lowcode-engine.cn/)使用，如果你还不了解低代码引擎，请先阅读相关文档。
+低代码物料应该配合[低代码引擎](https://ratanachh.github.io/lowcode-engine/)使用，如果你还不了解低代码引擎，请先阅读相关文档。
 
 在使用中遇到的任何问题，请在[lowcode-engine](https://github.com/alibaba/lowcode-engine)项目中反馈。
 

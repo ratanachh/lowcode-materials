@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-materials",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Fusion Next for LowCode",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -79,7 +79,7 @@
     "materialSchema": "https://cdn.jsdelivr.net/npm/@rchh/lowcode-materials@1.2.1/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@rchh/lowcode-materials@1.2.1/build/index.html",
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
   "exports": {
     ".": {
       "import": "./es/index.js",
@@ -98,9 +98,10 @@
   "lcMeta": {
     "type": "component"
   },
-  "repository": "https://github.com/alibaba/lowcode-materials.git",
+  "repository": "https://github.com/ratanachh/lowcode-materials.git",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "bugs": "https://github.com/ratanachh/lowcode-materials/issues"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lce-x6-items",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "x6-items",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -80,5 +80,12 @@
   "componentConfig": {
     "isComponentLibrary": true,
     "materialSchema": "https://unpkg.com/@rchh/lce-x6-items@1.0.7/build/lowcode/assets-prod.json"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ratanachh/lowcode-materials.git",
+    "directory": "packages/graph-x6-materials"
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-materials/issues"
 }
