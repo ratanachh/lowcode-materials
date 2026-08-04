@@ -1,12 +1,12 @@
 {
   "name": "@rchh/antd-lowcode-materials",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Antd for LowCode",
   "main": "lib/index.js",
   "scripts": {
     "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build",
     "lowcode:dev": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start --config ./build.lowcode.js",
-    "lowcode:build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build --config ./build.lowcode.js",
+    "lowcode:build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build --config ./build.lowcode.js && node ./scripts/restore-meta-export-name.js",
     "prepublishOnly": "npm run build && npm run lowcode:build"
   },
   "engines": {
