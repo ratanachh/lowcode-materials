@@ -1,111 +1,126 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Switch',
-  title: '开关',
-  category: '表单',
-  props: [
-    {
-      name: 'defaultChecked',
-      title: { label: '默认选中', tip: '默认是否选中' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+  title: i18n("开关", "Switch"),
+  category: "Data Entry",
+  props: [{
+    name: 'defaultChecked',
+    title: {
+      label: i18n("默认选中", "Selected by default"),
+      tip: i18n("默认是否选中", "Is it selected by default?")
     },
-    {
-      name: 'checked',
-      title: { label: '是否选中', tip: '当前是否选中' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter',
-      supportVariable: true,
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'checked',
+    title: {
+      label: i18n("是否选中", "Check or not"),
+      tip: i18n("当前是否选中", "Is it currently selected?")
     },
-    {
-      name: 'autoFocus',
-      title: { label: '自动聚焦', tip: '组件自动获取焦点' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter',
+    supportVariable: true
+  }, {
+    name: 'autoFocus',
+    title: {
+      label: i18n("自动聚焦", "Auto focus"),
+      tip: i18n("组件自动获取焦点", "ComponentAuto focus")
     },
-    {
-      name: 'checkedChildren',
-      title: { label: '选中时内容', tip: '选中时的内容' },
-      propType: 'string',
-      setter: 'StringSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'checkedChildren',
+    title: {
+      label: i18n("选中时内容", "Content when selected"),
+      tip: i18n("选中时的内容", "Content when selected")
     },
-    {
-      name: 'unCheckedChildren',
-      title: { label: '非选中时内容', tip: '非选中时的内容' },
-      propType: 'string',
-      setter: 'StringSetter'
+    propType: 'string',
+    setter: 'StringSetter'
+  }, {
+    name: 'unCheckedChildren',
+    title: {
+      label: i18n("非选中时内容", "Content when unselected"),
+      tip: i18n("非选中时的内容", "Content when unselected")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'string',
+    setter: 'StringSetter'
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'loading',
-      title: { label: '加载中', tip: '加载中' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'loading',
+    title: {
+      label: i18n("加载中", "Loading"),
+      tip: i18n("加载中", "Loading")
     },
-    {
-      name: 'size',
-      title: { label: '尺寸', tip: '开关大小' },
-      propType: { type: 'oneOf', value: ['default', 'small'] },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '默认',
-              value: 'default',
-            },
-            {
-              title: '小',
-              value: 'small',
-            },
-          ],
-        },
-      },
-      defaultValue: 'default',
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'size',
+    title: {
+      label: i18n("尺寸", "Size"),
+      tip: i18n("开关大小", "SwitchSize")
     },
-    {
-      name: 'onChange',
-      title: { label: '变化时回调函数', tip: '变化时回调函数' },
-      propType: 'func',
+    propType: {
+      type: 'oneOf',
+      value: ['default', 'small']
     },
-    {
-      name: 'onClick',
-      title: { label: '点击时回调函数', tip: '点击时回调函数' },
-      propType: 'func',
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("默认", "Default"),
+          value: 'default'
+        }, {
+          title: i18n("小", "Small"),
+          value: 'small'
+        }]
+      }
     },
-    // {
-    //   name: 'className',
-    //   title: { label: '类名', tip: '类名' },
-    //   propType: 'string',
-    // },
+    defaultValue: 'default'
+  }, {
+    name: 'onChange',
+    title: {
+      label: i18n("变化时回调函数", "Callback on change"),
+      tip: i18n("变化时回调函数", "Callback on change")
+    },
+    propType: 'func'
+  }, {
+    name: 'onClick',
+    title: {
+      label: i18n("点击时回调函数", "callback function when clicked"),
+      tip: i18n("点击时回调函数", "callback function when clicked")
+    },
+    propType: 'func'
+  }
+  // {
+  //   name: 'className',
+  // title: { label: 'className', tip: 'className' },
+  //   propType: 'string',
+  // },
   ],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onChange',
-          template:
-            "onChange(checked,event,${extParams}){\n// 变化时回调函数\nconsole.log('onChange',checked,event);}",
-        },
-        {
-          name: 'onClick',
-          template:
-            "onClick(checked,event,${extParams}){\n// 点击时回调函数\nconsole.log('onClick',checked,event);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onChange',
+        template: "onChange(checked,event,${extParams}){\n// Callback on change\nconsole.log('onChange',checked,event);}"
+      }, {
+        name: 'onClick',
+        template: "onClick(checked,event,${extParams}){\n// Callback function when clicked\nconsole.log('onClick',checked,event);}"
+      }]
+    }
+  }
 };

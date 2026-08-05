@@ -24,7 +24,7 @@ class Form extends Component<any, any> {
 
     Object.defineProperties(
       this,
-      Object.keys(this.formRef.current).reduce((out, key) => {
+      Object.keys(this.formRef.current).reduce((out: Record<string, any>, key) => {
         const property = this.formRef.current[key];
         let getter = () => property;
         if (typeof property === 'function') {
@@ -32,10 +32,10 @@ class Form extends Component<any, any> {
         }
         out[key] = { get: getter };
         return out;
-      }, {} as Record<string, any>),
+      }, {}),
     );
 
-    // 绑定表达式的时候，初次不生效，需要第一次调用一下 setFieldsValue
+    // Bound expressions need an initial setFieldsValue call
     if (values) {
       this.formRef.current!.setFieldsValue(values);
     }
@@ -74,10 +74,10 @@ class Form extends Component<any, any> {
     typeof name === 'string' && name.indexOf('.') > 0 ? name.split('.') : name;
 
   // https://ant.design/components/form-cn/#components-form-demo-complex-form-control
-  // <Form.Item name="field" /> 只会对它的直接子元素绑定表单功能
+  // <Form.Item name="field" /> only binds form controls to its direct child
   const { children, ...other } = props
   let node = children
-  if (Array.isArray(children) && children.length === 1) { // 如果 children.length > 1， 说明 Form.Item 只充当布局的作用
+  if (Array.isArray(children) && children.length === 1) { // If children.length > 1, Form.Item is layout-only
     node = children[0]
   }
 

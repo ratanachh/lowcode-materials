@@ -1,181 +1,215 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Input.Password',
-  title: '密码框',
-  category: '表单',
-  props: [
-    {
-      name: 'defaultValue',
-      title: { label: '默认值', tip: '默认内容' },
-      propType: 'string',
-      setter: 'StringSetter',
+  title: i18n("密码框", "Password"),
+  category: "Data Entry",
+  props: [{
+    name: 'defaultValue',
+    title: {
+      label: i18n("默认值", "Default value"),
+      tip: i18n("默认内容", "Default content")
     },
-    {
-      name: 'value',
-      title: { label: '当前值', tip: '当前值' },
-      propType: 'string',
-      setter: 'StringSetter',
+    propType: 'string',
+    setter: 'StringSetter'
+  }, {
+    name: 'value',
+    title: {
+      label: i18n("当前值", "Current value"),
+      tip: i18n("当前值", "Current value")
     },
-    {
-      name: 'allowClear',
-      title: { label: '支持清除', tip: '是否允许清除' },
-      propType: 'bool',
-      setter: 'BoolSetter',
+    propType: 'string',
+    setter: 'StringSetter'
+  }, {
+    name: 'allowClear',
+    title: {
+      label: i18n("支持清除", "Allow clear"),
+      tip: i18n("是否允许清除", "Whether allow clear")
     },
-    {
-      name: 'bordered',
-      title: { label: '显示边框', tip: '是否有边框' },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    setter: 'BoolSetter'
+  }, {
+    name: 'bordered',
+    title: {
+      label: i18n("显示边框", "Show border"),
+      tip: i18n("是否有边框", "Whether bordered")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'visibilityToggle',
-      title: { label: '切换按钮', tip: '是否显示切换按钮' },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'visibilityToggle',
+    title: {
+      label: i18n("切换按钮", "toggle button"),
+      tip: i18n("是否显示切换按钮", "Whether to show the toggle button")
     },
-    {
-      name: 'placeholder',
-      title: { label: '占位提示', tip: '占位提示' },
-      propType: 'string',
-      defaultValue: '请输入',
-      setter: 'StringSetter'
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'placeholder',
+    title: {
+      label: i18n("占位提示", "Placeholder"),
+      tip: i18n("占位提示", "Placeholder")
     },
-    // {
-    //   name: 'id',
-    //   title: { label: '输入框ID', tip: '输入框的ID' },
-    //   propType: 'string',
-    // },
-    {
-      name: 'maxLength',
-      title: { label: '最大长度', tip: '最大长度' },
-      propType: 'number',
-      setter: 'NumberSetter'
+    propType: 'string',
+    defaultValue: "Please enter",
+    setter: 'StringSetter'
+  },
+  // {
+  //   name: 'id',
+  // title: { label: 'Input ID', tip: 'Input ID' },
+  //   propType: 'string',
+  // },
+  {
+    name: 'maxLength',
+    title: {
+      label: i18n("最大长度", "Max length"),
+      tip: i18n("最大长度", "Max length")
     },
-    {
-      name: 'size',
-      title: { label: '控件大小', tip: '控件大小' },
-      propType: { type: 'oneOf', value: ['large', 'middle', 'small'] },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '大',
-              value: 'large',
-            },
-            {
-              title: '中',
-              value: 'middle',
-            },
-            {
-              title: '小',
-              value: 'small',
-            },
-          ],
-        },
-      },
-      defaultValue: 'middle',
+    propType: 'number',
+    setter: 'NumberSetter'
+  }, {
+    name: 'size',
+    title: {
+      label: i18n("控件大小", "Control size"),
+      tip: i18n("控件大小", "Control size")
     },
-    {
-      name: 'addonAfter',
-      title: { label: '后置标签', tip: '后置标签' },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+    propType: {
+      type: 'oneOf',
+      value: ['large', 'middle', 'small']
     },
-    {
-      name: 'addonBefore',
-      title: { label: '前置标签', tip: '前置标签' },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("大", "Large"),
+          value: 'large'
+        }, {
+          title: i18n("中", "Middle"),
+          value: 'middle'
+        }, {
+          title: i18n("小", "Small"),
+          value: 'small'
+        }]
+      }
     },
-    {
-      name: 'prefix',
-      title: { label: '前缀', tip: '前缀' },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+    defaultValue: 'middle'
+  }, {
+    name: 'addonAfter',
+    title: {
+      label: i18n("后置标签", "Addon after"),
+      tip: i18n("后置标签", "Addon after")
     },
-    {
-      name: 'onChange',
-      title: { label: '输入框内容变化时的回调', tip: '输入框内容变化时的回调' },
-      propType: 'func',
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node']
+    }
+  }, {
+    name: 'addonBefore',
+    title: {
+      label: i18n("前置标签", "Addon before"),
+      tip: i18n("前置标签", "Addon before")
     },
-    {
-      name: 'onPressEnter',
-      title: { label: '按下回车的回调', tip: '按下回车的回调' },
-      propType: 'func',
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node']
+    }
+  }, {
+    name: 'prefix',
+    title: {
+      label: i18n("前缀", "Prefix"),
+      tip: i18n("前缀", "Prefix")
     },
-    {
-      name: 'onFocus',
-      title: { label: '获取焦点回调', tip: '获取焦点回调' },
-      propType: 'func',
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node']
+    }
+  }, {
+    name: 'onChange',
+    title: {
+      label: i18n("输入框内容变化时的回调", "Callback when input content changes"),
+      tip: i18n("输入框内容变化时的回调", "Callback when input content changes")
     },
-    {
-      name: 'onKeyDown',
-      title: { label: '按键按下时的回调', tip: '按键按下时的回调' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onPressEnter',
+    title: {
+      label: i18n("按下回车的回调", "Callback on press Enter"),
+      tip: i18n("按下回车的回调", "Callback on press Enter")
     },
-    {
-      name: 'onKeyPress',
-      title: { label: '按键按下后的回调', tip: '按键按下之后释放之前的回调' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onFocus',
+    title: {
+      label: i18n("获取焦点回调", "Callback on focus"),
+      tip: i18n("获取焦点回调", "Callback on focus")
     },
-    {
-      name: 'onKeyUp',
-      title: { label: '按键释放回调', tip: '按键释放之后的回调' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onKeyDown',
+    title: {
+      label: i18n("按键按下时的回调", "Callback on key down"),
+      tip: i18n("按键按下时的回调", "Callback on key down")
     },
-    {
-      name: 'onBlur',
-      title: { label: '失去焦点回调', tip: '失去焦点回调' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onKeyPress',
+    title: {
+      label: i18n("按键按下后的回调", "Callback on key press"),
+      tip: i18n("按键按下之后释放之前的回调", "Callback between key down and key up")
     },
-  ],
+    propType: 'func'
+  }, {
+    name: 'onKeyUp',
+    title: {
+      label: i18n("按键释放回调", "Callback on key up"),
+      tip: i18n("按键释放之后的回调", "Callback after key up")
+    },
+    propType: 'func'
+  }, {
+    name: 'onBlur',
+    title: {
+      label: i18n("失去焦点回调", "Callback on blur"),
+      tip: i18n("失去焦点回调", "Callback on blur")
+    },
+    propType: 'func'
+  }],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onChange',
-          template:
-            "onChange(event,${extParams}){\n// 输入框内容变化时的回调\nconsole.log('onChange',event);}",
-        },
-        {
-          name: 'onPressEnter',
-          template:
-            "onPressEnter(event,${extParams}){\n// 按下回车的回调\nconsole.log('onPressEnter',event);}",
-        },
-        {
-          name: 'onFocus',
-          template: "onFocus(event,${extParams}){\n// 获取焦点回调\nconsole.log('onFocus',event);}",
-        },
-        {
-          name: 'onKeyDown',
-          template:
-            "onKeyDown(event,${extParams}){\n// 按键按下时的回调\nconsole.log('onKeyDown',event);}",
-        },
-        {
-          name: 'onKeyPress',
-          template:
-            "onKeyPress(event,${extParams}){\n// 按键按下后的回调\nconsole.log('onKeyPress',event);}",
-        },
-        {
-          name: 'onKeyUp',
-          template: "onKeyUp(event,${extParams}){\n// 按键释放回调\nconsole.log('onKeyUp',event);}",
-        },
-        {
-          name: 'onBlur',
-          template: "onBlur(event,${extParams}){\n// 按键释放回调\nconsole.log('onBlur',event);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onChange',
+        template: "onChange(event,${extParams}){\n// Callback when input content changes\nconsole.log('onChange',event);}"
+      }, {
+        name: 'onPressEnter',
+        template: "onPressEnter(event,${extParams}){\n// Callback on press Enter\nconsole.log('onPressEnter',event);}"
+      }, {
+        name: 'onFocus',
+        template: "onFocus(event,${extParams}){\n// Callback on focus\nconsole.log('onFocus',event);}"
+      }, {
+        name: 'onKeyDown',
+        template: "onKeyDown(event,${extParams}){\n// Callback on key down\nconsole.log('onKeyDown',event);}"
+      }, {
+        name: 'onKeyPress',
+        template: "onKeyPress(event,${extParams}){\n// Callback on key press\nconsole.log('onKeyPress',event);}"
+      }, {
+        name: 'onKeyUp',
+        template: "onKeyUp(event,${extParams}){\n// Callback on key up\nconsole.log('onKeyUp',event);}"
+      }, {
+        name: 'onBlur',
+        template: "onBlur(event,${extParams}){\n// Callback on key up\nconsole.log('onBlur',event);}"
+      }]
+    }
+  }
 };

@@ -10,20 +10,22 @@ import {
 } from '@ali/lowcode-types';
 
 // http://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/merge_requests/1054678
-// 这个MR合并后可以去掉这个文件
+// Can be removed after the related MR is merged
 
 function propConfigToFieldConfig(
   propConfig: PropConfig,
   supportVariable: boolean,
 ): FieldConfig {
   const { name, description } = propConfig;
+  const descriptionText =
+    typeof description === 'string' ? description : name;
   const title = {
     label: {
       type: 'i18n',
-      'en-US': name,
-      'zh-CN': description?.slice(0, 10) || name,
+      en_US: name,
+      zh_CN: descriptionText.slice(0, 10) || name,
     },
-    tip: description ? `${name} | ${description}` : undefined,
+    tip: typeof description === 'string' ? `${name} | ${description}` : undefined,
   };
 
   let setter =
@@ -34,10 +36,10 @@ function propConfigToFieldConfig(
     if (
       setter.componentName === 'MixedSetter' &&
       setter.props?.setters &&
-      setter.props?.setters?.every((setter: any) => {
+      setter.props?.setters?.every((mixedSetter: any) => {
         return (
-          setter?.componentName !== 'VariableSetter' &&
-          setter !== 'VariableSetter'
+          mixedSetter?.componentName !== 'VariableSetter' &&
+          mixedSetter !== 'VariableSetter'
         );
       })
     ) {
@@ -59,7 +61,7 @@ function propConfigToFieldConfig(
   return {
     title,
     ...propConfig,
-    // TODO 这边直接用propConfig，将setter丢在propconfig里，需要确认是否在PropConfig扩展还是换实现
+    // TODO: confirm whether to extend PropConfig or change approach for setter on propConfig
     setter,
   };
 }
@@ -98,7 +100,7 @@ function propTypeToSetter(
         isRequired,
         initialValue: false,
       };
-    case 'oneOf':
+    case 'oneOf': {
       const dataSource = ((propType as OneOf).value || []).map(
         (value, index) => {
           const t = typeof value;
@@ -119,6 +121,7 @@ function propTypeToSetter(
         isRequired,
         initialValue: dataSource[0] ? dataSource[0].value : null,
       };
+    }
 
     case 'element':
     case 'node': // TODO: use Mixin
@@ -135,7 +138,7 @@ function propTypeToSetter(
         },
       };
     case 'shape':
-    case 'exact':
+    case 'exact': {
       const items = ((propType as any).value || []).map((item: any) =>
         propConfigToFieldConfig(item, supportVariable),
       );
@@ -162,15 +165,18 @@ function propTypeToSetter(
             ) {
               initial = (item.setter as any).initialValue;
             }
-            data[item.name] = initial
-              ? typeof initial === 'function'
-                ? initial(field)
-                : initial
-              : null;
+            if (!initial) {
+              data[item.name] = null;
+            } else if (typeof initial === 'function') {
+              data[item.name] = initial(field);
+            } else {
+              data[item.name] = initial;
+            }
           });
           return data;
         },
       };
+    }
     case 'object':
     case 'objectOf':
       return {
@@ -238,14 +244,14 @@ export default function(
   supportVariable: boolean,
 ): TransformedComponentMetadata {
   const { configure = {} } = metadata;
-  // TODO types后续补充
+  // TODO: add types later
   let extendsProps: any = null;
   if (configure.props) {
     if (Array.isArray(configure.props)) {
       return metadata;
     }
     const { isExtends, override = [] } = configure.props;
-    // 不开启继承时，直接返回configure配置
+    // When inheritance is off, return configure as-is
     if (!isExtends) {
       return {
         ...metadata,
@@ -257,7 +263,7 @@ export default function(
     }
 
     extendsProps = {};
-    // 开启继承后，缓存重写内容的配置
+    // When inheritance is on, cache override configs
     override.forEach((prop: any) => {
       extendsProps[prop.name] = prop;
     });
@@ -321,7 +327,7 @@ export default function(
       return;
     }
 
-    // 存在覆盖配置时
+    // When override config exists
     if (extendsProps) {
       if (name in extendsProps) {
         prop = extendsProps[name];

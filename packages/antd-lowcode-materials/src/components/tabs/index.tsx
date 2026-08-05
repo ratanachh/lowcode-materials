@@ -12,14 +12,14 @@ class Tabs extends Component<any> {
     this.setActiveKey(key);
   };
 
-  // 编辑器里可以通过 this.$(refId).setActiveKey(key) 调用
+  // In editor: this.$(refId).setActiveKey(key)
   setActiveKey = (key: string) => {
     const { onChange = () => {} } = this.props;
     this.setState({ activeKey: key });
     onChange(key);
   };
 
-  // 编辑器里可以通过 this.$(refId).getActiveKey() 调用
+  // In editor: this.$(refId).getActiveKey()
   getActiveKey = () => {
     return this.state.activeKey;
   };
@@ -32,14 +32,14 @@ class Tabs extends Component<any> {
 
     let items = props.items
 
-    // props.items 存在，只认 props.items
-    // 兼容代码：props.childrens 反推 props.items
-    if (!props.items && Array.isArray(children) && children.length > 0) {
+    // If props.items exists, only use props.items
+    // Compat: derive props.items from children
+    if (!items.items && Array.isArray(children) && children.length > 0) {
       warning('Tabs.TabPane is deprecated. Please use `items` directly.')
       items = children.map((node: React.ReactElement<TabPaneProps>) => {
         if (React.isValidElement(node)) {
-          const { key, props } = node;
-          const { tab, ...restProps } = props || {};
+          const { key, props: nodeProps } = node;
+          const { tab, ...restProps } = nodeProps || {};
           const item: Tab = {
             key: String(key),
             ...restProps,

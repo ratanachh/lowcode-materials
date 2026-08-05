@@ -1,42 +1,50 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Timeline.Item',
-  title: '时间轴项',
+  title: i18n("时间轴项", "Timeline Item"),
   category: '',
-  props: [
-    {
-      name: 'color',
-      title: { label: '颜色', tip: '颜色' },
-      propType: 'string',
-      defaultValue: '#00f',
-      setter: 'ColorSetter',
+  props: [{
+    name: 'color',
+    title: {
+      label: i18n("颜色", "Color"),
+      tip: i18n("颜色", "Color")
     },
-    {
-      name: 'dot',
-      title: {
-        label: '时间轴点',
-        tip: '时间轴点',
-      },
-      propType: 'node',
+    propType: 'string',
+    defaultValue: '#00f',
+    setter: 'ColorSetter'
+  }, {
+    name: 'dot',
+    title: {
+      label: i18n("时间轴点", "timeline point"),
+      tip: i18n("时间轴点", "timeline point")
     },
-    {
-      name: 'label',
-      title: {
-        label: '标签',
-        tip: '标签',
-      },
-      propType: { type: 'oneOfType', value: ['string', 'node', 'func'] },
+    propType: 'node'
+  }, {
+    name: 'label',
+    title: {
+      label: i18n("标签", "Tag"),
+      tip: i18n("标签", "Tag")
     },
-    {
-      name: 'position',
-      title: {
-        label: '位置',
-        tip: '位置',
-      },
-      propType: { type: 'oneOf', value: ['left', 'right'] },
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node', 'func']
+    }
+  }, {
+    name: 'position',
+    title: {
+      label: i18n("位置", "Position"),
+      tip: i18n("位置", "Position")
     },
-  ],
-  configure: { supports: { style: true } },
+    propType: {
+      type: 'oneOf',
+      value: ['left', 'right']
+    }
+  }],
+  configure: {
+    supports: {
+      style: true
+    }
+  }
 };

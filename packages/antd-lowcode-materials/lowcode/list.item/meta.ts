@@ -1,47 +1,48 @@
-// FIXME: 选中tabPane点复制，会出问题，因为复制的组件key一样
+import { i18n } from "../_utils/i18n";
+// FIXME: Selecting tabPane and clicking copy will cause problems because the copied components have the same key.
 
 export default {
   componentName: 'List.Item',
-  title: '列表项',
+  title: i18n("列表项", "List item"),
   category: '',
-  props: [
-    {
-      name: 'actions',
-      title: {
-        label: '列表操作组',
-        tip: '列表操作组',
-      },
-      propType: { type: 'arrayOf', value: 'node' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'SlotSetter',
-            title: '操作组插槽',
-            initialValue: {
-              type: 'JSSlot',
-              value: [],
-            },
-          },
-        },
-      },
+  props: [{
+    name: 'actions',
+    title: {
+      label: i18n("列表操作组", "list operation group"),
+      tip: i18n("列表操作组", "list operation group")
     },
-    {
-      name: 'extra',
-      title: {
-        label: '额外内容',
-        tip: '额外内容',
-      },
-      propType: 'node',
-      setter: 'SlotSetter',
+    propType: {
+      type: 'arrayOf',
+      value: 'node'
     },
-  ],
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'SlotSetter',
+          title: i18n("操作组插槽", "Action group slot"),
+          initialValue: {
+            type: 'JSSlot',
+            value: []
+          }
+        }
+      }
+    }
+  }, {
+    name: 'extra',
+    title: {
+      label: i18n("额外内容", "Extra Content"),
+      tip: i18n("额外内容", "Extra Content")
+    },
+    propType: 'node',
+    setter: 'SlotSetter'
+  }],
   configure: {
     component: {
       isContainer: true,
       nestingRule: {
-        parentWhitelist: ['List'],
-      },
-    },
-  },
+        parentWhitelist: ['List']
+      }
+    }
+  }
 };

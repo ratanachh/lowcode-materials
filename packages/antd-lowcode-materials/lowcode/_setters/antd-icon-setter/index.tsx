@@ -1,14 +1,14 @@
 import React, { useState, useEffect, Component } from 'react';
-// setter使用@alifd/next，和编辑器保持一致
+// Setter uses @alifd/next to stay consistent with editor
 import { Input, Icon as NextIcon, Radio, Balloon, Search } from '@alifd/next';
 import { get } from '../../_utils/utils';
 import './style.less';
 
 type IconGroup = 'outlined' | 'filled' | 'two-tone' | 'iconfont';
 const IconGroupNameMap: Record<IconGroup, string> = {
-  outlined: '线框风格',
-  filled: '实底风格',
-  'two-tone': '双色风格',
+  outlined: 'Outlined',
+  filled: 'Filled',
+  'two-tone': 'Two-tone',
   iconfont: 'Iconfont',
 };
 
@@ -17,33 +17,28 @@ function getIconfontIconList() {
     'iframe.lc-simulator-content-frame',
   )!;
 
-  const antdIcons = get(iframe, 'contentWindow.icons', {}) as Record<
-    string,
-    any
-  >;
-
-  // iconfont的js会在页面中添加svg元素
+  // iconfont JS injects SVG elements into the page
   const symbols = Array.prototype.slice.call(
     iframe.contentDocument!.querySelectorAll(
       'svg[style="position: absolute; width: 0px; height: 0px; overflow: hidden;"][aria-hidden="true"] > symbol',
     ),
   );
 
-  const Icon = antdIcons.createFromIconfontCN();
-
-  return symbols.map(symbol => {
+  return symbols.map((symbol) => {
     const { id } = symbol;
     return {
       name: id,
       group: 'iconfont',
-      icon: (props: any) => (
+      icon: () => (
         <span role="img" className="anticon">
           <svg
             viewBox="64 64 896 896"
             width="1em"
             height="1em"
             fill="currentColor"
-            dangerouslySetInnerHTML={{ __html: symbol.innerHTML }}
+            dangerouslySetInnerHTML={{
+              __html: symbol.innerHTML,
+            }}
           />
         </span>
       ),
@@ -55,28 +50,20 @@ function getAntdIconList() {
   const iframe = document.querySelector<HTMLIFrameElement>(
     'iframe.lc-simulator-content-frame',
   );
-
-  const icons: Record<string, any> = {};
-
-  // document.querySelectorAll('svg[style="position: absolute; width: 0px; height: 0px; overflow: hidden;"][aria-hidden="true"]')
   const antdIcons = get(iframe, 'contentWindow.icons', {}) as Record<
     string,
     any
   >;
 
   return Object.keys(antdIcons)
-    .map(key => {
+    .map((key) => {
       const item = (antdIcons as any)[key];
-
       if (typeof item !== 'object') {
         return null;
       }
-
       const name = item?.displayName ?? item?.render?.displayName ?? key;
       let group: IconGroup = 'outlined';
-
       const lowercaseName = name.toLowerCase();
-
       if (/outlined$/.test(lowercaseName)) {
         group = 'outlined';
       } else if (/filled$/.test(lowercaseName)) {
@@ -86,7 +73,6 @@ function getAntdIconList() {
       } else {
         return null;
       }
-
       return {
         name,
         group,
@@ -99,13 +85,12 @@ function getAntdIconList() {
 function getIconList() {
   const iconfontIconList = getIconfontIconList();
   const antdIconList = getAntdIconList();
-
   return [...antdIconList, ...iconfontIconList];
 }
 
 const Icon = (props: any) => {
-  const { type, icons = {}, ...rest } = props;
-  const Comp = icons[type];
+  const { type, icons: iconMap = {}, ...rest } = props;
+  const Comp = iconMap[type];
   if (!Comp) return null;
   return <Comp {...rest} />;
 };
@@ -117,7 +102,6 @@ interface AntdIconSetterProps {
   placeholder: string;
   hasClear: boolean;
   onChange: (icon: string | object) => undefined;
-  icons: string[];
 }
 
 const Tooltip = Balloon.Tooltip;
@@ -125,20 +109,29 @@ const Tooltip = Balloon.Tooltip;
 const AntdIconSetter = (props: AntdIconSetterProps) => {
   const [search, setSearch] = useState('');
   const [icons, setIcons] = useState<Record<string, any>>({});
-  const [groups, setGroups] = useState<{ group: IconGroup; list: any[] }[]>([]);
+  const [groups, setGroups] = useState<
+    {
+      group: IconGroup;
+      list: any[];
+    }[]
+  >([]);
   const [selectedGroup, setSelectedGroup] = useState<IconGroup>('outlined');
   const [firstLoad, setFirstLoad] = useState(true);
   const [list, setList] = useState<any[]>([]);
-
-  const { value, defaultValue, type, onChange, placeholder, hasClear } = props;
-
+  const {
+    value,
+    defaultValue,
+    type,
+    onChange,
+    placeholder,
+    hasClear,
+  } = props;
   const _value =
     typeof value === 'object' ? (value as any)?.props?.type : value;
   if (firstLoad && defaultValue && typeof value === 'undefined') {
     onChange(defaultValue);
     setFirstLoad(false);
   }
-
   const handleChange = (icon: string) => {
     if (type === 'string') {
       onChange(icon);
@@ -151,39 +144,39 @@ const AntdIconSetter = (props: AntdIconSetterProps) => {
       });
     }
   };
-
   useEffect(() => {
     const iconList = getIconList();
-
-    const groups: { group: IconGroup; list: any[] }[] = [];
-    const icons: any = {};
-
-    iconList.forEach(item => {
-      const { group, name, icon } = item!;
-      if (groups.every(item => item.group !== group)) {
-        groups.push({ group: group as IconGroup, list: [] });
+    const nextGroups: {
+      group: IconGroup;
+      list: any[];
+    }[] = [];
+    const nextIcons: any = {};
+    iconList.forEach((iconItem) => {
+      const { group } = iconItem!;
+      if (nextGroups.every((g) => g.group !== group)) {
+        nextGroups.push({
+          group: group as IconGroup,
+          list: [],
+        });
       }
-      const target = groups.find(item => item.group === group)!;
-      target.list.push(item);
-      icons[item!.name] = item?.icon;
+      const target = nextGroups.find((g) => g.group === group)!;
+      target.list.push(iconItem);
+      nextIcons[iconItem!.name] = iconItem?.icon;
     });
-
-    setIcons(icons);
-    setGroups(groups);
-    setSelectedGroup(groups[0]?.group);
+    setIcons(nextIcons);
+    setGroups(nextGroups);
+    setSelectedGroup(nextGroups[0]?.group);
   }, []);
-
   useEffect(() => {
-    const currentGroup = groups.find(item => item.group === selectedGroup);
+    const currentGroup = groups.find((g) => g.group === selectedGroup);
     setList(
-      (currentGroup?.list ?? []).filter(item => {
+      (currentGroup?.list ?? []).filter((iconItem) => {
         return search
-          ? item.name.toLowerCase().indexOf(search.toLowerCase()) > -1
+          ? iconItem.name.toLowerCase().indexOf(search.toLowerCase()) > -1
           : true;
       }),
     );
   }, [selectedGroup, search, groups]);
-
   const currentIcon = (
     <Icon type={_value} icons={icons} style={{ fontSize: 16 }} />
   );
@@ -192,14 +185,13 @@ const AntdIconSetter = (props: AntdIconSetterProps) => {
       size="xs"
       id="icon-clear"
       type="delete-filling"
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
         handleChange('');
       }}
     />
   );
-
   const triggerNode = (
     <div>
       <Input
@@ -213,7 +205,6 @@ const AntdIconSetter = (props: AntdIconSetterProps) => {
       />
     </div>
   );
-
   return (
     <div className="lc-antd-icon-setter">
       <Balloon
@@ -224,18 +215,20 @@ const AntdIconSetter = (props: AntdIconSetterProps) => {
         closable={false}
         alignEdge
         align="lt"
-        style={{ width: 300 }}
+        style={{
+          width: 300,
+        }}
       >
         <div className="lc-antd-icon-setter-header">
           <Radio.Group
             className="lc-antd-icon-setter-header-style"
             shape="button"
             value={selectedGroup}
-            onChange={value => setSelectedGroup(value as any)}
+            onChange={(nextValue) => setSelectedGroup(nextValue as any)}
           >
-            {groups.map(item => (
-              <Radio key={item.group} value={item.group}>
-                {IconGroupNameMap[item.group]}
+            {groups.map((groupItem) => (
+              <Radio key={groupItem.group} value={groupItem.group}>
+                {IconGroupNameMap[groupItem.group]}
               </Radio>
             ))}
           </Radio.Group>
@@ -248,14 +241,20 @@ const AntdIconSetter = (props: AntdIconSetterProps) => {
         </div>
         <div className="lc-antd-icon-setter-content">
           <ul className="lc-antd-icon-setter-list">
-            {list.map(item => (
+            {list.map((iconItem) => (
               <li
-                key={item.name}
+                key={iconItem.name}
                 className="lc-antd-icon-setter-list-item"
-                onClick={() => handleChange(item.name)}
+                onClick={() => handleChange(iconItem.name)}
               >
-                <Tooltip v2 trigger={<Icon type={item.name} icons={icons} />} popupStyle= {{backgroundColor: "#fff"}}>
-                  {item.name}
+                <Tooltip
+                  v2
+                  trigger={<Icon type={iconItem.name} icons={icons} />}
+                  popupStyle={{
+                    backgroundColor: '#fff',
+                  }}
+                >
+                  {iconItem.name}
                 </Tooltip>
               </li>
             ))}
@@ -271,11 +270,11 @@ AntdIconSetter.defaultProps = {
   type: 'string',
   defaultValue: '',
   hasClear: false,
-  placeholder: '请点击选择 Icon',
+  placeholder: 'Click to select icon',
   onChange: () => undefined,
 };
 
-// 因为下面这个问题，setter必须使用class组件
+// Due to the issue below, setter must be a class component
 // http://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/issues/109046
 export default class extends Component<AntdIconSetterProps> {
   render() {

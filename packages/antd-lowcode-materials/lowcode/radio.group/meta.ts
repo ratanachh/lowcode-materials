@@ -1,202 +1,201 @@
 import { uuid } from '../_utils/utils';
-
+import { i18n } from "../_utils/i18n";
 export default {
   componentName: 'Radio.Group',
-  title: '单选框组',
-  category: '表单',
-  props: [
-    {
-      name: 'defaultValue',
-      title: { label: '默认值', tip: '默认选中值' },
-      propType: 'string',
-      setter: 'StringSetter',
-      supportVariable: true
+  title: i18n("单选框组", "radio button group"),
+  category: "Data Entry",
+  props: [{
+    name: 'defaultValue',
+    title: {
+      label: i18n("默认值", "Default value"),
+      tip: i18n("默认选中值", "Default selected value")
     },
-    {
-      name: 'value',
-      title: { label: '当前值', tip: '指定选中的选项' },
-      propType: 'string',
-      setter: 'StringSetter',
-      supportVariable: true
+    propType: 'string',
+    setter: 'StringSetter',
+    supportVariable: true
+  }, {
+    name: 'value',
+    title: {
+      label: i18n("当前值", "Current value"),
+      tip: i18n("指定选中的选项", "Specify selected options")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter',
-      supportVariable: true
+    propType: 'string',
+    setter: 'StringSetter',
+    supportVariable: true
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'name',
-      title: {
-        label: 'name 属性',
-        tip: 'RadioGroup 下所有 input[type="radio"] 的 name 属性',
-      },
-      propType: 'string',
-      setter: 'StringSetter',
-      supportVariable: true
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter',
+    supportVariable: true
+  }, {
+    name: 'name',
+    title: {
+      label: i18n("name 属性", "name prop"),
+      tip: i18n("RadioGroup 下所有 input[type=\"radio\"] 的 name 属性", "name for all radio inputs under RadioGroup")
     },
-    {
-      name: 'options',
-      title: { label: '指定可选项', tip: '指定可选项' },
-      propType: {
-        type: 'arrayOf',
-        value: {
-          type: 'shape',
-          value: [
-            {
-              name: 'label',
-              propType: 'string',
-              description: '选项名',
-              defaultValue: '选项名',
-            },
-            {
-              name: 'value',
-              propType: 'string',
-              description: '选项值',
-              defaultValue: '选项值',
-            },
-            {
-              name: 'disabled',
-              propType: 'bool',
-              description: '是否禁用',
-              defaultValue: false,
-            },
-          ],
-        },
-      },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'ObjectSetter',
-            props: {
-              config: {
-                items: [
-                  {
-                    name: 'label',
-                    title: '选项名',
-                    setter: 'StringSetter',
-                    isRequired: true
-                  },
-                  {
-                    name: 'value',
-                    title: '选项值',
-                    setter: 'StringSetter',
-                    isRequired: true
-                  },
-                  {
-                    name: 'disabled',
-                    title: '是否禁用',
-                    setter: 'BoolSetter',
-                  },
-                ],
-              },
-            },
-            initialValue: () => {
-              return {
-                label: '选项名',
-                value: uuid(),
-                disabled: false,
-              };
-            },
+    propType: 'string',
+    setter: 'StringSetter',
+    supportVariable: true
+  }, {
+    name: 'options',
+    title: {
+      label: i18n("指定可选项", "Options"),
+      tip: i18n("指定可选项", "Options")
+    },
+    propType: {
+      type: 'arrayOf',
+      value: {
+        type: 'shape',
+        value: [{
+          name: 'label',
+          propType: 'string',
+          description: "Option label",
+          defaultValue: "Option label"
+        }, {
+          name: 'value',
+          propType: 'string',
+          description: "Option value",
+          defaultValue: "Option value"
+        }, {
+          name: 'disabled',
+          propType: 'bool',
+          description: "Disabled",
+          defaultValue: false
+        }]
+      }
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'ObjectSetter',
+          props: {
+            config: {
+              items: [{
+                name: 'label',
+                title: i18n("选项名", "Option label"),
+                setter: 'StringSetter',
+                isRequired: true
+              }, {
+                name: 'value',
+                title: i18n("选项值", "Option value"),
+                setter: 'StringSetter',
+                isRequired: true
+              }, {
+                name: 'disabled',
+                title: i18n("是否禁用", "Disabled"),
+                setter: 'BoolSetter'
+              }]
+            }
           },
-        },
-      },
+          initialValue: () => {
+            return {
+              label: i18n("选项名", "Option label"),
+              value: uuid(),
+              disabled: false
+            };
+          }
+        }
+      }
+    }
+  }, {
+    name: 'optionType',
+    title: {
+      label: i18n("类型", "Type"),
+      tip: i18n("类型", "Type")
     },
-    {
-      name: 'optionType',
-      title: { label: '类型', tip: '类型' },
-      propType: { type: 'oneOf', value: ['default', 'button'] },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '默认类型',
-              value: 'default',
-            },
-            {
-              title: '按钮类型',
-              value: 'button',
-            },
-          ],
-        },
-      },
-      defaultValue: 'default',
+    propType: {
+      type: 'oneOf',
+      value: ['default', 'button']
     },
-    {
-      name: 'size',
-      title: { label: '尺寸', tip: '大小，只对按钮样式生效' },
-      condition(target) {
-        return target.getProps().getPropValue('optionType') === 'button';
-      },
-      propType: { type: 'oneOf', value: ['large', 'middle', 'small'] },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '大',
-              value: 'large',
-            },
-            {
-              title: '中',
-              value: 'middle',
-            },
-            {
-              title: '小',
-              value: 'small',
-            },
-          ],
-        },
-      },
-      defaultValue: 'middle',
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("默认类型", "DefaultType"),
+          value: 'default'
+        }, {
+          title: i18n("按钮类型", "ButtonType"),
+          value: 'button'
+        }]
+      }
     },
-    {
-      name: 'buttonStyle',
-      title: {
-        label: '按钮风格',
-        tip: 'RadioButton 的风格样式，目前有描边和填色两种风格',
-      },
-      condition(target) {
-        return target.getProps().getPropValue('optionType') === 'button';
-      },
-      propType: { type: 'oneOf', value: ['outline', 'solid'] },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '描边',
-              value: 'outline',
-            },
-            {
-              title: '填色',
-              value: 'solid',
-            },
-          ],
-        },
-      },
-      defaultValue: 'outline',
+    defaultValue: 'default'
+  }, {
+    name: 'size',
+    title: {
+      label: i18n("尺寸", "Size"),
+      tip: i18n("大小，只对按钮样式生效", "Size, only takes effect for button styles")
     },
-    {
-      name: 'onChange',
-      title: { label: '变化时回调函数', tip: '变化时回调函数' },
-      propType: 'func',
+    condition(target) {
+      return target.getProps().getPropValue('optionType') === 'button';
     },
-  ],
+    propType: {
+      type: 'oneOf',
+      value: ['large', 'middle', 'small']
+    },
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("大", "Large"),
+          value: 'large'
+        }, {
+          title: i18n("中", "Middle"),
+          value: 'middle'
+        }, {
+          title: i18n("小", "Small"),
+          value: 'small'
+        }]
+      }
+    },
+    defaultValue: 'middle'
+  }, {
+    name: 'buttonStyle',
+    title: {
+      label: i18n("按钮风格", "button style"),
+      tip: i18n("RadioButton 的风格样式，目前有描边和填色两种风格", "RadioButton style: outline or solid")
+    },
+    condition(target) {
+      return target.getProps().getPropValue('optionType') === 'button';
+    },
+    propType: {
+      type: 'oneOf',
+      value: ['outline', 'solid']
+    },
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("描边", "Stroke"),
+          value: 'outline'
+        }, {
+          title: i18n("填色", "Coloring"),
+          value: 'solid'
+        }]
+      }
+    },
+    defaultValue: 'outline'
+  }, {
+    name: 'onChange',
+    title: {
+      label: i18n("变化时回调函数", "Callback on change"),
+      tip: i18n("变化时回调函数", "Callback on change")
+    },
+    propType: 'func'
+  }],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onChange',
-          template:
-            "onChange(event,${extParams}){\n// 选项变化时的回调函数\nconsole.log('onChange',event);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onChange',
+        template: "onChange(event,${extParams}){\n// OptionChange on callback\nconsole.log('onChange',event);}"
+      }]
+    }
+  }
 };

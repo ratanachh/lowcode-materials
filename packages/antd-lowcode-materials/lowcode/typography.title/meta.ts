@@ -1,119 +1,142 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Typography.Title',
-  title: '标题',
-  category: '基础',
-  props: [
-    {
-      name: 'children',
-      title: { label: '内容', tip: '内容' },
-      propType: 'string',
-      defaultValue: '',
-      supportVariable: true,
+  title: i18n("标题", "Title"),
+  category: "General",
+  props: [{
+    name: 'children',
+    title: {
+      label: i18n("内容", "Content"),
+      tip: i18n("内容", "Content")
     },
-    {
-      name: 'level',
-      title: { label: '重要程度', tip: '重要程度(1-5)' },
-      propType: 'number',
-      defaultValue: 1,
+    propType: 'string',
+    defaultValue: '',
+    supportVariable: true
+  }, {
+    name: 'level',
+    title: {
+      label: i18n("重要程度", "importance"),
+      tip: i18n("重要程度(1-5)", "Importance (1-5)")
     },
-    {
-      name: 'code',
-      title: { label: '添加代码样式', tip: '添加代码样式' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'number',
+    defaultValue: 1
+  }, {
+    name: 'code',
+    title: {
+      label: i18n("添加代码样式", "Code style"),
+      tip: i18n("添加代码样式", "Code style")
     },
-    {
-      name: 'copyable',
-      title: { label: '是否可拷贝', tip: '是否可拷贝' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'copyable',
+    title: {
+      label: i18n("是否可拷贝", "Copyable"),
+      tip: i18n("是否可拷贝", "Copyable")
     },
-    {
-      name: 'delete',
-      title: { label: '添加删除线样式', tip: '添加删除线样式' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'delete',
+    title: {
+      label: i18n("添加删除线样式", "Strikethrough"),
+      tip: i18n("添加删除线样式", "Strikethrough")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'editable',
-      title: { label: '是否可编辑', tip: '是否可编辑' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'editable',
+    title: {
+      label: i18n("是否可编辑", "Editable"),
+      tip: i18n("是否可编辑", "Editable")
     },
-    {
-      name: 'ellipsis',
-      title: {
-        label: '自动溢出省略',
-        tip: '设置自动溢出省略，需要设置元素宽度',
-      },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'ellipsis',
+    title: {
+      label: i18n("自动溢出省略", "Auto ellipsis"),
+      tip: i18n("设置自动溢出省略，需要设置元素宽度", "To set automatic overflow omission, you need to set the element width")
     },
-    {
-      name: 'mark',
-      title: { label: '添加标记样式', tip: '添加标记样式' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'mark',
+    title: {
+      label: i18n("添加标记样式", "Mark style"),
+      tip: i18n("添加标记样式", "Mark style")
     },
-    {
-      name: 'keyboard',
-      title: { label: '添加键盘样式', tip: '添加键盘样式' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'keyboard',
+    title: {
+      label: i18n("添加键盘样式", "Keyboard style"),
+      tip: i18n("添加键盘样式", "Keyboard style")
     },
-    {
-      name: 'underline',
-      title: { label: '添加下划线样式', tip: '添加下划线样式' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'underline',
+    title: {
+      label: i18n("添加下划线样式", "Underline"),
+      tip: i18n("添加下划线样式", "Underline")
     },
-    {
-      name: 'strong',
-      title: { label: '是否加粗', tip: '是否加粗' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'strong',
+    title: {
+      label: i18n("是否加粗", "Bold"),
+      tip: i18n("是否加粗", "Bold")
     },
-    {
-      name: 'type',
-      title: { label: '文本类型', tip: '文本类型' },
-      propType: { type: 'oneOf', value: ['secondary', 'warning', 'danger'] },
-      setter: {
-        componentName: 'SelectSetter',
-        props: {
-          options: [
-            {
-              title: '默认',
-              value: 'default',
-            },
-            {
-              title: '弱提示',
-              value: 'secondary',
-            },
-            {
-              title: '成功',
-              value: 'success',
-            },
-            {
-              title: '警告',
-              value: 'warning',
-            },
-            {
-              title: '错误',
-              value: 'danger',
-            },
-          ],
-        },
-      },
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'type',
+    title: {
+      label: i18n("文本类型", "Text type"),
+      tip: i18n("文本类型", "Text type")
     },
-  ],
-  configure: { supports: { style: true } },
+    propType: {
+      type: 'oneOf',
+      value: ['secondary', 'warning', 'danger']
+    },
+    setter: {
+      componentName: 'SelectSetter',
+      props: {
+        options: [{
+          title: i18n("默认", "Default"),
+          value: 'default'
+        }, {
+          title: i18n("弱提示", "Info"),
+          value: 'secondary'
+        }, {
+          title: i18n("成功", "Success"),
+          value: 'success'
+        }, {
+          title: i18n("警告", "Warning"),
+          value: 'warning'
+        }, {
+          title: i18n("错误", "Error"),
+          value: 'danger'
+        }]
+      }
+    }
+  }],
+  configure: {
+    supports: {
+      style: true
+    }
+  }
 };

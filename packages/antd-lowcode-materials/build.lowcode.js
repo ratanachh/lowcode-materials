@@ -17,13 +17,13 @@ module.exports = {
         library,
         staticResources: {
           engineCoreCssUrl:
-            'https://alifd.alicdn.com/npm/@rchh/lowcode-engine@1.2.1/dist/css/engine-core.css',
+            'https://cdn.jsdelivr.net/npm/@rchh/lowcode-engine@1.3.7/dist/css/engine-core.css',
           engineExtCssUrl:
-            'https://alifd.alicdn.com/npm/@rchh/lowcode-engine-ext@1.0.6/dist/css/engine-ext.css',
+            'https://cdn.jsdelivr.net/npm/@rchh/lowcode-engine-ext@1.0.8/dist/css/engine-ext.css',
           engineCoreJsUrl:
-            'https://alifd.alicdn.com/npm/@rchh/lowcode-engine@1.2.1/dist/js/engine-core.js',
+            'https://cdn.jsdelivr.net/npm/@rchh/lowcode-engine@1.3.7/dist/js/engine-core.js',
           engineExtJsUrl:
-            'https://alifd.alicdn.com/npm/@rchh/lowcode-engine-ext@1.0.6/dist/js/engine-ext.js',
+            'https://cdn.jsdelivr.net/npm/@rchh/lowcode-engine-ext@1.0.8/dist/js/engine-ext.js',
         },
         npmInfo: {
           package: name,
@@ -31,10 +31,10 @@ module.exports = {
         },
         lowcodeDir: 'lowcode',
         entryPath: 'src/index.tsx',
-        categories: ['通用', '导航', '信息输入', '信息展示', '信息反馈'],
+        categories: ['General', 'Navigation', 'Data Entry', 'Data Display', 'Feedback'],
         baseUrl: {
-          prod: `https://alifd.alicdn.com/npm/${name}@${version}`,
-          daily: `https://alifd.alicdn.com/npm/${name}@${version}`,
+          prod: `https://cdn.jsdelivr.net/npm/${name}@${version}`,
+          daily: `https://cdn.jsdelivr.net/npm/${name}@${version}`,
         },
         builtinAssets: [
           {
@@ -42,30 +42,26 @@ module.exports = {
               {
                 package: 'moment',
                 version: '2.24.0',
-                urls: ['https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js'],
+                urls: ['https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js'],
                 library: 'moment',
               },
               {
                 package: 'lodash',
                 library: '_',
-                urls: ['https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js'],
-              },
-              {
-                package: 'iconfont-icons',
-                urls: '//at.alicdn.com/t/font_2369445_ukrtsovd92r.js',
+                urls: ['https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js'],
               },
               {
                 package: '@ant-design/icons',
                 version: '4.7.0',
-                urls: [`//g.alicdn.com/code/npm/@ali/ant-design-icons-cdn/4.5.0/index.umd.min.js`],
+                urls: ['https://cdn.jsdelivr.net/npm/@ant-design/icons@4.7.0/dist/index.umd.min.js'],
                 library: 'icons',
               },
               {
                 package: 'antd',
                 version: '4.23.0',
                 urls: [
-                  `//g.alicdn.com/code/lib/antd/4.23.0/antd.min.js`,
-                  `//g.alicdn.com/code/lib/antd/4.23.0/antd.min.css`,
+                  'https://cdn.jsdelivr.net/npm/antd@4.23.0/dist/antd.min.js',
+                  'https://cdn.jsdelivr.net/npm/antd@4.23.0/dist/antd.min.css',
                 ],
                 library: 'antd',
               },

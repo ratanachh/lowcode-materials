@@ -1,31 +1,34 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   componentName: 'Form.List',
-  title: '表单列表',
-  category: '表单',
+  title: i18n("表单列表", "Data EntryList"),
+  category: "Data Entry",
   snippets,
-  props: [
-    {
-      name: 'name',
-      title: { label: '字段名', tip: '字段名' },
-      isRequired: true,
-      propType: 'string',
+  props: [{
+    name: 'name',
+    title: {
+      label: i18n("字段名", "Field name"),
+      tip: i18n("字段名", "Field name")
     },
-    {
-      name: 'initialValue',
-      title: {
-        label: '默认值',
-        tip: '设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准',
-      },
-      propType: 'object',
-      setter: 'JsonSetter',
+    isRequired: true,
+    propType: 'string'
+  }, {
+    name: 'initialValue',
+    title: {
+      label: i18n("默认值", "Default value"),
+      tip: i18n("设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准", "Set the default value of the child element. If it conflicts with the initialValues ​​of the Form, the Form will prevail.")
     },
-  ],
+    propType: 'object',
+    setter: 'JsonSetter'
+  }],
   configure: {
     component: {
-      isContainer: true,
+      isContainer: true
     },
-    supports: { className: true, style: true },
-  },
+    supports: {
+      className: true,
+      style: true
+    }
+  }
 };

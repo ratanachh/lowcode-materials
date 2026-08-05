@@ -1,366 +1,408 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Tree',
-  title: '树形控件',
-  category: '数据展示',
-  props: [
-    {
-      name: 'treeData',
-      title: {
-        label: '数据',
-        tip: 'treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一）',
-      },
-      propType: { type: 'arrayOf', value: 'object' },
-      setter: 'JsonSetter',
+  title: i18n("树形控件", "Tree"),
+  category: "Data Display",
+  props: [{
+    name: 'treeData',
+    title: {
+      label: i18n("数据", "Data"),
+      tip: i18n("treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一）", "treeNodes data, if set, there is no need to manually construct the TreeNode node (key is unique within the entire tree)")
     },
-    {
-      name: 'autoExpandParent',
-      title: { label: '是否自动展开父节点', tip: '是否自动展开父节点' },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: {
+      type: 'arrayOf',
+      value: 'object'
     },
-    {
-      name: 'blockNode',
-      title: { label: '是否节点占据一行', tip: '是否节点占据一行' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    setter: 'JsonSetter'
+  }, {
+    name: 'autoExpandParent',
+    title: {
+      label: i18n("是否自动展开父节点", "Auto expand parent"),
+      tip: i18n("是否自动展开父节点", "Auto expand parent")
     },
-    {
-      name: 'checkable',
-      title: {
-        label: '节点前添加 Checkbox 复选框',
-        tip: '节点前添加 Checkbox 复选框',
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'blockNode',
+    title: {
+      label: i18n("是否节点占据一行", "Block node"),
+      tip: i18n("是否节点占据一行", "Block node")
     },
-    {
-      name: 'checkedKeys',
-      title: {
-        label: '复选框节点',
-        tip:
-          '（受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置`checkable`和`checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联',
-      },
-      propType: {
-        type: 'oneOfType',
-        value: [{ value: 'arrayOf', type: 'string' }, 'object'],
-      },
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'checkable',
+    title: {
+      label: i18n("节点前添加 Checkbox 复选框", "Show checkbox before node"),
+      tip: i18n("节点前添加 Checkbox 复选框", "Show checkbox before node")
     },
-    {
-      name: 'checkStrictly',
-      title: {
-        label: '完全受控',
-        tip: 'checkable 状态下节点选择完全受控（父子节点选中状态不再关联）',
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'checkedKeys',
+    title: {
+      label: i18n("复选框节点", "CheckboxNode"),
+      tip: i18n("（受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置`checkable`和`checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联", "(Controlled) Tree node of selected check box (Note: Parent and child nodes are related. If the parent node key is passed in, the child node is automatically selected; accordingly, when the child node key is passed in, the parent node is also automatically selected. When `checkable` and `checkStrictly` are set, it is an object with `checked` and `halfChecked` attributes, and the selection of the parent and child nodes is no longer related.")
     },
-    {
-      name: 'defaultCheckedKeys',
-      title: { label: '默认选中值', tip: '默认选中值' },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
+    propType: {
+      type: 'oneOfType',
+      value: [{
+        value: 'arrayOf',
+        type: 'string'
+      }, 'object']
+    }
+  }, {
+    name: 'checkStrictly',
+    title: {
+      label: i18n("完全受控", "fully controlled"),
+      tip: i18n("checkable 状态下节点选择完全受控（父子节点选中状态不再关联）", "Node selection is fully controlled in the checkable state (the selected state of parent and child nodes is no longer associated)")
+    },
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'defaultCheckedKeys',
+    title: {
+      label: i18n("默认选中值", "Default selected value"),
+      tip: i18n("默认选中值", "Default selected value")
+    },
+    propType: {
+      type: 'arrayOf',
+      value: 'string'
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'StringSetter'
         }
-      },
+      }
+    }
+  }, {
+    name: 'defaultExpandAll',
+    title: {
+      label: i18n("默认展开所有树节点", "Expand all tree nodes by default"),
+      tip: i18n("默认展开所有树节点", "Expand all tree nodes by default")
     },
-    {
-      name: 'defaultExpandAll',
-      title: { label: '默认展开所有树节点', tip: '默认展开所有树节点' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'defaultExpandedKeys',
+    title: {
+      label: i18n("默认展开指定的树节点", "Default expanded keys"),
+      tip: i18n("默认展开指定的树节点", "Default expanded keys")
     },
-    {
-      name: 'defaultExpandedKeys',
-      title: { label: '默认展开指定的树节点', tip: '默认展开指定的树节点' },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
+    propType: {
+      type: 'arrayOf',
+      value: 'string'
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'StringSetter'
         }
-      },
+      }
+    }
+  }, {
+    name: 'defaultExpandParent',
+    title: {
+      label: i18n("默认展开父节点", "Default expand parent"),
+      tip: i18n("默认展开父节点", "Default expand parent")
     },
-    {
-      name: 'defaultExpandParent',
-      title: { label: '默认展开父节点', tip: '默认展开父节点' },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'defaultSelectedKeys',
+    title: {
+      label: i18n("默认选中值", "Default selected value"),
+      tip: i18n("默认选中值", "Default selected value")
     },
-    {
-      name: 'defaultSelectedKeys',
-      title: { label: '默认选中值', tip: '默认选中值' },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
+    propType: {
+      type: 'arrayOf',
+      value: 'string'
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'StringSetter'
         }
-      },
+      }
+    }
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'draggable',
+    title: {
+      label: i18n("节点可拖拽", "NodeCan Drag"),
+      tip: i18n("设置节点可拖拽（IE>8）", "Set NodeCan Drag （IE>8）")
     },
-    {
-      name: 'draggable',
-      title: { label: '节点可拖拽', tip: '设置节点可拖拽（IE>8）' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'expandedKeys',
+    title: {
+      label: i18n("展开指定节点", "ExpandSpecify Node"),
+      tip: i18n("（受控）展开指定的树节点", "（Controlled）ExpandSpecify Tree node")
     },
-    {
-      name: 'expandedKeys',
-      title: {
-        label: '展开指定节点',
-        tip: '（受控）展开指定的树节点',
-      },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
+    propType: {
+      type: 'arrayOf',
+      value: 'string'
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'StringSetter'
         }
-      },
+      }
+    }
+  }, {
+    name: 'filterTreeNode',
+    title: {
+      label: i18n("筛选树节点", "FilterTree node"),
+      tip: i18n("按需筛选树节点（高亮），返回 true", "Filter tree nodes (highlight) as needed, return true")
     },
-    {
-      name: 'filterTreeNode',
-      title: {
-        label: '筛选树节点',
-        tip: '按需筛选树节点（高亮），返回 true',
-      },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'loadData',
+    title: {
+      label: i18n("异步加载数据", "Load data asynchronously"),
+      tip: i18n("异步加载数据", "Load data asynchronously")
     },
-    {
-      name: 'loadData',
-      title: { label: '异步加载数据', tip: '异步加载数据' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'loadedKeys',
+    title: {
+      label: i18n("已经加载节点", "Node loaded"),
+      tip: i18n("（受控）已经加载的节点，需要配合 `loadData` 使用", "(Controlled) Loaded nodes need to be used with `loadData`")
     },
-    {
-      name: 'loadedKeys',
-      title: {
-        label: '已经加载节点',
-        tip: '（受控）已经加载的节点，需要配合 `loadData` 使用',
-      },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
+    propType: {
+      type: 'arrayOf',
+      value: 'string'
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'StringSetter'
         }
-      },
+      }
+    }
+  }, {
+    name: 'multiple',
+    title: {
+      label: i18n("支持多选", "Allow multiple"),
+      tip: i18n("支持点选多个节点（节点本身）", "Supports clicking multiple nodes (the node itself)")
     },
-    {
-      name: 'multiple',
-      title: {
-        label: '支持多选',
-        tip: '支持点选多个节点（节点本身）',
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'selectable',
+    title: {
+      label: i18n("是否可选中", "Selectable"),
+      tip: i18n("是否可选中", "Selectable")
     },
-    {
-      name: 'selectable',
-      title: { label: '是否可选中', tip: '是否可选中' },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'selectedKeys',
+    title: {
+      label: i18n("选中的树节点", "selected tree node"),
+      tip: i18n("（受控）设置选中的树节点", "(Controlled) Set selected tree node")
     },
-    {
-      name: 'selectedKeys',
-      title: {
-        label: '选中的树节点',
-        tip: '（受控）设置选中的树节点',
-      },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
+    propType: {
+      type: 'arrayOf',
+      value: 'string'
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'StringSetter'
         }
-      },
+      }
+    }
+  }, {
+    name: 'showIcon',
+    title: {
+      label: i18n("展示图标", "display icon"),
+      tip: i18n("是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式", "Whether to display the icon in front of the TreeNode title. There is no default style. If set to true, you need to define the icon-related styles yourself.")
     },
-    {
-      name: 'showIcon',
-      title: {
-        label: '展示图标',
-        tip:
-          '是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式',
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  },
+  // {
+  //   name: 'switcherIcon',
+  //   title: {
+  // label: 'Custom switcher icon',
+  // tip: 'Custom switcher icon',
+  //   },
+  //   propType: 'node',
+  // },
+  {
+    name: 'showLine',
+    title: {
+      label: i18n("是否展示连接线", "Show line"),
+      tip: i18n("是否展示连接线", "Show line")
     },
-    // {
-    //   name: 'switcherIcon',
-    //   title: {
-    //     label: '自定义树节点的展开/折叠图标',
-    //     tip: '自定义树节点的展开/折叠图标',
-    //   },
-    //   propType: 'node',
-    // },
-    {
-      name: 'showLine',
-      title: { label: '是否展示连接线', tip: '是否展示连接线' },
-      propType: { type: 'oneOfType', value: ['bool', 'object'] },
+    propType: {
+      type: 'oneOfType',
+      value: ['bool', 'object']
+    }
+  }, {
+    name: 'virtual',
+    title: {
+      label: i18n("虚拟滚动", "Virtual scroll"),
+      tip: i18n("设置 false 时关闭虚拟滚动", "Set false to disable virtual scroll")
     },
-    {
-      name: 'virtual',
-      title: {
-        label: '虚拟滚动',
-        tip: '设置 false 时关闭虚拟滚动',
-      },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'onCheck',
+    title: {
+      label: i18n("点击复选框触发", "On check"),
+      tip: i18n("点击复选框触发", "On check")
     },
-    {
-      name: 'onCheck',
-      title: { label: '点击复选框触发', tip: '点击复选框触发' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onDragEnd',
+    title: {
+      label: i18n("dragend 触发时调用", "Called on dragend"),
+      tip: i18n("dragend 触发时调用", "Called on dragend")
     },
-    {
-      name: 'onDragEnd',
-      title: { label: 'dragend 触发时调用', tip: 'dragend 触发时调用' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onDragEnter',
+    title: {
+      label: i18n("dragenter 触发时调用", "Called on dragenter"),
+      tip: i18n("dragenter 触发时调用", "Called on dragenter")
     },
-    {
-      name: 'onDragEnter',
-      title: { label: 'dragenter 触发时调用', tip: 'dragenter 触发时调用' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onDragLeave',
+    title: {
+      label: i18n("dragleave 触发时调用", "Called on dragleave"),
+      tip: i18n("dragleave 触发时调用", "Called on dragleave")
     },
-    {
-      name: 'onDragLeave',
-      title: { label: 'dragleave 触发时调用', tip: 'dragleave 触发时调用' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onDragOver',
+    title: {
+      label: i18n("dragover 触发时调用", "Called on dragover"),
+      tip: i18n("dragover 触发时调用", "Called on dragover")
     },
-    {
-      name: 'onDragOver',
-      title: { label: 'dragover 触发时调用', tip: 'dragover 触发时调用' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onDragStart',
+    title: {
+      label: i18n("开始拖拽时调用", "On drag start"),
+      tip: i18n("开始拖拽时调用", "On drag start")
     },
-    {
-      name: 'onDragStart',
-      title: { label: '开始拖拽时调用', tip: '开始拖拽时调用' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onDrop',
+    title: {
+      label: i18n("drop 触发时调用", "Called on drop"),
+      tip: i18n("drop 触发时调用", "Called on drop")
     },
-    {
-      name: 'onDrop',
-      title: { label: 'drop 触发时调用', tip: 'drop 触发时调用' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onExpand',
+    title: {
+      label: i18n("展开/收起节点时触发", "On expand"),
+      tip: i18n("展开/收起节点时触发", "On expand")
     },
-    {
-      name: 'onExpand',
-      title: { label: '展开/收起节点时触发', tip: '展开/收起节点时触发' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onLoad',
+    title: {
+      label: i18n("节点加载完毕时触发", "On load"),
+      tip: i18n("节点加载完毕时触发", "On load")
     },
-    {
-      name: 'onLoad',
-      title: { label: '节点加载完毕时触发', tip: '节点加载完毕时触发' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onRightClick',
+    title: {
+      label: i18n("响应右键点击", "On right click"),
+      tip: i18n("响应右键点击", "On right click")
     },
-    {
-      name: 'onRightClick',
-      title: { label: '响应右键点击', tip: '响应右键点击' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onSelect',
+    title: {
+      label: i18n("点击树节点触发", "On select tree node"),
+      tip: i18n("点击树节点触发", "On select tree node")
     },
-    {
-      name: 'onSelect',
-      title: { label: '点击树节点触发', tip: '点击树节点触发' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'icon',
+    title: {
+      label: i18n("自定义树节点图标", "Custom tree icon"),
+      tip: i18n("自定义树节点图标", "Custom tree icon")
     },
-    {
-      name: 'icon',
-      title: { label: '自定义树节点图标', tip: '自定义树节点图标' },
-      propType: { type: 'oneOfType', value: ['node', 'func'] },
-    },
-  ],
+    propType: {
+      type: 'oneOfType',
+      value: ['node', 'func']
+    }
+  }],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onCheck',
-          template:
-            "onCheck(checkedKeys,event,${extParams}){\n// 点击复选框触发\nconsole.log('onCheck',checkedKeys,event);}",
-        },
-        {
-          name: 'onDragEnd',
-          template:
-            "onDragEnd({event,node},${extParams}){\n// dragend 触发时调用\nconsole.log('onDragEnd',event,node);}",
-        },
-        {
-          name: 'onDragEnter',
-          template:
-            "onDragEnter({event,node,expandedKeys},${extParams}){\n// dragenter 触发时调用\nconsole.log('onDragEnter',event,node,expandedKeys);}",
-        },
-        {
-          name: 'onDragLeave',
-          template:
-            "onDragLeave({event,node},${extParams}){\n// dragleave 触发时调用\nconsole.log('onDragLeave',event,node);}",
-        },
-        {
-          name: 'onDragOver',
-          template:
-            "onDragOver({event,node},${extParams}){\n// dragover 触发时调用\nconsole.log('onDragOver',event,node);}",
-        },
-        {
-          name: 'onDragStart',
-          template:
-            "onDragStart({event,node},${extParams}){\n// 开始拖拽时调用\nconsole.log('onDragStart',event,node);}",
-        },
-        {
-          name: 'onDrop',
-          template:
-            "onDrop({event,node,dragNode,dragNodesKeys},${extParams}){\n// drop 触发时调用\nconsole.log('onDrop',event,node,dragNode,dragNodesKeys);}",
-        },
-        {
-          name: 'onExpand',
-          template:
-            "onExpand(expandedKeys,{expanded,node},${extParams}){\n// 展开/收起节点时触发\nconsole.log('onExpand',expandedKeys,expanded,node);}",
-        },
-        {
-          name: 'onLoad',
-          template:
-            "onLoad(loadedKeys,{event,node},${extParams}){\n// 节点加载完毕时触发\nconsole.log('onLoad',loadedKeys,event,node);}",
-        },
-        {
-          name: 'onRightClick',
-          template:
-            "onRightClick({event,node},${extParams}){\n// 响应右键点击\nconsole.log('onRightClick',event,node);}",
-        },
-        {
-          name: 'onSelect',
-          template:
-            "onSelect(selectedKeys,event,${extParams}){\n// 点击树节点触发\nconsole.log('onSelect',selectedKeys,event);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onCheck',
+        template: "onCheck(checkedKeys,event,${extParams}){\n// On check\nconsole.log('onCheck',checkedKeys,event);}"
+      }, {
+        name: 'onDragEnd',
+        template: "onDragEnd({event,node},${extParams}){\n// dragend Trigger callback\nconsole.log('onDragEnd',event,node);}"
+      }, {
+        name: 'onDragEnter',
+        template: "onDragEnter({event,node,expandedKeys},${extParams}){\n// dragenter Trigger callback\nconsole.log('onDragEnter',event,node,expandedKeys);}"
+      }, {
+        name: 'onDragLeave',
+        template: "onDragLeave({event,node},${extParams}){\n// dragleave Trigger callback\nconsole.log('onDragLeave',event,node);}"
+      }, {
+        name: 'onDragOver',
+        template: "onDragOver({event,node},${extParams}){\n// dragover Trigger callback\nconsole.log('onDragOver',event,node);}"
+      }, {
+        name: 'onDragStart',
+        template: "onDragStart({event,node},${extParams}){\n// On drag start\nconsole.log('onDragStart',event,node);}"
+      }, {
+        name: 'onDrop',
+        template: "onDrop({event,node,dragNode,dragNodesKeys},${extParams}){\n// drop Trigger callback\nconsole.log('onDrop',event,node,dragNode,dragNodesKeys);}"
+      }, {
+        name: 'onExpand',
+        template: "onExpand(expandedKeys,{expanded,node},${extParams}){\n// Expand/CollapseNode trigger\nconsole.log('onExpand',expandedKeys,expanded,node);}"
+      }, {
+        name: 'onLoad',
+        template: "onLoad(loadedKeys,{event,node},${extParams}){\n// On load\nconsole.log('onLoad',loadedKeys,event,node);}"
+      }, {
+        name: 'onRightClick',
+        template: "onRightClick({event,node},${extParams}){\n// On right click\nconsole.log('onRightClick',event,node);}"
+      }, {
+        name: 'onSelect',
+        template: "onSelect(selectedKeys,event,${extParams}){\n// On select tree node\nconsole.log('onSelect',selectedKeys,event);}"
+      }]
+    }
+  }
 };

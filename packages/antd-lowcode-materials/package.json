@@ -1,6 +1,6 @@
 {
   "name": "@rchh/antd-lowcode-materials",
-  "version": "1.2.4",
+  "version": "1.2.7",
   "description": "Antd for LowCode",
   "main": "lib/index.js",
   "scripts": {
@@ -57,10 +57,10 @@
     "react-dom": "^16.0.0"
   },
   "componentConfig": {
-    "materialSchema": "https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json"
+    "materialSchema": "https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.7/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "homepage": "https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.7/build/lowcode/index.html",
   "repository": "https://github.com/ratanachh/lowcode-materials.git",
   "exports": {
     "./prototype": {

@@ -1,392 +1,386 @@
 import { uuid } from '../_utils/utils';
-
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Tabs',
-  title: '标签页',
-  category: '数据展示',
-  props: [
-    {
-      name: 'items',
-      title: '标签项',
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'ObjectSetter',
-            props: {
-              config: {
-                items: [
-                  {
-                    name: 'key',
-                    title: 'key',
-                    setter: 'StringSetter',
-                    initialValue: (val) => val || uuid(),
-                    supportVariable: true
-                  },
-                  {
-                    name: 'label',
-                    title: '标题',
-                    setter: 'StringSetter',
-                    initialValue: '标签项',
-                    supportVariable: true
-                  },
-                  // {
-                  //   name: 'closeable',
-                  //   title: '是否可删除',
-                  //   condition(target) {
-                  //     return target.getProps().getPropValue('type') === 'editable-card';
-                  //   },
-                  //   setter: 'BoolSetter',
-                  //   initialValue: true,
-                  // },
-                  {
-                    name: 'disabled',
-                    title: '禁用',
-                    setter: 'BoolSetter',
-                    initialValue: false,
-                    supportVariable: true
-                  },
-                  {
-                    name: 'forceRender',
-                    title: '隐藏时保留',
-                    propType: 'bool',
-                    setter: 'BoolSetter',
-                    initialValue: false,
-                    supportVariable: true
-                  },
-                  {
-                    name: 'children',
-                    title: '内容',
-                    setter: {
-                      componentName: 'SlotSetter',
-                      initialValue: {
-                        type: 'JSSlot',
-                        value: [],
-                      },
-                    },
-                  },
-                ],
+  title: i18n("标签页", "Tabs"),
+  category: "Data Display",
+  props: [{
+    name: 'items',
+    title: i18n("标签项", "Tab item"),
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'ObjectSetter',
+          props: {
+            config: {
+              items: [{
+                name: 'key',
+                title: 'key',
+                setter: 'StringSetter',
+                initialValue: val => val || uuid(),
+                supportVariable: true
+              }, {
+                name: 'label',
+                title: i18n("标题", "Title"),
+                setter: 'StringSetter',
+                initialValue: i18n("标签项", "Tab item"),
+                supportVariable: true
               },
-            },
-            initialValue: () => {
-              return {
-                key: uuid(),
-                label: '标签项',
-                disabled: false,
-                forceRender: false,
-                children: {
-                  type: 'JSSlot',
-                  value: [],
-                },
-              };
-            },
+              // {
+              //   name: 'closeable',
+              // title: 'Closable',
+              //   condition(target) {
+              //     return target.getProps().getPropValue('type') === 'editable-card';
+              //   },
+              //   setter: 'BoolSetter',
+              //   initialValue: true,
+              // },
+              {
+                name: 'disabled',
+                title: i18n("禁用", "Disabled"),
+                setter: 'BoolSetter',
+                initialValue: false,
+                supportVariable: true
+              }, {
+                name: 'forceRender',
+                title: i18n("隐藏时保留", "Force render"),
+                propType: 'bool',
+                setter: 'BoolSetter',
+                initialValue: false,
+                supportVariable: true
+              }, {
+                name: 'children',
+                title: i18n("内容", "Content"),
+                setter: {
+                  componentName: 'SlotSetter',
+                  initialValue: {
+                    type: 'JSSlot',
+                    value: []
+                  }
+                }
+              }]
+            }
           },
-        },
+          initialValue: () => {
+            return {
+              key: uuid(),
+              label: i18n("标签项", "Tab item"),
+              disabled: false,
+              forceRender: false,
+              children: {
+                type: 'JSSlot',
+                value: []
+              }
+            };
+          }
+        }
       }
-    },
-    // {
-    //   name: 'tabs',
-    //   title: '标签项',
-    //   setter: {
-    //     componentName: 'ArraySetter',
-    //     props: {
-    //       itemSetter: {
-    //         componentName: 'ObjectSetter',
-    //         props: {
-    //           config: {
-    //             items: [
-    //               {
-    //                 name: 'key',
-    //                 title: 'key',
-    //                 setter: 'StringSetter',
-    //                 initialValue: (val) => val || uuid(),
-    //                 supportVariable: true
-    //               },
-    //               {
-    //                 name: 'tab',
-    //                 title: '标题',
-    //                 setter: 'StringSetter',
-    //                 initialValue: '标签项',
-    //                 supportVariable: true
-    //               },
-    //               // {
-    //               //   name: 'closeable',
-    //               //   title: '是否可删除',
-    //               //   condition(target) {
-    //               //     return target.getProps().getPropValue('type') === 'editable-card';
-    //               //   },
-    //               //   setter: 'BoolSetter',
-    //               //   initialValue: true,
-    //               // },
-    //               {
-    //                 name: 'disabled',
-    //                 title: '禁用',
-    //                 setter: 'BoolSetter',
-    //                 initialValue: false,
-    //                 supportVariable: true
-    //               },
-    //               {
-    //                 name: 'forceRender',
-    //                 title: '隐藏时保留',
-    //                 propType: 'bool',
-    //                 setter: 'BoolSetter',
-    //                 initialValue: false,
-    //                 supportVariable: true
-    //               },
-    //             ],
-    //           },
-    //         },
-    //         initialValue: () => {
-    //           return {
-    //             key: uuid(),
-    //             tab: '标签项',
-    //             closeable: true,
-    //             disabled: false,
-    //             forceRender: false,
-    //           };
-    //         },
-    //       },
-    //     },
-    //   },
-    //   extraProps: {
-    //     getValue(target, fieldValue) {
-    //       const map = target.node.children.map((child) => {
-    //         const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
-    //         return {
-    //           key,
-    //           tab: child.getPropValue('tab'),
-    //           closeable: child.getPropValue('closeable'),
-    //           disabled: child.getPropValue('disabled'),
-    //           forceRender: child.getPropValue('forceRender'),
-    //         };
-    //       });
-    //       return map;
-    //     },
-    //     setValue(target, value) {
-    //       const { node } = target;
-    //       const map = {};
+    }
+  },
+  // {
+  //   name: 'tabs',
+  // title: 'Tab item',
+  //   setter: {
+  //     componentName: 'ArraySetter',
+  //     props: {
+  //       itemSetter: {
+  //         componentName: 'ObjectSetter',
+  //         props: {
+  //           config: {
+  //             items: [
+  //               {
+  //                 name: 'key',
+  //                 title: 'key',
+  //                 setter: 'StringSetter',
+  //                 initialValue: (val) => val || uuid(),
+  //                 supportVariable: true
+  //               },
+  //               {
+  //                 name: 'tab',
+  // title: 'Title',
+  //                 setter: 'StringSetter',
+  // initialValue: 'Tab item',
+  //                 supportVariable: true
+  //               },
+  //               // {
+  //               //   name: 'closeable',
+  // // title: 'Closable',
+  //               //   condition(target) {
+  //               //     return target.getProps().getPropValue('type') === 'editable-card';
+  //               //   },
+  //               //   setter: 'BoolSetter',
+  //               //   initialValue: true,
+  //               // },
+  //               {
+  //                 name: 'disabled',
+  // title: 'Disabled',
+  //                 setter: 'BoolSetter',
+  //                 initialValue: false,
+  //                 supportVariable: true
+  //               },
+  //               {
+  //                 name: 'forceRender',
+  // title: 'Force render',
+  //                 propType: 'bool',
+  //                 setter: 'BoolSetter',
+  //                 initialValue: false,
+  //                 supportVariable: true
+  //               },
+  //             ],
+  //           },
+  //         },
+  //         initialValue: () => {
+  //           return {
+  //             key: uuid(),
+  // tab: 'Tab item',
+  //             closeable: true,
+  //             disabled: false,
+  //             forceRender: false,
+  //           };
+  //         },
+  //       },
+  //     },
+  //   },
+  //   extraProps: {
+  //     getValue(target, fieldValue) {
+  //       const map = target.node.children.map((child) => {
+  //         const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
+  //         return {
+  //           key,
+  //           tab: child.getPropValue('tab'),
+  //           closeable: child.getPropValue('closeable'),
+  //           disabled: child.getPropValue('disabled'),
+  //           forceRender: child.getPropValue('forceRender'),
+  //         };
+  //       });
+  //       return map;
+  //     },
+  //     setValue(target, value) {
+  //       const { node } = target;
+  //       const map = {};
 
-    //       if (!Array.isArray(value)) {
-    //         value = [];
-    //       }
-    //       value.forEach((item) => {
-    //         const tabItem = Object.assign({}, item);
-    //         map[item.key] = tabItem;
-    //       });
+  //       if (!Array.isArray(value)) {
+  //         value = [];
+  //       }
+  //       value.forEach((item) => {
+  //         const tabItem = Object.assign({}, item);
+  //         map[item.key] = tabItem;
+  //       });
 
-    //       node.children.mergeChildren(
-    //         (child) => {
-    //           const key = String(child.getPropValue('key'));
-    //           if (Object.hasOwnProperty.call(map, key)) {
-    //             child.setPropValue('tab', map[key].tab);
-    //             child.setPropValue('closeable', map[key].closeable);
-    //             child.setPropValue('disabled', map[key].disabled);
-    //             child.setPropValue('forceRender', map[key].forceRender);
-    //             delete map[key];
-    //             return false;
-    //           }
-    //           return true;
-    //         },
-    //         () => {
-    //           const items = [];
-    //           for (const key in map) {
-    //             if (Object.hasOwnProperty.call(map, key)) {
-    //               items.push({
-    //                 componentName: 'Tabs.TabPane',
-    //                 props: map[key],
-    //               });
-    //             }
-    //           }
-    //           return items;
-    //         },
-    //         (child1, child2) => {
-    //           const a = value.findIndex(
-    //             (item) => String(item.key) === String(child1.getPropValue('key')),
-    //           );
-    //           const b = value.findIndex(
-    //             (item) => String(item.key) === String(child2.getPropValue('key')),
-    //           );
-    //           return a - b;
-    //         },
-    //       );
-    //     },
-    //   },
-    // },
-    // {
+  //       node.children.mergeChildren(
+  //         (child) => {
+  //           const key = String(child.getPropValue('key'));
+  //           if (Object.hasOwnProperty.call(map, key)) {
+  //             child.setPropValue('tab', map[key].tab);
+  //             child.setPropValue('closeable', map[key].closeable);
+  //             child.setPropValue('disabled', map[key].disabled);
+  //             child.setPropValue('forceRender', map[key].forceRender);
+  //             delete map[key];
+  //             return false;
+  //           }
+  //           return true;
+  //         },
+  //         () => {
+  //           const items = [];
+  //           for (const key in map) {
+  //             if (Object.hasOwnProperty.call(map, key)) {
+  //               items.push({
+  //                 componentName: 'Tabs.TabPane',
+  //                 props: map[key],
+  //               });
+  //             }
+  //           }
+  //           return items;
+  //         },
+  //         (child1, child2) => {
+  //           const a = value.findIndex(
+  //             (item) => String(item.key) === String(child1.getPropValue('key')),
+  //           );
+  //           const b = value.findIndex(
+  //             (item) => String(item.key) === String(child2.getPropValue('key')),
+  //           );
+  //           return a - b;
+  //         },
+  //       );
+  //     },
+  //   },
+  // },
+  // {
 
-    //   name: 'addIcon',
-    //   title: { label: '自定义添加按钮', tip: '自定义添加按钮' },
-    //   propType: 'node',
-    // },
-    {
-      name: 'animated',
-      title: {
-        label: '切换动画',
-        tip: '是否使用动画切换Tabs',
-      },
-      propType: 'bool',
-      setter: 'BoolSetter',
-      supportVariable: true
+  //   name: 'addIcon',
+  // title: { label: 'Custom add button', tip: 'Custom add button' },
+  //   propType: 'node',
+  // },
+  {
+    name: 'animated',
+    title: {
+      label: i18n("切换动画", "Switch animation"),
+      tip: i18n("是否使用动画切换Tabs", "Whether to use animation to switch Tabs")
     },
-    // {
-    //   name: 'renderTabBar',
-    //   title: { label: '替换TabBar', tip: '替换TabBar，用于二次封装标签头' },
-    //   propType: 'func',
-    // },
-    {
-      name: 'defaultActiveKey',
-      title: {
-        label: '初始选中',
-        tip: '初始化选中面板的key，如果没有设置activeKey',
-      },
-      propType: 'string',
-      setter: 'StringSetter',
-      supportVariable: true
+    propType: 'bool',
+    setter: 'BoolSetter',
+    supportVariable: true
+  },
+  // {
+  //   name: 'renderTabBar',
+  // title: { label: 'Replace TabBar', tip: 'Replace TabBar for secondary encapsulation of label headers' },
+  //   propType: 'func',
+  // },
+  {
+    name: 'defaultActiveKey',
+    title: {
+      label: i18n("初始选中", "Initial selection"),
+      tip: i18n("初始化选中面板的key，如果没有设置activeKey", "Initialize the key of the selected panel, if activeKey is not set")
     },
-    // {
-    //   name: 'activeKey',
-    //   title: { label: '当前激活tab面板', tip: '当前激活tab面板，注意配置了这个属性就需要自己处理点击切换' },
-    //   propType: 'string',
-    // },
-    {
-      name: 'hideAdd',
-      title: {
-        label: '隐藏加号',
-        tip: '是否隐藏加号图标，在`type="editable-card"`时有效',
-      },
-      condition(target) {
-        return target.getProps().getPropValue('type') === 'editable-card';
-      },
-      propType: 'bool',
-      setter: 'BoolSetter',
-      defaultValue: false,
-      supportVariable: true
+    propType: 'string',
+    setter: 'StringSetter',
+    supportVariable: true
+  },
+  // {
+  //   name: 'activeKey',
+  // title: { label: 'Currently activated tab panel', tip: 'Currently activated tab panel, please note that if you configure this attribute, you need to handle click switching yourself' },
+  //   propType: 'string',
+  // },
+  {
+    name: 'hideAdd',
+    title: {
+      label: i18n("隐藏加号", "Hide plus sign"),
+      tip: i18n("是否隐藏加号图标，在`type=\"editable-card\"`时有效", "Whether to hide the plus icon, valid when `type=\"editable-card\"`")
     },
-    {
-      name: 'size',
-      title: {
-        label: '尺寸',
-        tip: '大小，提供 `large` `default` 和 `small` 三种大小',
-      },
-      propType: {
-        type: 'oneOf',
-        value: ['large', 'default', 'small'],
-      },
-      defaultValue: 'default',
+    condition(target) {
+      return target.getProps().getPropValue('type') === 'editable-card';
     },
-    {
-      name: 'centered',
-      title: { label: '标签居中', tip: '标签居中展示' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter',
-      supportVariable: true
+    propType: 'bool',
+    setter: 'BoolSetter',
+    defaultValue: false,
+    supportVariable: true
+  }, {
+    name: 'size',
+    title: {
+      label: i18n("尺寸", "Size"),
+      tip: i18n("大小，提供 `large` `default` 和 `small` 三种大小", "Size, providing `large` `default` and `small` three sizes")
     },
-    {
-      name: 'tabBarExtraContent',
-      title: { label: '额外元素', tip: 'tab bar上额外的元素' },
-      propType: 'node',
+    propType: {
+      type: 'oneOf',
+      value: ['large', 'default', 'small']
     },
-    {
-      name: 'tabBarGutter',
-      title: { label: '标签间隙', tip: 'tabs之间的间隙' },
-      propType: 'number',
-      setter: 'NumberSetter',
-      supportVariable: true
+    defaultValue: 'default'
+  }, {
+    name: 'centered',
+    title: {
+      label: i18n("标签居中", "TagCenter"),
+      tip: i18n("标签居中展示", "Labels are displayed in the center")
     },
-    // {
-    //   name: 'tabBarStyle',
-    //   title: { label: 'tab bar的样式对象', tip: 'tab bar的样式对象' },
-    //   propType: 'object',
-    // },
-    {
-      name: 'tabPosition',
-      title: {
-        label: '页签位置',
-        tip: '页签位置',
-      },
-      propType: {
-        type: 'oneOf',
-        value: ['top', 'right', 'bottom', 'left'],
-      },
-      defaultValue: 'top',
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter',
+    supportVariable: true
+  }, {
+    name: 'tabBarExtraContent',
+    title: {
+      label: i18n("额外元素", "Extra"),
+      tip: i18n("tab bar上额外的元素", "extra elements on tab bar")
     },
-    {
-      name: 'type',
-      title: {
-        label: '页签样式',
-        tip: '页签的基本样式，可选`line`、`card`、`editable-card`类型',
-      },
-      propType: {
-        type: 'oneOf',
-        value: ['line', 'card', 'editable-card'],
-      },
-      defaultValue: 'line',
+    propType: 'node'
+  }, {
+    name: 'tabBarGutter',
+    title: {
+      label: i18n("标签间隙", "label gap"),
+      tip: i18n("tabs之间的间隙", "gaps between tabs")
     },
-    {
-      name: 'onChange',
-      title: { label: '切换面板的回调', tip: '切换面板的回调' },
-      propType: 'func',
+    propType: 'number',
+    setter: 'NumberSetter',
+    supportVariable: true
+  },
+  // {
+  //   name: 'tabBarStyle',
+  // title: { label: 'Tab bar style', tip: 'Tab bar style' },
+  //   propType: 'object',
+  // },
+  {
+    name: 'tabPosition',
+    title: {
+      label: i18n("页签位置", "Tab position"),
+      tip: i18n("页签位置", "Tab position")
     },
-    {
-      name: 'onEdit',
-      title: {
-        label: '新增删除回调',
-        tip: '新增和删除页签的回调，在`type="editable-card"`时有效',
-      },
-      condition(target) {
-        return target.getProps().getPropValue('type') === 'editable-card';
-      },
-      propType: 'func',
+    propType: {
+      type: 'oneOf',
+      value: ['top', 'right', 'bottom', 'left']
     },
-    {
-      name: 'onTabClick',
-      title: { label: 'tab点击回调', tip: 'tab被点击的回调' },
-      propType: 'func',
+    defaultValue: 'top'
+  }, {
+    name: 'type',
+    title: {
+      label: i18n("页签样式", "Tab style"),
+      tip: i18n("页签的基本样式，可选`line`、`card`、`editable-card`类型", "The basic style of the page label, optional `line`, `card`, `editable-card` types")
     },
-    {
-      name: 'onTabScroll',
-      title: { label: 'tab滚动触发', tip: 'tab滚动时触发' },
-      propType: 'func',
+    propType: {
+      type: 'oneOf',
+      value: ['line', 'card', 'editable-card']
     },
-    {
-      name: 'keyboard',
-      title: { label: '键盘切换', tip: '开启键盘切换功能' },
-      propType: 'bool',
-      defaultValue: true,
+    defaultValue: 'line'
+  }, {
+    name: 'onChange',
+    title: {
+      label: i18n("切换面板的回调", "Callback when panel switches"),
+      tip: i18n("切换面板的回调", "Callback when panel switches")
     },
-  ],
+    propType: 'func'
+  }, {
+    name: 'onEdit',
+    title: {
+      label: i18n("新增删除回调", "AddDeletecallback"),
+      tip: i18n("新增和删除页签的回调，在`type=\"editable-card\"`时有效", "Callbacks for adding and deleting tabs, valid when `type=\"editable-card\"`")
+    },
+    condition(target) {
+      return target.getProps().getPropValue('type') === 'editable-card';
+    },
+    propType: 'func'
+  }, {
+    name: 'onTabClick',
+    title: {
+      label: i18n("tab点击回调", "tabClick callback"),
+      tip: i18n("tab被点击的回调", "tab Click callback")
+    },
+    propType: 'func'
+  }, {
+    name: 'onTabScroll',
+    title: {
+      label: i18n("tab滚动触发", "tabScroll Trigger"),
+      tip: i18n("tab滚动时触发", "tabScroll trigger")
+    },
+    propType: 'func'
+  }, {
+    name: 'keyboard',
+    title: {
+      label: i18n("键盘切换", "Keyboard switching"),
+      tip: i18n("开启键盘切换功能", "Enable keyboard switching")
+    },
+    propType: 'bool',
+    defaultValue: true
+  }],
   configure: {
     component: {
-      isContainer: true,
+      isContainer: true
     },
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onChange',
-          template:
-            "onChange(activeKey,${extParams}){\n// 切换面板的回调\nconsole.log('onChange',activeKey);}",
-        },
-        {
-          name: 'onEdit',
-          template:
-            "onEdit(targetKey,action,${extParams}){\n// 新增和删除页签的回调\nconsole.log('onEdit',targetKey,action);}",
-        },
-        {
-          name: 'onTabClick',
-          template:
-            "onTabClick(key,event,${extParams}){\n// tab 被点击的回调\nconsole.log('onTabClick',key,event);}",
-        },
-        {
-          name: 'onTabScroll',
-          template:
-            "onTabScroll({direction},${extParams}){\n// tab 滚动时触\nconsole.log('onTabScroll',direction);}",
-        },
-      ],
+      events: [{
+        name: 'onChange',
+        template: "onChange(activeKey,${extParams}){\n// Callback when panel switches\nconsole.log('onChange',activeKey);}"
+      }, {
+        name: 'onEdit',
+        template: "onEdit(targetKey,action,${extParams}){\n// Callbacks for adding and deleting tabs\nconsole.log('onEdit',targetKey,action);}"
+      }, {
+        name: 'onTabClick',
+        template: "onTabClick(key,event,${extParams}){\n// tab Click callback\nconsole.log('onTabClick',key,event);}"
+      }, {
+        name: 'onTabScroll',
+        template: "onTabScroll({direction},${extParams}){\n// Touch when the tab is scrolling\nconsole.log('onTabScroll',direction);}"
+      }]
     },
     advanced: {
       // initialChildren: [
@@ -399,6 +393,6 @@ export default {
       //     props: { key: 'item2', tab: 'Item 2' },
       //   },
       // ],
-    },
-  },
+    }
+  }
 };

@@ -1,52 +1,70 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Menu.Item',
-  title: '菜单项',
-  props: [
-    {
-      name: 'children',
-      title: { label: '内容', tip: '内容' },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+  title: i18n("菜单项", "Menu Item"),
+  props: [{
+    name: 'children',
+    title: {
+      label: i18n("内容", "Content"),
+      tip: i18n("内容", "Content")
     },
-    {
-      name: 'danger',
-      title: { label: '错误状态', tip: '展示错误状态样式' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node']
+    }
+  }, {
+    name: 'danger',
+    title: {
+      label: i18n("错误状态", "ErrorStatus"),
+      tip: i18n("展示错误状态样式", "Display error status style")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'icon',
-      title: { label: '菜单图标', tip: '菜单图标' },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'icon',
+    title: {
+      label: i18n("菜单图标", "Menu icon"),
+      tip: i18n("菜单图标", "Menu icon")
     },
-    {
-      name: 'key',
-      title: { label: '唯一标志', tip: 'item 的唯一标志' },
-      propType: 'string',
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node']
     },
-    {
-      name: 'title',
-      title: {
-        label: '悬浮标题',
-        tip: '设置收缩时展示的悬浮标题',
-      },
-      propType: 'string',
+    defaultValue: false
+  }, {
+    name: 'key',
+    title: {
+      label: i18n("唯一标志", "unique sign"),
+      tip: i18n("item 的唯一标志", "unique identifier of item")
     },
-  ],
+    propType: 'string'
+  }, {
+    name: 'title',
+    title: {
+      label: i18n("悬浮标题", "Hover Title"),
+      tip: i18n("设置收缩时展示的悬浮标题", "Set the floating title displayed when shrinking")
+    },
+    propType: 'string'
+  }],
   configure: {
     component: {
       isContainer: true,
-      nestingRule: { parentWhitelist: ['Menu'] },
+      nestingRule: {
+        parentWhitelist: ['Menu']
+      }
     },
-    supports: { style: true },
-  },
+    supports: {
+      style: true
+    }
+  }
 };

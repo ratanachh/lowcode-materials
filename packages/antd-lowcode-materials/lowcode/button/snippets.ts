@@ -1,67 +1,69 @@
+import { i18n } from '../_utils/i18n';
+
 export default [
   {
-    title: '主按钮',
+    title: i18n('主按钮', 'Primary Button'),
     screenshot: require('./__screenshots__/button-1.png'),
     schema: {
       componentName: 'Button',
       props: {
         type: 'primary',
-        children: '主按钮',
+        children: 'Primary Button',
       },
     },
   },
   {
-    title: '次按钮',
+    title: i18n('次按钮', 'Default Button'),
     screenshot: require('./__screenshots__/button-2.png'),
     schema: {
       componentName: 'Button',
       props: {
         type: 'default',
-        children: '次按钮',
+        children: 'Default Button',
       },
     },
   },
   {
-    title: '危险按钮',
+    title: i18n('危险按钮', 'Danger Button'),
     screenshot: require('./__screenshots__/button-3.png'),
     schema: {
       componentName: 'Button',
       props: {
         type: 'danger',
-        children: '危险按钮',
+        children: 'Danger Button',
       },
     },
   },
   {
-    title: '文字按钮',
+    title: i18n('文字按钮', 'Text Button'),
     screenshot: require('./__screenshots__/button-4.png'),
     schema: {
       componentName: 'Button',
       props: {
         type: 'text',
-        children: '文字按钮',
+        children: 'Text Button',
       },
     },
   },
   {
-    title: '虚框按钮',
+    title: i18n('虚框按钮', 'Dashed Button'),
     screenshot: require('./__screenshots__/button-5.png'),
     schema: {
       componentName: 'Button',
       props: {
         type: 'dashed',
-        children: '虚框按钮',
+        children: 'Dashed Button',
       },
     },
   },
   {
-    title: '链接按钮',
+    title: i18n('链接按钮', 'Link Button'),
     screenshot: require('./__screenshots__/button-6.png'),
     schema: {
       componentName: 'Button',
       props: {
         type: 'link',
-        children: '链接按钮',
+        children: 'Link Button',
       },
     },
   },

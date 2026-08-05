@@ -1,43 +1,60 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Steps.Step',
-  title: '步骤项',
-  props: [
-    {
-      name: 'title',
-      title: { label: '标题', tip: '标题' },
-      propType: 'string',
+  title: i18n("步骤项", "step item"),
+  props: [{
+    name: 'title',
+    title: {
+      label: i18n("标题", "Title"),
+      tip: i18n("标题", "Title")
     },
-    {
-      name: 'subTitle',
-      title: { label: '子标题', tip: '子标题' },
-      propType: 'string',
+    propType: 'string'
+  }, {
+    name: 'subTitle',
+    title: {
+      label: i18n("子标题", "Subtitle"),
+      tip: i18n("子标题", "Subtitle")
     },
-    {
-      name: 'description',
-      title: { label: '步骤描述', tip: '步骤描述' },
-      propType: 'string',
+    propType: 'string'
+  }, {
+    name: 'description',
+    title: {
+      label: i18n("步骤描述", "Step description"),
+      tip: i18n("步骤描述", "Step description")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
+    propType: 'string'
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'icon',
-      title: { label: '图标', tip: '图标' },
-      propType: 'node',
+    propType: 'bool'
+  }, {
+    name: 'icon',
+    title: {
+      label: i18n("图标", "Icon"),
+      tip: i18n("图标", "Icon")
     },
-    {
-      name: 'status',
-      title: { label: '状态', tip: '状态' },
-      propType: 'string',
+    propType: 'node'
+  }, {
+    name: 'status',
+    title: {
+      label: i18n("状态", "Status"),
+      tip: i18n("状态", "Status")
     },
-  ],
+    propType: 'string'
+  }],
   configure: {
-    component: { nestingRule: { parentWhitelist: ['Steps'] } },
-    supports: { style: true },
-  },
+    component: {
+      nestingRule: {
+        parentWhitelist: ['Steps']
+      }
+    },
+    supports: {
+      style: true
+    }
+  }
 };

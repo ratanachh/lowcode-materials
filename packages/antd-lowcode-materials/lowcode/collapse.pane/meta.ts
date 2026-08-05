@@ -1,73 +1,72 @@
-// FIXME: 选中tabPane点复制，会出问题，因为复制的组件key一样
+import { i18n } from "../_utils/i18n";
+// FIXME: Selecting tabPane and clicking copy will cause problems because the copied components have the same key.
 
 export default {
   componentName: 'Collapse.Panel',
-  title: '折叠项',
+  title: i18n("折叠项", "Collapse item"),
   category: '',
-  props: [
-    {
-      name: 'key',
-      title: {
-        label: 'key',
-        tip: 'key',
-      },
-      propType: 'string',
-      setter: 'StringSetter',
-      supportVariable: true
+  props: [{
+    name: 'key',
+    title: {
+      label: 'key',
+      tip: 'key'
     },
-    {
-      name: 'header',
-      title: {
-        label: '标题',
-        tip: '标题',
-      },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+    propType: 'string',
+    setter: 'StringSetter',
+    supportVariable: true
+  }, {
+    name: 'header',
+    title: {
+      label: i18n("标题", "Title"),
+      tip: i18n("标题", "Title")
     },
-
-    {
-      name: 'extra',
-      title: {
-        label: '右上角内容',
-        tip: '自定义渲染每个面板右上角的内容',
-      },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node']
+    }
+  }, {
+    name: 'extra',
+    title: {
+      label: i18n("右上角内容", "Top right corner content"),
+      tip: i18n("自定义渲染每个面板右上角的内容", "Customize rendering of content in the upper right corner of each panel")
     },
-    {
-      name: 'collapsible',
-      title: '可折叠触发区域',
-      propType: {
-        type: 'oneOf',
-        value: ['-', 'header', 'disabled'],
-      },
+    propType: {
+      type: 'oneOfType',
+      value: ['string', 'node']
+    }
+  }, {
+    name: 'collapsible',
+    title: i18n("可折叠触发区域", "Collapsible trigger area"),
+    propType: {
+      type: 'oneOf',
+      value: ['-', 'header', 'disabled']
+    }
+  }, {
+    name: 'showArrow',
+    title: {
+      label: i18n("显示折叠图标", "Show fold icon"),
+      tip: i18n("是否展示当前面板上的箭头", "Whether to display the arrows on the current panel")
     },
-    {
-      name: 'showArrow',
-      title: {
-        label: '显示折叠图标',
-        tip: '是否展示当前面板上的箭头',
-      },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter',
-      supportVariable: true
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter',
+    supportVariable: true
+  }, {
+    name: 'forceRender',
+    title: {
+      label: i18n("隐藏时渲染", "Render when hidden"),
+      tip: i18n("被隐藏时是否渲染 DOM 结构", "Whether to render the DOM structure when hidden")
     },
-    {
-      name: 'forceRender',
-      title: {
-        label: '隐藏时渲染',
-        tip: '被隐藏时是否渲染 DOM 结构',
-      },
-      propType: 'bool',
-      setter: 'BoolSetter',
-      supportVariable: true
-    },
-  ],
+    propType: 'bool',
+    setter: 'BoolSetter',
+    supportVariable: true
+  }],
   configure: {
     component: {
       isContainer: true,
       nestingRule: {
-        parentWhitelist: ['Collapse'],
-      },
-    },
-  },
+        parentWhitelist: ['Collapse']
+      }
+    }
+  }
 };

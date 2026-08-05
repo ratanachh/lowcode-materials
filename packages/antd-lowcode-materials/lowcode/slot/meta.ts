@@ -6,47 +6,44 @@ module.exports = {
     exportName: 'Slot',
     main: '',
     destructuring: true,
-    subName: '',
+    subName: ''
   },
   configure: {
-    props: [
-      {
-        name: '___title',
-        title: {
-          type: 'i18n',
-          'en-US': 'Slot Title',
-          'zh-CN': '插槽标题',
-        },
-        setter: 'StringSetter',
-        defaultValue: '插槽容器',
+    props: [{
+      name: '___title',
+      title: {
+        type: 'i18n',
+        en_US: 'Slot Title',
+        zh_CN: '插槽标题'
       },
-      {
-        name: '___params',
-        title: {
-          type: 'i18n',
-          'en-US': 'Slot Params',
-          'zh-CN': '插槽入参',
-        },
-        setter: {
-          componentName: 'ArraySetter',
-          props: {
-            itemSetter: {
-              componentName: 'StringSetter',
-              props: {
-                placeholder: {
-                  type: 'i18n',
-                  'zh-CN': '参数名称',
-                  'en-US': 'Argument Name',
-                },
-              },
-            },
-          },
-        },
+      setter: 'StringSetter',
+      defaultValue: "Slot Container"
+    }, {
+      name: '___params',
+      title: {
+        type: 'i18n',
+        en_US: 'Slot Params',
+        zh_CN: '插槽入参'
       },
-    ],
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+            props: {
+              placeholder: {
+                type: 'i18n',
+                zh_CN: '参数名称',
+                en_US: 'Argument Name'
+              }
+            }
+          }
+        }
+      }
+    }],
     component: {
       isContainer: true,
-      disableBehaviors: '*',
+      disableBehaviors: '*'
     },
     // events/className/style/general/directives
     supports: false,
@@ -54,8 +51,8 @@ module.exports = {
       callbacks: {
         onHoverHook: () => false,
         onMouseDownHook: () => false,
-        onClickHook: () => false,
-      },
-    },
-  },
+        onClickHook: () => false
+      }
+    }
+  }
 };

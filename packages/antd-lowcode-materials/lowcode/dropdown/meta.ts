@@ -1,132 +1,145 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Dropdown',
-  title: '下拉菜单',
-  category: '导航',
-  props: [
-    {
-      name: 'open',
-      title: { label: '菜单是否显示', tip: '菜单是否显示' },
-      propType: { type: 'oneOf', value: [true, false, '-'] },
-      defaultValue: '-',
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '默认非受控',
-              value: '-',
-            },
-            {
-              title: '显示',
-              value: true,
-            },
-            {
-              title: '不显示',
-              value: false,
-            },
-          ],
-        },
+  title: i18n("下拉菜单", "Dropdown"),
+  category: "Navigation",
+  props: [{
+    name: 'open',
+    title: {
+      label: i18n("菜单是否显示", "Menu visible"),
+      tip: i18n("菜单是否显示", "Menu visible")
+    },
+    propType: {
+      type: 'oneOf',
+      value: [true, false, '-']
+    },
+    defaultValue: '-',
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("默认非受控", "Uncontrolled by default"),
+          value: '-'
+        }, {
+          title: i18n("显示", "Show"),
+          value: true
+        }, {
+          title: i18n("不显示", "Hide"),
+          value: false
+        }]
+      }
+    },
+    extraProps: {
+      getValue(target) {
+        const {
+          node
+        } = target;
+        let value = node.getPropValue('open');
+        if (value === undefined) {
+          value = '-';
+        }
+        return value;
       },
-      extraProps: {
-        getValue(target, fieldValue) {
-          const { node } = target;
-          let value = node.getPropValue('open');
-          if (value === undefined) {
-            value = '-';
-          }
-          return value;
-        },
-        setValue(target, value) {
-          const { node } = target;
-          if (value === '-') {
-            setTimeout(() => {
-              node.clearPropValue('open');
-            });
-          }
-        },
-      },
+      setValue(target, value) {
+        const {
+          node
+        } = target;
+        if (value === '-') {
+          setTimeout(() => {
+            node.clearPropValue('open');
+          });
+        }
+      }
+    }
+  }, {
+    name: 'arrow',
+    title: {
+      label: i18n("显示下拉箭头", "Show drop down arrow"),
+      tip: i18n("是否显示下拉箭头", "Show arrow")
     },
-    {
-      name: 'arrow',
-      title: { label: '显示下拉箭头', tip: '是否显示下拉箭头' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
+    propType: 'bool'
+  },
+  // {
+  //   name: 'getPopupContainer',
+  //   title: {
+  // label: 'Render Parent node',
+  //     tip:
+  // 'Menu rendering parent node. By default, it is rendered on the body. If you encounter menu scrolling positioning problems, try changing it to the scrolling area and positioning it relative to it. [Example](https://codepen.io/afc163/pen/zEjNOy?editors=0010)',
+  //   },
+  //   propType: 'func',
+  // },
+  {
+    name: 'overlay',
+    title: {
+      label: i18n("菜单", "Menu"),
+      tip: i18n("菜单", "Menu")
     },
-    // {
-    //   name: 'getPopupContainer',
-    //   title: {
-    //     label: '渲染父节点',
-    //     tip:
-    //       '菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010)',
-    //   },
-    //   propType: 'func',
-    // },
-    {
-      name: 'overlay',
-      title: { label: '菜单', tip: '菜单' },
-      propType: { type: 'oneOfType', value: ['node', 'func'] },
+    propType: {
+      type: 'oneOfType',
+      value: ['node', 'func']
+    }
+  },
+  // {
+  //   name: 'overlayClassName',
+  // title: { label: 'Root class name', tip: 'Root class name' },
+  //   propType: 'string',
+  // },
+  // {
+  //   name: 'overlayStyle',
+  // title: { label: 'Root style', tip: 'Root style' },
+  //   propType: 'object',
+  // },
+  {
+    name: 'placement',
+    title: {
+      label: i18n("弹出位置", "popup position"),
+      tip: i18n("菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight`", "Menu pop-up position: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight`")
     },
-    // {
-    //   name: 'overlayClassName',
-    //   title: { label: '根元素的类名称', tip: '根元素的类名称' },
-    //   propType: 'string',
-    // },
-    // {
-    //   name: 'overlayStyle',
-    //   title: { label: '根元素的样式', tip: '根元素的样式' },
-    //   propType: 'object',
-    // },
-    {
-      name: 'placement',
-      title: {
-        label: '弹出位置',
-        tip:
-          '菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight`',
-      },
-      propType: {
+    propType: {
+      type: 'oneOf',
+      value: ['bottomLeft', 'bottomCenter', 'bottomRight', 'topLeft', 'topCenter', 'topRight']
+    }
+  }, {
+    name: 'trigger',
+    title: {
+      label: i18n("触发下拉的行为", "The behavior that triggers the drop-down"),
+      tip: i18n("触发下拉的行为, 移动端不支持 hover", "Trigger drop-down behavior, mobile version does not support hover")
+    },
+    propType: {
+      type: 'arrayOf',
+      value: {
         type: 'oneOf',
-        value: ['bottomLeft', 'bottomCenter', 'bottomRight', 'topLeft', 'topCenter', 'topRight'],
-      },
+        value: ['click', 'hover', 'contextMenu']
+      }
+    }
+  }, {
+    name: 'onOpenChange',
+    title: {
+      label: i18n("显示状态回调", "ShowStatuscallback"),
+      tip: i18n("菜单显示状态改变时调用，参数为 `open`", "Called when the menu display status changes, the parameter is `open`")
     },
-    {
-      name: 'trigger',
-      title: {
-        label: '触发下拉的行为',
-        tip: '触发下拉的行为, 移动端不支持 hover',
-      },
-      propType: {
-        type: 'arrayOf',
-        value: { type: 'oneOf', value: ['click', 'hover', 'contextMenu'] },
-      },
-    },
-    {
-      name: 'onOpenChange',
-      title: {
-        label: '显示状态回调',
-        tip: '菜单显示状态改变时调用，参数为 `open`',
-      },
-      propType: 'func',
-    },
-  ],
+    propType: 'func'
+  }],
   configure: {
-    component: { isContainer: true },
+    component: {
+      isContainer: true
+    },
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onOpenChange',
-          template:
-            "onOpenChange(open,${extParams}){\n// 菜单显示状态改变时调用\nconsole.log('onOpenChange',open);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onOpenChange',
+        template: "onOpenChange(open,${extParams}){\n// MenuShowStatusChange callback\nconsole.log('onOpenChange',open);}"
+      }]
+    }
+  }
 };

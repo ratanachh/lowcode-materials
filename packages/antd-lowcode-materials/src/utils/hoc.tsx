@@ -17,8 +17,8 @@ function convertProps(
 }
 
 /**
- * 简单包装，不做任何处理
- * 部分组件ref比较特殊，包一层会解决这个问题
+ * Simple wrap with no extra logic.
+ * Some component refs are special; wrapping fixes that.
  */
 export function withWrap(Comp: ComponentType<any>) {
   return forwardRef((props: any, ref: Ref<any>) => {
@@ -27,8 +27,8 @@ export function withWrap(Comp: ComponentType<any>) {
 }
 
 /**
- * 某些组件会用React.Children.only检查子节点
- * 需要做处理避免报错
+ * Some components use React.Children.only on children.
+ * Handle that to avoid runtime errors.
  */
 export function withSingleChild(
   Comp: ComponentType<any>,
@@ -71,8 +71,8 @@ export function withSingleFunctionChild(Comp: ComponentType<any>) {
 }
 
 /**
- * moment对象在序列化后会被转为字符串
- * 需要让日期类组件支持接受字符串值
+ * moment objects become strings after serialization.
+ * Date components need to accept string values.
  */
 export function withMomentProps(
   Comp: ComponentType<any>,

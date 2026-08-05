@@ -2,9 +2,9 @@
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
+### [Live demo](https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.7/build/lowcode/index.html)
 
-### 使用 / Usage
+### Usage
 #### NPM
 ```js
 const { material } from '@rchh/lowcode-engine';
@@ -17,7 +17,7 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await (await fetch(`https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`)).json();
+const assets = await (await fetch(`https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.7/build/lowcode/assets-prod.json`)).json();
 material.setAssets(assets);
 ```
 

@@ -1,49 +1,64 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Spin',
-  title: '加载中',
-  category: '反馈',
-  props: [
-    {
-      name: 'delay',
-      title: { label: '延迟显示', tip: '延迟显示加载效果的时间（防止闪烁）' },
-      propType: 'number',
+  title: i18n("加载中", "Loading"),
+  category: "Feedback",
+  props: [{
+    name: 'delay',
+    title: {
+      label: i18n("延迟显示", "delayed display"),
+      tip: i18n("延迟显示加载效果的时间（防止闪烁）", "Delay the time to display loading effects (to prevent flickering)")
     },
-    {
-      name: 'indicator',
-      title: { label: '加载指示符', tip: '加载指示符' },
-      propType: 'node',
+    propType: 'number'
+  }, {
+    name: 'indicator',
+    title: {
+      label: i18n("加载指示符", "loading indicator"),
+      tip: i18n("加载指示符", "loading indicator")
     },
-    {
-      name: 'size',
-      title: {
-        label: '尺寸',
-        tip: '组件大小',
-      },
-      propType: { type: 'oneOf', value: ['small', 'default', 'large'] },
-      defaultValue: 'default',
+    propType: 'node'
+  }, {
+    name: 'size',
+    title: {
+      label: i18n("尺寸", "Size"),
+      tip: i18n("组件大小", "ComponentSize")
     },
-    {
-      name: 'spinning',
-      title: { label: '加载状态', tip: '是否为加载中状态' },
-      propType: 'bool',
-      defaultValue: true,
+    propType: {
+      type: 'oneOf',
+      value: ['small', 'default', 'large']
     },
-    {
-      name: 'tip',
-      title: { label: '描述文案', tip: '当作为包裹元素时，可以自定义描述文案' },
-      propType: 'string',
+    defaultValue: 'default'
+  }, {
+    name: 'spinning',
+    title: {
+      label: i18n("加载状态", "LoadingStatus"),
+      tip: i18n("是否为加载中状态", "YesNo LoadingStatus")
     },
-    {
-      name: 'wrapperClassName',
-      title: { label: '包装器的类属性', tip: '包装器的类属性' },
-      propType: 'string',
+    propType: 'bool',
+    defaultValue: true
+  }, {
+    name: 'tip',
+    title: {
+      label: i18n("描述文案", "description copy"),
+      tip: i18n("当作为包裹元素时，可以自定义描述文案", "When used as a package element, you can customize the description copy")
     },
-  ],
+    propType: 'string'
+  }, {
+    name: 'wrapperClassName',
+    title: {
+      label: i18n("包装器的类属性", "class attribute of wrapper"),
+      tip: i18n("包装器的类属性", "class attribute of wrapper")
+    },
+    propType: 'string'
+  }],
   configure: {
-    component: { isContainer: true },
-    supports: { style: true },
-  },
+    component: {
+      isContainer: true
+    },
+    supports: {
+      style: true
+    }
+  }
 };

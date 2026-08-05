@@ -1,69 +1,77 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Avatar',
-  title: '头像',
-  category: '数据展示',
-  props: [
-    {
-      name: 'icon',
-      title: { label: '头像图标', tip: '设置头像的自定义图标' },
-      propType: 'node',
+  title: i18n("头像", "Avatar"),
+  category: "Data Display",
+  props: [{
+    name: 'icon',
+    title: {
+      label: i18n("头像图标", "AvatarIcon"),
+      tip: i18n("设置头像的自定义图标", "Set Avatar CustomIcon")
     },
-    {
-      name: 'shape',
-      title: { label: '头像形状', tip: '指定头像的形状' },
-      propType: { type: 'oneOf', value: ['circle', 'square'] },
+    propType: 'node'
+  }, {
+    name: 'shape',
+    title: {
+      label: i18n("头像形状", "avatar shape"),
+      tip: i18n("指定头像的形状", "Specify the shape of the avatar")
     },
-    {
-      name: 'size',
-      title: { label: '尺寸', tip: '设置头像的大小' },
-      propType: {
-        type: 'oneOfType',
-        value: ['number', { type: 'oneOf', value: ['large', 'small', 'default'] }],
-      },
-      defaultValue: 'default',
+    propType: {
+      type: 'oneOf',
+      value: ['circle', 'square']
+    }
+  }, {
+    name: 'size',
+    title: {
+      label: i18n("尺寸", "Size"),
+      tip: i18n("设置头像的大小", "Set Avatar Size")
     },
-    {
-      name: 'src',
-      title: { label: '图片地址', tip: '图片类头像的资源地址' },
-      propType: 'string',
+    propType: {
+      type: 'oneOfType',
+      value: ['number', {
+        type: 'oneOf',
+        value: ['large', 'small', 'default']
+      }]
     },
-    {
-      name: 'alt',
-      title: {
-        label: '替代文本',
-        tip: '图像无法显示时的替代文本',
-      },
-      propType: 'string',
+    defaultValue: 'default'
+  }, {
+    name: 'src',
+    title: {
+      label: i18n("图片地址", "Image URL"),
+      tip: i18n("图片类头像的资源地址", "Resource address of picture avatar")
     },
-    {
-      name: 'onError',
-      title: {
-        label: '图片加载失败的事件',
-        tip: '图片加载失败的事件，返回 false 会关闭组件默认的 fallback 行为',
-      },
-      propType: 'func',
+    propType: 'string'
+  }, {
+    name: 'alt',
+    title: {
+      label: i18n("替代文本", "alt text"),
+      tip: i18n("图像无法显示时的替代文本", "Alternative text when image cannot be displayed")
     },
-    {
-      name: 'gap',
-      title: {
-        label: '文字边距',
-        tip: '字符类型距离左右两侧边界单位像素',
-      },
-      propType: 'number',
+    propType: 'string'
+  }, {
+    name: 'onError',
+    title: {
+      label: i18n("图片加载失败的事件", "Image loading failure event"),
+      tip: i18n("图片加载失败的事件，返回 false 会关闭组件默认的 fallback 行为", "Image loading failure event. Returning false will turn off the component's default fallback behavior.")
     },
-  ],
+    propType: 'func'
+  }, {
+    name: 'gap',
+    title: {
+      label: i18n("文字边距", "text margins"),
+      tip: i18n("字符类型距离左右两侧边界单位像素", "Character type distance from left and right borders in pixels")
+    },
+    propType: 'number'
+  }],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onError',
-          template: "onError(${extParams}){\n// 图片加载失败的事件\nconsole.log('onError');}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onError',
+        template: "onError(${extParams}){\n// Image loading failure event\nconsole.log('onError');}"
+      }]
+    }
+  }
 };

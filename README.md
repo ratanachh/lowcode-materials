@@ -52,7 +52,7 @@ material.setAssets(assets);
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
+### [在线示例 / DEMO](https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.7/build/lowcode/index.html)
 
 ### 使用 / Usage
 
@@ -71,7 +71,7 @@ material.setAssets(assets);
 ```js
 // in GeneralWorkbench init
 const assets = await fetch(
-  `https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`,
+  `https://cdn.jsdelivr.net/npm/@rchh/antd-lowcode-materials@1.2.7/build/lowcode/assets-prod.json`,
 ).then((res) => res.json());
 material.setAssets(assets);
 ```

@@ -1,207 +1,211 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Slider',
-  title: '滑动输入条',
-  category: '表单',
-  props: [
-    {
-      name: 'defaultValue',
-      title: {
-        label: '默认值',
-        tip: '设置初始取值。当 `range` 为 false 时，使用 number，否则用 \\[number, number]',
-      },
-      propType: {
-        type: 'oneOfType',
-        value: ['number', { type: 'arrayOf', value: 'number' }],
-      },
+  title: i18n("滑动输入条", "sliding input bar"),
+  category: "Data Entry",
+  props: [{
+    name: 'defaultValue',
+    title: {
+      label: i18n("默认值", "Default value"),
+      tip: i18n("设置初始取值。当 `range` 为 false 时，使用 number，否则用 \\[number, number]", "设置初始取值。当 `range` 为 false 时，使用 number，否则用 \\[number, number]")
     },
-    {
-      name: 'range',
-      title: { label: '双滑块模式', tip: '双滑块模式' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter',
-      setValue(target, range) {
-        let defaultValue = target.node.getPropValue('defaultValue');
-        if (range) {
-          defaultValue = Array.isArray(defaultValue) ? defaultValue : [0, defaultValue];
-        } else {
-          defaultValue = Array.isArray(defaultValue)
-            ? defaultValue[1] || defaultValue[0]
-            : defaultValue;
-        }
-        target.node.setPropValue('defaultValue', defaultValue);
-      },
+    propType: {
+      type: 'oneOfType',
+      value: ['number', {
+        type: 'arrayOf',
+        value: 'number'
+      }]
+    }
+  }, {
+    name: 'range',
+    title: {
+      label: i18n("双滑块模式", "Dual slider mode"),
+      tip: i18n("双滑块模式", "Dual slider mode")
     },
-    // {
-    //   name: 'value',
-    //   title: {
-    //     label: '当前值',
-    //     tip:
-    //       '设置当前取值。当 `range` 为 false 时，使用 number，否则用 \\[number, number]',
-    //   },
-    //   propType: {
-    //     type: 'oneOfType',
-    //     value: ['number', { type: 'arrayOf', value: 'number' }],
-    //   },
-    // },
-    {
-      name: 'allowClear',
-      title: { label: '支持清除', tip: '是否允许清除' },
-      condition(target) {
-        return target.getProps().getPropValue('range') === true;
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter',
+    setValue(target, range) {
+      let defaultValue = target.node.getPropValue('defaultValue');
+      if (range) {
+        defaultValue = Array.isArray(defaultValue) ? defaultValue : [0, defaultValue];
+      } else {
+        defaultValue = Array.isArray(defaultValue) ? defaultValue[1] || defaultValue[0] : defaultValue;
+      }
+      target.node.setPropValue('defaultValue', defaultValue);
+    }
+  },
+  // {
+  //   name: 'value',
+  //   title: {
+  // label: 'Current value',
+  //     tip:
+  // 'Set the current value. When `range` is false, use number, otherwise use \\[number, number]',
+  //   },
+  //   propType: {
+  //     type: 'oneOfType',
+  //     value: ['number', { type: 'arrayOf', value: 'number' }],
+  //   },
+  // },
+  {
+    name: 'allowClear',
+    title: {
+      label: i18n("支持清除", "Allow clear"),
+      tip: i18n("是否允许清除", "Whether allow clear")
     },
-    {
-      name: 'disabled',
-      title: {
-        label: '是否禁用',
-        tip: '是否为禁用状态',
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    condition(target) {
+      return target.getProps().getPropValue('range') === true;
     },
-    {
-      name: 'dots',
-      title: { label: '对齐刻度', tip: '是否只能拖拽到刻度上' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    // {
-    //   name: 'included',
-    //   title: {
-    //     label:
-    //       '`marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列',
-    //     tip:
-    //       '`marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列',
-    //   },
-    //   propType: 'bool',
-    //   defaultValue: true,
-    // },
-    // {
-    //   name: 'marks',
-    //   title: {
-    //     label:
-    //       '刻度标记，key 的类型必须为 `number` 且取值在闭区间 \\[min, max] 内，每个标签可以单独设置样式',
-    //     tip:
-    //       '刻度标记，key 的类型必须为 `number` 且取值在闭区间 \\[min, max] 内，每个标签可以单独设置样式',
-    //   },
-    //   propType: 'object',
-    // },
-    {
-      name: 'max',
-      title: { label: '最大值', tip: '最大值' },
-      propType: 'number',
-      setter: 'NumberSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'dots',
+    title: {
+      label: i18n("对齐刻度", "Alignment scale"),
+      tip: i18n("是否只能拖拽到刻度上", "Whether it can only be dragged to the scale")
     },
-    {
-      name: 'min',
-      title: { label: '最小值', tip: '最小值' },
-      propType: 'number',
-      setter: 'NumberSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  },
+  // {
+  //   name: 'included',
+  //   title: {
+  //     label:
+  // '`marks` is valid when it is not an empty object. When the value is true, it means that the value is an inclusion relationship, and false means that it is parallel',
+  //     tip:
+  // '`marks` is valid when it is not an empty object. When the value is true, it means that the value is an inclusion relationship, and false means that it is parallel',
+  //   },
+  //   propType: 'bool',
+  //   defaultValue: true,
+  // },
+  // {
+  //   name: 'marks',
+  //   title: {
+  //     label:
+  // 'Tick mark, the type of key must be `number` and the value must be within the closed interval \\[min, max], each label can be styled independently',
+  //     tip:
+  // 'Tick mark, the type of key must be `number` and the value must be within the closed interval \\[min, max], each label can be styled independently',
+  //   },
+  //   propType: 'object',
+  // },
+  {
+    name: 'max',
+    title: {
+      label: i18n("最大值", "Max"),
+      tip: i18n("最大值", "Max")
     },
-    {
-      name: 'reverse',
-      title: { label: '反向坐标轴', tip: '反向坐标轴' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'number',
+    setter: 'NumberSetter'
+  }, {
+    name: 'min',
+    title: {
+      label: i18n("最小值", "Min"),
+      tip: i18n("最小值", "Min")
     },
-    {
-      name: 'step',
-      title: {
-        label: '步长',
-        tip:
-          '步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 marks 标出来的部分',
-      },
-      propType: 'number',
-      setter: 'NumberSetter'
+    propType: 'number',
+    setter: 'NumberSetter'
+  }, {
+    name: 'reverse',
+    title: {
+      label: i18n("反向坐标轴", "reverse axis"),
+      tip: i18n("反向坐标轴", "reverse axis")
     },
-    // {
-    //   name: 'tipFormatter',
-    //   title: {
-    //     label:
-    //       'Slider 会把当前值传给 `tipFormatter`，并在 Tooltip 中显示 `tipFormatter` 的返回值，若为 null，则隐藏 Tooltip',
-    //     tip:
-    //       'Slider 会把当前值传给 `tipFormatter`，并在 Tooltip 中显示 `tipFormatter` 的返回值，若为 null，则隐藏 Tooltip',
-    //   },
-    //   propType: 'func',
-    // },
-    {
-      name: 'vertical',
-      title: {
-        label: '垂直方向',
-        tip: '值为 true 时，Slider 为垂直方向',
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'step',
+    title: {
+      label: i18n("步长", "Step"),
+      tip: i18n("步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 marks 标出来的部分", "Step size, the value must be greater than 0 and divisible by (max - min). When `marks` is not an empty object, you can set `step` to null. At this time, the optional value of Slider is only the part marked by marks.")
     },
-    {
-      name: 'onAfterChange',
-      title: {
-        label: '与 `onmouseup` 触发时机一致，把当前值作为参数传入',
-        tip: '与 `onmouseup` 触发时机一致，把当前值作为参数传入',
-      },
-      propType: 'func',
+    propType: 'number',
+    setter: 'NumberSetter'
+  },
+  // {
+  //   name: 'tipFormatter',
+  //   title: {
+  //     label:
+  // 'Slider will pass the current value to `tipFormatter` and display the return value of `tipFormatter` in the Tooltip. If it is null, the Tooltip will be hidden',
+  //     tip:
+  // 'Slider will pass the current value to `tipFormatter` and display the return value of `tipFormatter` in the Tooltip. If it is null, the Tooltip will be hidden',
+  //   },
+  //   propType: 'func',
+  // },
+  {
+    name: 'vertical',
+    title: {
+      label: i18n("垂直方向", "VerticalDirection"),
+      tip: i18n("值为 true 时，Slider 为垂直方向", "When the value is true, the Slider is vertically oriented")
     },
-    {
-      name: 'onChange',
-      title: {
-        label: '当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入',
-        tip: '当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入',
-      },
-      propType: 'func',
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'onAfterChange',
+    title: {
+      label: i18n("与 `onmouseup` 触发时机一致，把当前值作为参数传入", "Consistent with `onmouseup` triggering time, the current value is passed in as a parameter"),
+      tip: i18n("与 `onmouseup` 触发时机一致，把当前值作为参数传入", "Consistent with `onmouseup` triggering time, the current value is passed in as a parameter")
     },
-    // {
-    //   name: 'tooltipPlacement',
-    //   title: {
-    //     label: '设置 Tooltip 展示位置。参考 [Tooltip](/components/tooltip/)',
-    //     tip: '设置 Tooltip 展示位置。参考 [Tooltip](/components/tooltip/)',
-    //   },
-    //   propType: 'string',
-    // },
-    // {
-    //   name: 'tooltipVisible',
-    //   title: {
-    //     label:
-    //       '值为 true 时，Tooltip 将会始终显示；否则始终不显示，哪怕在拖拽及移入时',
-    //     tip:
-    //       '值为 true 时，Tooltip 将会始终显示；否则始终不显示，哪怕在拖拽及移入时',
-    //   },
-    //   propType: 'bool',
-    // },
-    // {
-    //   name: 'getTooltipPopupContainer',
-    //   title: {
-    //     label: 'Tooltip 渲染父节点，默认渲染到 body 上',
-    //     tip: 'Tooltip 渲染父节点，默认渲染到 body 上',
-    //   },
-    //   propType: 'func',
-    // },
+    propType: 'func'
+  }, {
+    name: 'onChange',
+    title: {
+      label: i18n("当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入", "When the value of Slider changes, the onChange event will be triggered and the changed value will be passed in as a parameter."),
+      tip: i18n("当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入", "When the value of Slider changes, the onChange event will be triggered and the changed value will be passed in as a parameter.")
+    },
+    propType: 'func'
+  }
+  // {
+  //   name: 'tooltipPlacement',
+  //   title: {
+  // label: 'Set Tooltip placement. Reference [Tooltip](/components/tooltip/)',
+  // tip: 'Set Tooltip placement. Reference [Tooltip](/components/tooltip/)',
+  //   },
+  //   propType: 'string',
+  // },
+  // {
+  //   name: 'tooltipVisible',
+  //   title: {
+  //     label:
+  // 'When the value is true, the Tooltip will always be displayed; otherwise it will not be displayed, even when dragging and moving',
+  //     tip:
+  // 'When the value is true, the Tooltip will always be displayed; otherwise it will not be displayed, even when dragging and moving',
+  //   },
+  //   propType: 'bool',
+  // },
+  // {
+  //   name: 'getTooltipPopupContainer',
+  //   title: {
+  // label: 'Tooltip parent node; defaults to body',
+  // tip: 'Tooltip parent node; defaults to body',
+  //   },
+  //   propType: 'func',
+  // },
   ],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onAfterChange',
-          template:
-            "onAfterChange(value,${extParams}){\n// 与 onmouseup 触发时机一致\nconsole.log('onAfterChange',value);}",
-        },
-        {
-          name: 'onChange',
-          template:
-            "onChange(value,${extParams}){\n// 当 Slider 的值发生改变时触发回调\nconsole.log('onChange',value);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onAfterChange',
+        template: "onAfterChange(value,${extParams}){\n// Consistent with onmouseup triggering timing\nconsole.log('onAfterChange',value);}"
+      }, {
+        name: 'onChange',
+        template: "onChange(value,${extParams}){\n// The callback is triggered when the value of Slider changes\nconsole.log('onChange',value);}"
+      }]
+    }
+  }
 };

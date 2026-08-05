@@ -1,58 +1,67 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Tag',
-  title: '标签',
-  category: '数据展示',
-  props: [
-    {
-      name: 'children',
-      title: { label: '内容', tip: '内容' },
-      propType: 'string',
+  title: i18n("标签", "Tag"),
+  category: "Data Display",
+  props: [{
+    name: 'children',
+    title: {
+      label: i18n("内容", "Content"),
+      tip: i18n("内容", "Content")
     },
-    {
-      name: 'closable',
-      title: { label: '可关闭', tip: '标签是否可以关闭' },
-      propType: 'bool',
-      defaultValue: false,
+    propType: 'string'
+  }, {
+    name: 'closable',
+    title: {
+      label: i18n("可关闭", "Can Off"),
+      tip: i18n("标签是否可以关闭", "TagYesNoCan Off")
     },
-    {
-      name: 'color',
-      title: { label: '标签色', tip: '标签色' },
-      propType: 'string',
+    propType: 'bool',
+    defaultValue: false
+  }, {
+    name: 'color',
+    title: {
+      label: i18n("标签色", "Label color"),
+      tip: i18n("标签色", "Label color")
     },
-    // {
-    //   name: 'closeIcon',
-    //   title: { label: '自定义关闭按钮', tip: '自定义关闭按钮' },
-    //   propType: 'node',
-    // },
-    {
-      name: 'onClose',
-      title: { label: '关闭时的回调', tip: '关闭时的回调' },
-      propType: 'func',
+    propType: 'string'
+  },
+  // {
+  //   name: 'closeIcon',
+  // title: { label: 'Custom close button', tip: 'Custom close button' },
+  //   propType: 'node',
+  // },
+  {
+    name: 'onClose',
+    title: {
+      label: i18n("关闭时的回调", "Off on callback"),
+      tip: i18n("关闭时的回调", "Off on callback")
     },
-    // {
-    //   name: 'visible',
-    //   title: { label: '是否显示标签', tip: '是否显示标签' },
-    //   propType: 'bool',
-    //   defaultValue: true,
-    // },
-    {
-      name: 'icon',
-      title: { label: '设置图标', tip: '设置图标' },
-      propType: 'node',
+    propType: 'func'
+  },
+  // {
+  //   name: 'visible',
+  // title: { label: 'YesNoShowTag', tip: 'YesNoShowTag' },
+  //   propType: 'bool',
+  //   defaultValue: true,
+  // },
+  {
+    name: 'icon',
+    title: {
+      label: i18n("设置图标", "Set Icon"),
+      tip: i18n("设置图标", "Set Icon")
     },
-  ],
+    propType: 'node'
+  }],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onClose',
-          template: "onClose(event,${extParams}){\n// 关闭时的回调\nconsole.log('onClose',event);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onClose',
+        template: "onClose(event,${extParams}){\n// Off on callback\nconsole.log('onClose',event);}"
+      }]
+    }
+  }
 };

@@ -1,295 +1,249 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Tooltip',
-  title: '文字提示',
-  category: '数据展示',
-  props: [
-    {
-      title: '内容',
-      display: 'block',
-      type: 'group',
-      items: [
-        {
-          name: 'title',
-          title: {
-            label: '提示文字',
-            tip: 'title | 提示文字',
-          },
-          propType: { type: 'oneOfType', value: ['string', 'node'] },
-          setter: ['StringSetter', 'SlotSetter', 'VariableSetter'],
-        },
-      ],
+  title: i18n("文字提示", "Tooltip"),
+  category: "Data Display",
+  props: [{
+    title: i18n("内容", "Content"),
+    display: 'block',
+    type: 'group',
+    items: [{
+      name: 'title',
+      title: {
+        label: i18n("提示文字", "Tip text"),
+        tip: i18n("title | 提示文字", "title | Tip text")
+      },
+      propType: {
+        type: 'oneOfType',
+        value: ['string', 'node']
+      },
+      setter: ['StringSetter', 'SlotSetter', 'VariableSetter']
+    }]
+  }, {
+    title: i18n("控制", "Control"),
+    display: 'block',
+    type: 'group',
+    items: [{
+      name: 'defaultOpen',
+      title: {
+        label: i18n("默认显隐", "Show or hide by default"),
+        tip: i18n("defaultOpen | 默认是否显隐", "defaultOpen | Whether to show or hide by default")
+      },
+      propType: 'bool',
+      setter: 'BoolSetter',
+      defaultValue: false
+    }, {
+      name: 'open',
+      title: {
+        label: i18n("当前显隐", "Currently visible"),
+        tip: i18n("open | 当前是否显隐", "open | Whether to show or hide currently")
+      },
+      propType: 'bool',
+      setter: 'BoolSetter'
+    }]
+  }, {
+    title: i18n("外观", "Appearance"),
+    display: 'block',
+    type: 'group',
+    items: [{
+      name: 'placement',
+      title: {
+        label: i18n("气泡位置", "Bubble position"),
+        tip: i18n("placement | 气泡位置", "placement | bubble position")
+      },
+      propType: {
+        type: 'oneOf',
+        value: ['top', 'left', 'right', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'leftTop', 'leftBottom', 'rightTop', 'rightBottom']
+      },
+      defaultValue: 'top',
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [{
+            title: i18n("上", "Top"),
+            value: 'top'
+          }, {
+            title: i18n("左", "Left"),
+            value: 'left'
+          }, {
+            title: i18n("右", "Right"),
+            value: 'right'
+          }, {
+            title: i18n("下", "Bottom"),
+            value: 'bottom'
+          }, {
+            title: i18n("上左", "Top left"),
+            value: 'topLeft'
+          }, {
+            title: i18n("上右", "Top right"),
+            value: 'topRight'
+          }, {
+            title: i18n("下左", "Bottom left"),
+            value: 'bottomLeft'
+          }, {
+            title: i18n("下右", "Bottom right"),
+            value: 'bottomRight'
+          }, {
+            title: i18n("左上", "LeftTop"),
+            value: 'leftTop'
+          }, {
+            title: i18n("左下", "LeftBottom"),
+            value: 'leftBottom'
+          }, {
+            title: i18n("右上", "RightTop"),
+            value: 'rightTop'
+          }, {
+            title: i18n("右下", "RightBottom"),
+            value: 'rightBottom'
+          }]
+        }
+      }
+    }, {
+      name: 'autoAdjustOverflow',
+      title: {
+        label: i18n("自动调整", "automatic adjustment"),
+        tip: i18n("autoAdjustOverflow | 气泡被遮挡时自动调整位置", "autoAdjustOverflow | Automatically adjust the position of the bubble when it is blocked")
+      },
+      propType: 'bool',
+      setter: 'BoolSetter',
+      defaultValue: true
+    }, {
+      name: 'arrowPointAtCenter',
+      title: {
+        label: i18n("指向中心", "Point to center"),
+        tip: i18n("arrowPointAtCenter | 箭头是否指向目标元素中心", "arrowPointAtCenter | Whether the arrow points to the center of the target element")
+      },
+      propType: 'bool',
+      setter: 'BoolSetter',
+      defaultValue: false
+    }, {
+      name: 'color',
+      title: {
+        label: i18n("背景颜色", "background color"),
+        tip: i18n("color | 背景颜色", "color | background color")
+      },
+      propType: 'string',
+      setter: 'ColorSetter'
+    }, {
+      name: 'zIndex',
+      title: {
+        label: 'zIndex',
+        tip: i18n("zIndex | 设置 Tooltip 的 z-index值", "zIndex | Set Tooltip z-indexValue")
+      },
+      propType: 'number',
+      setter: 'NumberSetter'
+    }]
+  }, {
+    name: 'overlayStyle',
+    title: i18n("卡片样式", "Card style"),
+    type: 'group',
+    extraProps: {
+      display: 'entry'
     },
-    {
-      title: '控制',
-      display: 'block',
-      type: 'group',
-      items: [
-        {
-          name: 'defaultOpen',
-          title: {
-            label: '默认显隐',
-            tip: 'defaultOpen | 默认是否显隐',
-          },
-          propType: 'bool',
-          setter: 'BoolSetter',
-          defaultValue: false,
-        },
-        {
-          name: 'open',
-          title: {
-            label: '当前显隐',
-            tip: 'open | 当前是否显隐',
-          },
-          propType: 'bool',
-          setter: 'BoolSetter',
-        },
-      ],
-    },
-    {
-      title: '外观',
-      display: 'block',
-      type: 'group',
-      items: [
-        {
-          name: 'placement',
-          title: { label: '气泡位置', tip: 'placement | 气泡位置' },
-          propType: {
-            type: 'oneOf',
-            value: [
-              'top',
-              'left',
-              'right',
-              'bottom',
-              'topLeft',
-              'topRight',
-              'bottomLeft',
-              'bottomRight',
-              'leftTop',
-              'leftBottom',
-              'rightTop',
-              'rightBottom',
-            ],
-          },
-          defaultValue: 'top',
-          setter: {
-            componentName: 'SelectSetter',
-            props: {
-              options: [
-                {
-                  title: '上',
-                  value: 'top',
-                },
-                {
-                  title: '左',
-                  value: 'left',
-                },
-                {
-                  title: '右',
-                  value: 'right',
-                },
-                {
-                  title: '下',
-                  value: 'bottom',
-                },
-                {
-                  title: '上左',
-                  value: 'topLeft',
-                },
-                {
-                  title: '上右',
-                  value: 'topRight',
-                },
-                {
-                  title: '下左',
-                  value: 'bottomLeft',
-                },
-                {
-                  title: '下右',
-                  value: 'bottomRight',
-                },
-                {
-                  title: '左上',
-                  value: 'leftTop',
-                },
-                {
-                  title: '左下',
-                  value: 'leftBottom',
-                },
-                {
-                  title: '右上',
-                  value: 'rightTop',
-                },
-                {
-                  title: '右下',
-                  value: 'rightBottom',
-                },
-              ],
-            },
-          },
-        },
-        {
-          name: 'autoAdjustOverflow',
-          title: {
-            label: '自动调整',
-            tip: 'autoAdjustOverflow | 气泡被遮挡时自动调整位置',
-          },
-          propType: 'bool',
-          setter: 'BoolSetter',
-          defaultValue: true,
-        },
-        {
-          name: 'arrowPointAtCenter',
-          title: {
-            label: '指向中心',
-            tip: 'arrowPointAtCenter | 箭头是否指向目标元素中心',
-          },
-          propType: 'bool',
-          setter: 'BoolSetter',
-          defaultValue: false,
-        },
-        {
-          name: 'color',
-          title: {
-            label: '背景颜色',
-            tip: 'color | 背景颜色',
-          },
-          propType: 'string',
-          setter: 'ColorSetter',
-        },
-        {
-          name: 'zIndex',
-          title: {
-            label: 'zIndex',
-            tip: 'zIndex | 设置 Tooltip 的 z-index值',
-          },
-          propType: 'number',
-          setter: 'NumberSetter',
-        },
-      ],
-    },
-    {
+    items: [{
       name: 'overlayStyle',
-      title: '卡片样式',
-      type: 'group',
-      extraProps: {
-        display: 'entry',
+      title: {
+        label: i18n("样式设置", "Style settings"),
+        tip: i18n("overlayStyle | 卡片样式", "overlayStyle | Card style")
       },
-      items: [
-        {
-          name: 'overlayStyle',
-          title: { label: '样式设置', tip: 'overlayStyle | 卡片样式' },
-          setter: 'StyleSetter',
-          extraProps: {
-            display: 'block',
-          },
-        },
-      ],
+      setter: 'StyleSetter',
+      extraProps: {
+        display: 'block'
+      }
+    }]
+  }, {
+    name: 'overlayInnerStyle',
+    title: i18n("卡片内容样式", "CardContent style"),
+    type: 'group',
+    extraProps: {
+      display: 'entry'
     },
-    {
+    items: [{
       name: 'overlayInnerStyle',
-      title: '卡片内容样式',
-      type: 'group',
-      extraProps: {
-        display: 'entry',
+      title: {
+        label: i18n("样式设置", "Style settings"),
+        tip: i18n("overlayStyle | 卡片内容区域的样式", "overlayStyle | The style of the card content area")
       },
-      items: [
-        {
-          name: 'overlayInnerStyle',
-          title: {
-            label: '样式设置',
-            tip: 'overlayStyle | 卡片内容区域的样式',
-          },
-          setter: 'StyleSetter',
-          extraProps: {
-            display: 'block',
-          },
-        },
-      ],
-    },
-    {
-      title: '行为',
-      display: 'block',
-      type: 'group',
-      items: [
-        {
-          name: 'trigger',
-          title: { label: '触发行为', tip: 'trigger | 触发行为' },
-          propType: {
-            type: 'oneOf',
-            value: ['hover', 'focus', 'click', 'contextMenu'],
-          },
-          defaultValue: 'hover',
-          setter: {
-            componentName: 'SelectSetter',
-            props: {
-              options: [
-                {
-                  title: '鼠标悬停',
-                  value: 'hover',
-                },
-                {
-                  title: '获得焦点',
-                  value: 'focus',
-                },
-                {
-                  title: '鼠标点击',
-                  value: 'click',
-                },
-                {
-                  title: '右键菜单',
-                  value: 'contextMenu',
-                },
-              ],
-            },
-          },
-        },
-        {
-          name: 'mouseEnterDelay',
-          title: {
-            label: '展示延时',
-            tip: 'mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒',
-          },
-          propType: 'number',
-          defaultValue: 0.1,
-          setter: {
-            componentName: 'NumberSetter',
-            props: {
-              step: 0.1,
-            },
-          },
-        },
-        {
-          name: 'mouseLeaveDelay',
-          title: {
-            label: '隐藏延时',
-            tip: 'mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒',
-          },
-          propType: 'number',
-          defaultValue: 0.1,
-          setter: {
-            componentName: 'NumberSetter',
-            props: {
-              step: 0.1,
-            },
-          },
-        },
-      ],
-    },
-  ],
+      setter: 'StyleSetter',
+      extraProps: {
+        display: 'block'
+      }
+    }]
+  }, {
+    title: i18n("行为", "Row"),
+    display: 'block',
+    type: 'group',
+    items: [{
+      name: 'trigger',
+      title: {
+        label: i18n("触发行为", "Trigger Row"),
+        tip: i18n("trigger | 触发行为", "trigger | Trigger Row")
+      },
+      propType: {
+        type: 'oneOf',
+        value: ['hover', 'focus', 'click', 'contextMenu']
+      },
+      defaultValue: 'hover',
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [{
+            title: i18n("鼠标悬停", "mouseover"),
+            value: 'hover'
+          }, {
+            title: i18n("获得焦点", "get focus"),
+            value: 'focus'
+          }, {
+            title: i18n("鼠标点击", "Mouse Click"),
+            value: 'click'
+          }, {
+            title: i18n("右键菜单", "right click menu"),
+            value: 'contextMenu'
+          }]
+        }
+      }
+    }, {
+      name: 'mouseEnterDelay',
+      title: {
+        label: i18n("展示延时", "display delay"),
+        tip: i18n("mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒", "mouseEnterDelay | The delay after the mouse is moved in before the Tooltip is displayed, unit: seconds")
+      },
+      propType: 'number',
+      defaultValue: 0.1,
+      setter: {
+        componentName: 'NumberSetter',
+        props: {
+          step: 0.1
+        }
+      }
+    }, {
+      name: 'mouseLeaveDelay',
+      title: {
+        label: i18n("隐藏延时", "Hide delay"),
+        tip: i18n("mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒", "mouseLeaveDelay | The delay after the mouse is moved out before hiding the Tooltip, unit: seconds")
+      },
+      propType: 'number',
+      defaultValue: 0.1,
+      setter: {
+        componentName: 'NumberSetter',
+        props: {
+          step: 0.1
+        }
+      }
+    }]
+  }],
   configure: {
-    component: { isContainer: true },
+    component: {
+      isContainer: true
+    },
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onOpenChange',
-          template:
-            "onOpenChange(open,${extParams}){\n// 显示隐藏的回调\nconsole.log('onOpenChange',open);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onOpenChange',
+        template: "onOpenChange(open,${extParams}){\n// ShowHide callback\nconsole.log('onOpenChange',open);}"
+      }]
+    }
+  }
 };

@@ -1,416 +1,443 @@
 import { uuid } from '../_utils/utils';
-
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Select',
-  title: '选择器',
-  category: '表单',
-  props: [
-    {
-      name: 'defaultValue',
-      title: { label: '默认值', tip: '默认选中值' },
-      propType: {
-        type: 'oneOfType',
-        value: [
-          'string',
-          { type: 'arrayOf', value: 'string' },
-          'number',
-          { type: 'arrayOf', value: 'number' },
-        ],
-      },
+  title: i18n("选择器", "Select"),
+  category: "Data Entry",
+  props: [{
+    name: 'defaultValue',
+    title: {
+      label: i18n("默认值", "Default value"),
+      tip: i18n("默认选中值", "Default selected value")
     },
-    {
-      name: 'value',
-      title: { label: '当前值', tip: '当前值' },
-      propType: {
-        type: 'oneOfType',
-        value: [
-          'string',
-          { type: 'arrayOf', value: 'string' },
-          'number',
-          { type: 'arrayOf', value: 'number' },
-        ],
-      },
-    },
-    {
-      name: 'options',
-      title: { label: '可选项', tip: '可选项' },
-      propType: {
+    propType: {
+      type: 'oneOfType',
+      value: ['string', {
         type: 'arrayOf',
-        value: {
-          type: 'shape',
-          value: [
-            {
-              name: 'label',
-              propType: 'string',
-              description: '选项名',
-              defaultValue: '选项名',
-            },
-            {
-              name: 'value',
-              propType: ['string', 'number'],
-              description: '选项值',
-              defaultValue: '选项值',
-            },
-            {
-              name: 'disabled',
-              propType: 'bool',
-              description: '是否禁用',
-              defaultValue: false,
-            },
-          ],
-        },
-      },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'ObjectSetter',
-            props: {
-              config: {
-                items: [
-                  {
-                    name: 'label',
-                    title: '选项名',
-                    setter: ['StringSetter', 'VariableSetter'],
-                    isRequired: true
-                  },
-                  {
-                    name: 'value',
-                    title: '选项值',
-                    setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
-                    isRequired: true
-                  },
-                  {
-                    name: 'disabled',
-                    title: '是否禁用',
-                    setter: ['BoolSetter', 'VariableSetter'],
-                  },
-                ],
-              },
-            },
-            initialValue: () => {
-              return {
-                label: '选项名',
-                value: uuid(),
-                disabled: false,
-              };
-            },
+        value: 'string'
+      }, 'number', {
+        type: 'arrayOf',
+        value: 'number'
+      }]
+    }
+  }, {
+    name: 'value',
+    title: {
+      label: i18n("当前值", "Current value"),
+      tip: i18n("当前值", "Current value")
+    },
+    propType: {
+      type: 'oneOfType',
+      value: ['string', {
+        type: 'arrayOf',
+        value: 'string'
+      }, 'number', {
+        type: 'arrayOf',
+        value: 'number'
+      }]
+    }
+  }, {
+    name: 'options',
+    title: {
+      label: i18n("可选项", "Optional"),
+      tip: i18n("可选项", "Optional")
+    },
+    propType: {
+      type: 'arrayOf',
+      value: {
+        type: 'shape',
+        value: [{
+          name: 'label',
+          propType: 'string',
+          description: "Option label",
+          defaultValue: "Option label"
+        }, {
+          name: 'value',
+          propType: ['string', 'number'],
+          description: "Option value",
+          defaultValue: "Option value"
+        }, {
+          name: 'disabled',
+          propType: 'bool',
+          description: "Disabled",
+          defaultValue: false
+        }]
+      }
+    },
+    setter: {
+      componentName: 'ArraySetter',
+      props: {
+        itemSetter: {
+          componentName: 'ObjectSetter',
+          props: {
+            config: {
+              items: [{
+                name: 'label',
+                title: i18n("选项名", "Option label"),
+                setter: ['StringSetter', 'VariableSetter'],
+                isRequired: true
+              }, {
+                name: 'value',
+                title: i18n("选项值", "Option value"),
+                setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
+                isRequired: true
+              }, {
+                name: 'disabled',
+                title: i18n("是否禁用", "Disabled"),
+                setter: ['BoolSetter', 'VariableSetter']
+              }]
+            }
           },
-        },
-      },
+          initialValue: () => {
+            return {
+              label: i18n("选项名", "Option label"),
+              value: uuid(),
+              disabled: false
+            };
+          }
+        }
+      }
+    }
+  }, {
+    name: 'allowClear',
+    title: {
+      label: i18n("支持清除", "Allow clear"),
+      tip: i18n("是否允许清除", "Whether allow clear")
     },
-    {
-      name: 'allowClear',
-      title: { label: '支持清除', tip: '是否允许清除' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'autoFocus',
+    title: {
+      label: i18n("自动聚焦", "Auto focus"),
+      tip: i18n("默认获取焦点", "Get focus by default")
     },
-    {
-      name: 'autoFocus',
-      title: { label: '自动聚焦', tip: '默认获取焦点' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'defaultActiveFirstOption',
+    title: {
+      label: i18n("高亮首个选项", "Highlight first option"),
+      tip: i18n("是否默认高亮第一个选项", "Whether to highlight the first option by default")
     },
-    {
-      name: 'defaultActiveFirstOption',
-      title: { label: '高亮首个选项', tip: '是否默认高亮第一个选项' },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'disabled',
+    title: {
+      label: i18n("是否禁用", "Disabled"),
+      tip: i18n("是否为禁用状态", "Whether disabled")
     },
-    {
-      name: 'disabled',
-      title: { label: '是否禁用', tip: '是否为禁用状态' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'labelInValue',
+    title: {
+      label: i18n("值包含label", "The value contains label"),
+      tip: i18n("把每个选项的 label 包装到 value 中", "each Option label Wrap to value Middle")
     },
-    {
-      name: 'labelInValue',
-      title: {
-        label: '值包含label',
-        tip: '把每个选项的 label 包装到 value 中',
-      },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'mode',
+    title: {
+      label: i18n("多选/单选", "Multiple/Single"),
+      tip: i18n("多选/单选", "Multiple/Single")
     },
-    {
-      name: 'mode',
-      title: { label: '多选/单选', tip: '多选/单选' },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '单选',
-              value: 'single',
-            },
-            {
-              title: '多选',
-              value: 'multiple',
-            },
-            {
-              title: '任意内容',
-              value: 'tags',
-            },
-          ],
-        },
-      },
-      propType: { type: 'oneOf', value: ['single', 'multiple', 'tags'] },
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("单选", "Single"),
+          value: 'single'
+        }, {
+          title: i18n("多选", "Multiple"),
+          value: 'multiple'
+        }, {
+          title: i18n("任意内容", "Any content"),
+          value: 'tags'
+        }]
+      }
     },
-    {
-      name: 'maxTagCount',
-      title: { label: '最大tag数', tip: '最多显示多少个tag' },
-      condition(target) {
-        return target.getProps().getPropValue('mode') === 'tags';
-      },
-      propType: 'number',
+    propType: {
+      type: 'oneOf',
+      value: ['single', 'multiple', 'tags']
+    }
+  }, {
+    name: 'maxTagCount',
+    title: {
+      label: i18n("最大tag数", "Maximum number of tags"),
+      tip: i18n("最多显示多少个tag", "How many tags can be displayed at most?")
     },
-    {
-      name: 'maxTagTextLength',
-      title: { label: 'tag文本长度', tip: '最大显示的tag文本长度' },
-      condition(target) {
-        return target.getProps().getPropValue('mode') === 'tags';
-      },
-      propType: 'number',
+    condition(target) {
+      return target.getProps().getPropValue('mode') === 'tags';
     },
-    {
-      name: 'notFoundContent',
-      title: { label: '搜索为空提示文案', tip: '搜索为空提示文案' },
-      propType: 'string',
-      setter: 'StringSetter'
+    propType: 'number'
+  }, {
+    name: 'maxTagTextLength',
+    title: {
+      label: i18n("tag文本长度", "tagTextLength"),
+      tip: i18n("最大显示的tag文本长度", "Maximum displayed tag text length")
     },
-    {
-      name: 'placeholder',
-      title: { label: '选择框默认文字', tip: '选择框默认文字' },
-      propType: 'string',
-      setter: 'StringSetter'
+    condition(target) {
+      return target.getProps().getPropValue('mode') === 'tags';
     },
-    {
-      name: 'showArrow',
-      title: { label: '是否显示下拉箭头', tip: '是否显示下拉小箭头' },
-      propType: 'bool',
-      setter: 'BoolSetter'
+    propType: 'number'
+  }, {
+    name: 'notFoundContent',
+    title: {
+      label: i18n("搜索为空提示文案", "Prompt copy when search is empty"),
+      tip: i18n("搜索为空提示文案", "Prompt copy when search is empty")
     },
-    {
-      name: 'showSearch',
-      title: { label: '是否可搜索', tip: '是否可搜索' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'string',
+    setter: 'StringSetter'
+  }, {
+    name: 'placeholder',
+    title: {
+      label: i18n("选择框默认文字", "Select placeholder"),
+      tip: i18n("选择框默认文字", "Select placeholder")
     },
-    {
-      name: 'size',
-      title: { label: '尺寸', tip: '选择框大小' },
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '大',
-              value: 'large',
-            },
-            {
-              title: '中',
-              value: 'middle',
-            },
-            {
-              title: '小',
-              value: 'small',
-            },
-          ],
-        },
-      },
-      propType: { type: 'oneOf', value: ['large', 'middle', 'small'] },
-      defaultValue: 'middle',
+    propType: 'string',
+    setter: 'StringSetter'
+  }, {
+    name: 'showArrow',
+    title: {
+      label: i18n("是否显示下拉箭头", "Show arrow"),
+      tip: i18n("是否显示下拉小箭头", "Whether to display the small drop-down arrow")
     },
-    {
-      name: 'loading',
-      title: { label: '加载中', tip: '加载中状态' },
-      propType: 'bool',
-      defaultValue: false,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    setter: 'BoolSetter'
+  }, {
+    name: 'showSearch',
+    title: {
+      label: i18n("是否可搜索", "YesNoCan Search"),
+      tip: i18n("是否可搜索", "YesNoCan Search")
     },
-    {
-      name: 'bordered',
-      title: { label: '显示边框', tip: '是否有边框' },
-      propType: 'bool',
-      defaultValue: true,
-      setter: 'BoolSetter'
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'size',
+    title: {
+      label: i18n("尺寸", "Size"),
+      tip: i18n("选择框大小", "Select size")
     },
-    {
-      name: 'filterOption',
-      title: { label: '筛选可选项', tip: '是否根据输入进行筛选' },
-      propType: {
-        type: 'oneOfType',
-        value: ['bool', 'func'],
-      },
-      defaultValue: true,
+    setter: {
+      componentName: 'RadioGroupSetter',
+      props: {
+        options: [{
+          title: i18n("大", "Large"),
+          value: 'large'
+        }, {
+          title: i18n("中", "Middle"),
+          value: 'middle'
+        }, {
+          title: i18n("小", "Small"),
+          value: 'small'
+        }]
+      }
     },
-    {
-      name: 'optionFilterProp',
-      title: { label: '用于筛选的字段', tip: '用于过滤的字段' },
-      propType: {
-        type: 'oneOf',
-        value: ['value', 'label'],
-      },
-      defaultValue: 'value',
+    propType: {
+      type: 'oneOf',
+      value: ['large', 'middle', 'small']
     },
-    // {
-    //   name: 'suffixIcon',
-    //   title: { label: '自后缀图标', tip: '自定义的选择框后缀图标' },
-    //   propType: 'node',
-    // },
-    // {
-    //   name: 'removeIcon',
-    //   title: { label: '清除图标', tip: '自定义的多选框清除图标' },
-    //   propType: 'node',
-    // },
-    // {
-    //   name: 'clearIcon',
-    //   title: { label: '自定义的多选框清空图标', tip: '自定义的多选框清空图标' },
-    //   propType: 'node',
-    // },
-    // {
-    //   name: 'menuItemSelectedIcon',
-    //   title: {
-    //     label: '自定义多选时当前选中的条目图标',
-    //     tip: '自定义多选时当前选中的条目图标',
-    //   },
-    //   propType: 'node',
-    // },
-    {
-      name: 'tokenSeparators',
-      title: { label: '自动分词的分隔符', tip: '自动分词的分隔符' },
-      propType: { type: 'arrayOf', value: 'string' },
+    defaultValue: 'middle'
+  }, {
+    name: 'loading',
+    title: {
+      label: i18n("加载中", "Loading"),
+      tip: i18n("加载中状态", "LoadingStatus")
     },
-    {
-      name: 'onBlur',
-      title: { label: '失去焦点时回调', tip: '失去焦点时回调' },
-      propType: 'func',
+    propType: 'bool',
+    defaultValue: false,
+    setter: 'BoolSetter'
+  }, {
+    name: 'bordered',
+    title: {
+      label: i18n("显示边框", "Show border"),
+      tip: i18n("是否有边框", "Whether bordered")
     },
-    {
-      name: 'onChange',
-      title: {
-        label: '选中回调函数',
-        tip: '选中 option，或 input 的 value 变化时，调用此函数',
-      },
-      propType: 'func',
+    propType: 'bool',
+    defaultValue: true,
+    setter: 'BoolSetter'
+  }, {
+    name: 'filterOption',
+    title: {
+      label: i18n("筛选可选项", "Filter options"),
+      tip: i18n("是否根据输入进行筛选", "Whether to filter based on input")
     },
-    {
-      name: 'onDeselect',
-      title: {
-        label: '取消选中时回调',
-        tip: '取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效',
-      },
-      propType: 'func',
+    propType: {
+      type: 'oneOfType',
+      value: ['bool', 'func']
     },
-    {
-      name: 'onFocus',
-      title: { label: '获得焦点时回调', tip: '获得焦点时回调' },
-      propType: 'func',
+    defaultValue: true
+  }, {
+    name: 'optionFilterProp',
+    title: {
+      label: i18n("用于筛选的字段", "Used for Filter Field"),
+      tip: i18n("用于过滤的字段", "Fields to filter on")
     },
-    {
-      name: 'onInputKeyDown',
-      title: { label: '按键按下时回调', tip: '按键按下时回调' },
-      propType: 'func',
+    propType: {
+      type: 'oneOf',
+      value: ['value', 'label']
     },
-    {
-      name: 'onMouseEnter',
-      title: { label: '鼠标移入时回调', tip: '鼠标移入时回调' },
-      propType: 'func',
+    defaultValue: 'value'
+  },
+  // {
+  //   name: 'suffixIcon',
+  // title: { label: 'Self-suffix icon', tip: 'Customized selection box suffix icon' },
+  //   propType: 'node',
+  // },
+  // {
+  //   name: 'removeIcon',
+  // title: { label: 'Clear icon', tip: 'Customized multi-select box clear icon' },
+  //   propType: 'node',
+  // },
+  // {
+  //   name: 'clearIcon',
+  // title: { label: 'Customized multi-select box clear icon', tip: 'Customized multi-select box clear icon' },
+  //   propType: 'node',
+  // },
+  // {
+  //   name: 'menuItemSelectedIcon',
+  //   title: {
+  // label: 'Customize the icon of the currently selected item during multi-selection',
+  // tip: 'Customize the icon of the currently selected item during multi-selection',
+  //   },
+  //   propType: 'node',
+  // },
+  {
+    name: 'tokenSeparators',
+    title: {
+      label: i18n("自动分词的分隔符", "Separator for automatic word segmentation"),
+      tip: i18n("自动分词的分隔符", "Separator for automatic word segmentation")
     },
-    {
-      name: 'onMouseLeave',
-      title: { label: '鼠标移出时回调', tip: '鼠标移出时回调' },
-      propType: 'func',
+    propType: {
+      type: 'arrayOf',
+      value: 'string'
+    }
+  }, {
+    name: 'onBlur',
+    title: {
+      label: i18n("失去焦点时回调", "On blurcallback"),
+      tip: i18n("失去焦点时回调", "On blurcallback")
     },
-    {
-      name: 'onPopupScroll',
-      title: { label: '下拉列表滚动时的回调', tip: '下拉列表滚动时的回调' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onChange',
+    title: {
+      label: i18n("选中回调函数", "Select callback function"),
+      tip: i18n("选中 option，或 input 的 value 变化时，调用此函数", "This function is called when the option is selected or the value of the input changes.")
     },
-    {
-      name: 'onSearch',
-      title: { label: '文本框值变化时回调', tip: '文本框值变化时回调' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onDeselect',
+    title: {
+      label: i18n("取消选中时回调", "Callback when deselected"),
+      tip: i18n("取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效", "Called when unselected. The parameter is the value (or key) value of the selected item. It only takes effect in multiple or tags mode.")
     },
-    {
-      name: 'onSelect',
-      title: {
-        label: '被选中时回调',
-        tip: '被选中时调用，参数为选中项的 value (或 key) 值',
-      },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onFocus',
+    title: {
+      label: i18n("获得焦点时回调", "Callback when focus is obtained"),
+      tip: i18n("获得焦点时回调", "Callback when focus is obtained")
     },
-    {
-      name: 'onDropdownVisibleChange',
-      title: { label: '展开下拉菜单的回调', tip: '展开下拉菜单的回调' },
-      propType: 'func',
+    propType: 'func'
+  }, {
+    name: 'onInputKeyDown',
+    title: {
+      label: i18n("按键按下时回调", "Callback when button is pressed"),
+      tip: i18n("按键按下时回调", "Callback when button is pressed")
     },
-  ],
+    propType: 'func'
+  }, {
+    name: 'onMouseEnter',
+    title: {
+      label: i18n("鼠标移入时回调", "Callback when mouse moves in"),
+      tip: i18n("鼠标移入时回调", "Callback when mouse moves in")
+    },
+    propType: 'func'
+  }, {
+    name: 'onMouseLeave',
+    title: {
+      label: i18n("鼠标移出时回调", "Callback when the mouse is moved out"),
+      tip: i18n("鼠标移出时回调", "Callback when the mouse is moved out")
+    },
+    propType: 'func'
+  }, {
+    name: 'onPopupScroll',
+    title: {
+      label: i18n("下拉列表滚动时的回调", "Callback when scrolling the dropdown list"),
+      tip: i18n("下拉列表滚动时的回调", "Callback when scrolling the dropdown list")
+    },
+    propType: 'func'
+  }, {
+    name: 'onSearch',
+    title: {
+      label: i18n("文本框值变化时回调", "Callback when input value changes"),
+      tip: i18n("文本框值变化时回调", "Callback when input value changes")
+    },
+    propType: 'func'
+  }, {
+    name: 'onSelect',
+    title: {
+      label: i18n("被选中时回调", "Callback when selected"),
+      tip: i18n("被选中时调用，参数为选中项的 value (或 key) 值", "Called when selected, the parameter is the value (or key) value of the selected item")
+    },
+    propType: 'func'
+  }, {
+    name: 'onDropdownVisibleChange',
+    title: {
+      label: i18n("展开下拉菜单的回调", "Callback when dropdown opens"),
+      tip: i18n("展开下拉菜单的回调", "Callback when dropdown opens")
+    },
+    propType: 'func'
+  }],
   configure: {
     supports: {
       style: true,
-      events: [
-        {
-          name: 'onBlur',
-          template: "onBlur(${extParams}){\n// 失去焦点时回调\nconsole.log('onBlur');}",
-        },
-        {
-          name: 'onChange',
-          template:
-            "onChange(value,option,${extParams}){\n// 选中 option，或 input 的 value 变化时，调用此函数\nconsole.log('onChange',value,option);}",
-        },
-        {
-          name: 'onDeselect',
-          template:
-            "onDeselect(value,${extParams}){\n// 取消选中时调用\nconsole.log('onDeselect',value);}",
-        },
-        {
-          name: 'onFocus',
-          template: "onFocus(${extParams}){\n// 获得焦点时回调\nconsole.log('onFocus');}",
-        },
-        {
-          name: 'onInputKeyDown',
-          template:
-            "onInputKeyDown(${extParams}){\n// 按键按下时回调\nconsole.log('onInputKeyDown');}",
-        },
-        {
-          name: 'onMouseEnter',
-          template: "onMouseEnter(${extParams}){\n// 鼠标移入时回调\nconsole.log('onMouseEnter');}",
-        },
-        {
-          name: 'onMouseLeave',
-          template: "onMouseLeave(${extParams}){\n// 鼠标移出时回调\nconsole.log('onMouseLeave');}",
-        },
-        {
-          name: 'onPopupScroll',
-          template:
-            "onPopupScroll(${extParams}){\n// 下拉列表滚动时的回调\nconsole.log('onPopupScroll');}",
-        },
-        {
-          name: 'onSearch',
-          template:
-            "onSearch(value,${extParams}){\n// 文本框值变化时回调\nconsole.log('onSearch',value);}",
-        },
-        {
-          name: 'onSelect',
-          template:
-            "onSelect(value,option,${extParams}){\n// 被选中时调用\nconsole.log('onSelect',value,option);}",
-        },
-        {
-          name: 'onDropdownVisibleChange',
-          template:
-            "onDropdownVisibleChange(open,${extParams}){\n// 展开下拉菜单的回调\nconsole.log('onDropdownVisibleChange',open);}",
-        },
-      ],
-    },
-  },
+      events: [{
+        name: 'onBlur',
+        template: "onBlur(${extParams}){\n// On blurcallback\nconsole.log('onBlur');}"
+      }, {
+        name: 'onChange',
+        template: "onChange(value,option,${extParams}){\n// This function is called when option is selected or the value of input changes\nconsole.log('onChange',value,option);}"
+      }, {
+        name: 'onDeselect',
+        template: "onDeselect(value,${extParams}){\n// Called when deselecting\nconsole.log('onDeselect',value);}"
+      }, {
+        name: 'onFocus',
+        template: "onFocus(${extParams}){\n// Callback when focus is obtained\nconsole.log('onFocus');}"
+      }, {
+        name: 'onInputKeyDown',
+        template: "onInputKeyDown(${extParams}){\n// Callback when the key is pressed\nconsole.log('onInputKeyDown');}"
+      }, {
+        name: 'onMouseEnter',
+        template: "onMouseEnter(${extParams}){\n// Callback when the mouse moves in\nconsole.log('onMouseEnter');}"
+      }, {
+        name: 'onMouseLeave',
+        template: "onMouseLeave(${extParams}){\n// Callback when the mouse moves out\nconsole.log('onMouseLeave');}"
+      }, {
+        name: 'onPopupScroll',
+        template: "onPopupScroll(${extParams}){\n// Callback when the drop-down list scrolls\nconsole.log('onPopupScroll');}"
+      }, {
+        name: 'onSearch',
+        template: "onSearch(value,${extParams}){\n// Callback when input value changes\nconsole.log('onSearch',value);}"
+      }, {
+        name: 'onSelect',
+        template: "onSelect(value,option,${extParams}){\n// On select\nconsole.log('onSelect',value,option);}"
+      }, {
+        name: 'onDropdownVisibleChange',
+        template: "onDropdownVisibleChange(open,${extParams}){\n// Callback when dropdown opens\nconsole.log('onDropdownVisibleChange',open);}"
+      }]
+    }
+  }
 };

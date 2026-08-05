@@ -1,33 +1,42 @@
 import snippets from './snippets';
-
+import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Typography.Link',
-  title: '链接',
-  category: '基础',
-  props: [
-    {
-      name: 'children',
-      title: { label: '内容', tip: '内容' },
-      propType: 'string',
-      defaultValue: '',
-      supportVariable: true,
+  title: i18n("链接", "Link"),
+  category: "General",
+  props: [{
+    name: 'children',
+    title: {
+      label: i18n("内容", "Content"),
+      tip: i18n("内容", "Content")
     },
-    {
-      name: 'href',
-      title: { label: '跳转链接', tip: '跳转链接' },
-      propType: 'string',
-      defaultValue: '',
+    propType: 'string',
+    defaultValue: '',
+    supportVariable: true
+  }, {
+    name: 'href',
+    title: {
+      label: i18n("跳转链接", "Jump link"),
+      tip: i18n("跳转链接", "Jump link")
     },
-    {
-      name: 'target',
-      title: { label: '跳转位置', tip: '在何处显示链接的资源' },
-      propType: {
-        type: 'oneOf',
-        value: ['_self', '_blank', '_parent', '_top'],
-      },
-      defaultValue: '_self',
+    propType: 'string',
+    defaultValue: ''
+  }, {
+    name: 'target',
+    title: {
+      label: i18n("跳转位置", "Jump location"),
+      tip: i18n("在何处显示链接的资源", "Where to display linked resources")
     },
-  ],
-  configure: { supports: { style: true } },
+    propType: {
+      type: 'oneOf',
+      value: ['_self', '_blank', '_parent', '_top']
+    },
+    defaultValue: '_self'
+  }],
+  configure: {
+    supports: {
+      style: true
+    }
+  }
 };
