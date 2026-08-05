@@ -1,16 +1,15 @@
 import { uuid } from '../_utils/utils';
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Descriptions',
-  title: i18n("描述列表", "Descriptions"),
+  title: "Descriptions",
   category: "Data Display",
   props: [{
     name: 'title',
     title: {
-      label: i18n("标题", "Title"),
-      tip: i18n("描述列表的标题，显示在最顶部", "A title that describes the list, displayed at the top")
+      label: "Title",
+      tip: "A title that describes the list, displayed at the top"
     },
     propType: {
       type: 'oneOfType',
@@ -19,8 +18,8 @@ export default {
   }, {
     name: 'items',
     title: {
-      label: i18n("列表项", "List item"),
-      tip: i18n("列表项", "List item")
+      label: "List item",
+      tip: "List item"
     },
     setter: {
       componentName: 'ArraySetter',
@@ -37,17 +36,17 @@ export default {
                 condition: () => false
               }, {
                 name: 'label',
-                title: i18n("标题", "Title"),
+                title: "Title",
                 setter: 'StringSetter',
-                initialValue: i18n("列表项", "List item")
+                initialValue: "List item"
               }, {
                 name: 'span',
-                title: i18n("所占列数", "Number of columns occupied"),
+                title: "Number of columns occupied",
                 setter: 'NumberSetter',
                 initialValue: 1
               }, {
                 name: 'children',
-                title: i18n("内容", "Content"),
+                title: "Content",
                 setter: {
                   componentName: 'SlotSetter',
                   initialValue: {
@@ -61,7 +60,7 @@ export default {
           initialValue: () => {
             return {
               key: uuid(),
-              label: i18n("标签项", "Tab item"),
+              label: "Tab item",
               span: 1,
               children: {
                 type: 'JSSlot',
@@ -158,24 +157,24 @@ export default {
   }, {
     name: 'bordered',
     title: {
-      label: i18n("显示边框", "Show border"),
-      tip: i18n("是否展示边框", "Whether to display borders")
+      label: "Show border",
+      tip: "Whether to display borders"
     },
     propType: 'bool',
     defaultValue: false
   }, {
     name: 'column',
     title: {
-      label: i18n("列数", "Number of columns"),
-      tip: i18n("一行的列表项数量", "Number of list items in a row")
+      label: "Number of columns",
+      tip: "Number of list items in a row"
     },
     propType: 'number',
     defaultValue: 3
   }, {
     name: 'size',
     title: {
-      label: i18n("尺寸", "Size"),
-      tip: i18n("设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效）", "Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)")
+      label: "Size",
+      tip: "Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)"
     },
     propType: {
       type: 'oneOf',
@@ -185,8 +184,8 @@ export default {
   }, {
     name: 'layout',
     title: {
-      label: i18n("布局方向", "LayoutDirection"),
-      tip: i18n("描述布局", "Describe layout")
+      label: "LayoutDirection",
+      tip: "Describe layout"
     },
     propType: {
       type: 'oneOf',
@@ -196,8 +195,8 @@ export default {
   }, {
     name: 'colon',
     title: {
-      label: i18n("展示冒号", "Colon"),
-      tip: i18n("配置 `Descriptions.Item` 的 `colon` 的默认值", "config `Descriptions.Item` `colon` Default value")
+      label: "Colon",
+      tip: "config `Descriptions.Item` `colon` Default value"
     },
     propType: 'bool',
     defaultValue: true

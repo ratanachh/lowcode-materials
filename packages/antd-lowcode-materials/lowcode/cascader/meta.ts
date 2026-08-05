@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Cascader',
-  title: i18n("级联选择", "Cascader"),
+  title: "Cascader",
   category: "Data Entry",
   props: [{
     name: 'defaultValue',
     title: {
-      label: i18n("默认的选中项", "Default selected keys"),
-      tip: i18n("默认的选中项", "Default selected keys")
+      label: "Default selected keys",
+      tip: "Default selected keys"
     },
     propType: {
       type: 'arrayOf',
@@ -21,8 +20,8 @@ export default {
   }, {
     name: 'value',
     title: {
-      label: i18n("当前选中项", "Current selected"),
-      tip: i18n("当前选中项", "Current selected")
+      label: "Current selected",
+      tip: "Current selected"
     },
     propType: {
       type: 'arrayOf',
@@ -34,15 +33,15 @@ export default {
   }, {
     name: 'options',
     title: {
-      label: i18n("选项数据", "OptionData"),
-      tip: i18n("可选项数据源", "Optional data source")
+      label: "OptionData",
+      tip: "Optional data source"
     },
     setter: 'JsonSetter'
   }, {
     name: 'allowClear',
     title: {
-      label: i18n("支持清除", "Allow clear"),
-      tip: i18n("是否允许清除", "Whether allow clear")
+      label: "Allow clear",
+      tip: "Whether allow clear"
     },
     propType: 'bool',
     defaultValue: true,
@@ -50,8 +49,8 @@ export default {
   }, {
     name: 'autoFocus',
     title: {
-      label: i18n("自动聚焦", "Auto focus"),
-      tip: i18n("自动获取焦点", "Auto focus")
+      label: "Auto focus",
+      tip: "Auto focus"
     },
     propType: 'bool',
     defaultValue: false,
@@ -59,8 +58,8 @@ export default {
   }, {
     name: 'bordered',
     title: {
-      label: i18n("显示边框", "Show border"),
-      tip: i18n("是否有边框", "Whether bordered")
+      label: "Show border",
+      tip: "Whether bordered"
     },
     propType: 'bool',
     defaultValue: true,
@@ -68,8 +67,8 @@ export default {
   }, {
     name: 'changeOnSelect',
     title: {
-      label: i18n("点选触发", "Click to trigger"),
-      tip: i18n("点选每级菜单选项值都会触发onChange", "Clicking on each level of menu option value will trigger onChange")
+      label: "Click to trigger",
+      tip: "Clicking on each level of menu option value will trigger onChange"
     },
     propType: 'bool',
     defaultValue: false,
@@ -77,16 +76,16 @@ export default {
   }, {
     name: 'className',
     title: {
-      label: i18n("自定义类名", "CustomclassName"),
-      tip: i18n("自定义类名", "CustomclassName")
+      label: "CustomclassName",
+      tip: "CustomclassName"
     },
     propType: 'string',
     setter: 'StringSetter'
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -94,8 +93,8 @@ export default {
   }, {
     name: 'expandTrigger',
     title: {
-      label: i18n("菜单触发方式", "Menu triggering method"),
-      tip: i18n("触发次级菜单的展开的方式", "How to trigger the expansion of secondary menus")
+      label: "Menu triggering method",
+      tip: "How to trigger the expansion of secondary menus"
     },
     propType: {
       type: 'oneOf',
@@ -104,24 +103,24 @@ export default {
   }, {
     name: 'notFoundContent',
     title: {
-      label: i18n("无数据展示", "Not found content"),
-      tip: i18n("无数据", "NoneData")
+      label: "Not found content",
+      tip: "NoneData"
     },
     propType: 'string',
     setter: 'StringSetter'
   }, {
     name: 'placeholder',
     title: {
-      label: i18n("输入框占位文本", "InputPlaceholderText"),
-      tip: i18n("输入框占位文本", "InputPlaceholderText")
+      label: "InputPlaceholderText",
+      tip: "InputPlaceholderText"
     },
     propType: 'string',
     setter: 'StringSetter'
   }, {
     name: 'placement',
     title: {
-      label: i18n("浮层预设位置", "Floating layer default position"),
-      tip: i18n("浮层预设位置", "Floating layer default position")
+      label: "Floating layer default position",
+      tip: "Floating layer default position"
     },
     propType: {
       type: 'oneOf',
@@ -130,8 +129,8 @@ export default {
   }, {
     name: 'showSearch',
     title: {
-      label: i18n("支持搜索", "Support Search"),
-      tip: i18n("在选择框中显示搜索框", "Show search box in select box")
+      label: "Support Search",
+      tip: "Show search box in select box"
     },
     propType: 'bool',
     defaultValue: false,
@@ -139,8 +138,8 @@ export default {
   }, {
     name: 'size',
     title: {
-      label: i18n("尺寸", "Size"),
-      tip: i18n("输入框大小", "InputSize")
+      label: "Size",
+      tip: "InputSize"
     },
     propType: {
       type: 'oneOf',
@@ -150,13 +149,13 @@ export default {
       componentName: 'SelectSetter',
       props: {
         options: [{
-          title: i18n("大", "Large"),
+          title: "Large",
           value: 'large'
         }, {
-          title: i18n("中", "Middle"),
+          title: "Middle",
           value: 'middle'
         }, {
-          title: i18n("小", "Small"),
+          title: "Small",
           value: 'small'
         }]
       }
@@ -165,22 +164,22 @@ export default {
   }, {
     name: 'style',
     title: {
-      label: i18n("自定义样式", "Custom style"),
-      tip: i18n("自定义样式", "Custom style")
+      label: "Custom style",
+      tip: "Custom style"
     },
     propType: 'object'
   }, {
     name: 'onChange',
     title: {
-      label: i18n("选择完成后的回调", "Callback after selection is complete"),
-      tip: i18n("选择完成后的回调", "Callback after selection is complete")
+      label: "Callback after selection is complete",
+      tip: "Callback after selection is complete"
     },
     propType: 'func'
   }, {
     name: 'onPopupVisibleChange',
     title: {
-      label: i18n("显示/隐藏浮层的回调", "Show/Hide Overlay callback"),
-      tip: i18n("显示/隐藏浮层的回调", "Show/Hide Overlay callback")
+      label: "Show/Hide Overlay callback",
+      tip: "Show/Hide Overlay callback"
     },
     propType: 'func'
   }],

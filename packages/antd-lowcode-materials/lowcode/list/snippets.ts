@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("简单列表", "simple list"),
+  title: "simple list",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/list-1.png',
   schema: {
     componentName: 'List',
@@ -68,7 +67,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("基础列表", "GeneralList"),
+  title: "GeneralList",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/list-1.png',
   schema: {
     componentName: 'List',

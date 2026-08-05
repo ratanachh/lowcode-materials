@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("密码框", "Password"),
+  title: "Password",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/input-password-1.png',
   schema: {
     componentName: 'Input.Password',

@@ -1,7 +1,6 @@
 import { uuid } from '../_utils/utils';
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("穿梭框", "Transfer"),
+  title: "Transfer",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/transfer-1.png',
   schema: {
     componentName: 'Transfer',

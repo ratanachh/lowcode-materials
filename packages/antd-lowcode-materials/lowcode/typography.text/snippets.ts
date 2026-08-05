@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("文本", "Text"),
+  title: "Text",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-text-1.png',
   schema: {
     componentName: 'Typography.Text',
@@ -9,7 +8,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("可复制文本", "Copiable text"),
+  title: "Copiable text",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-text-2.png',
   schema: {
     componentName: 'Typography.Text',
@@ -19,7 +18,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("可编辑文本", "Can EditText"),
+  title: "Can EditText",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-text-3.png',
   schema: {
     componentName: 'Typography.Text',

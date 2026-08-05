@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("段落", "Paragraph"),
+  title: "Paragraph",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-paragraph-1.png',
   schema: {
     componentName: 'Typography.Paragraph',

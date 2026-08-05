@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("选择器", "Select"),
+  title: "Select",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/select-1.png',
   schema: {
     componentName: 'Select',

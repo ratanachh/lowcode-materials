@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Checkbox',
-  title: i18n("多选框", "checkbox"),
+  title: "checkbox",
   category: "Data Entry",
   props: [{
     name: 'children',
     title: {
-      label: i18n("内容", "Content"),
-      tip: i18n("内容", "Content")
+      label: "Content",
+      tip: "Content"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -17,8 +16,8 @@ export default {
   }, {
     name: 'autoFocus',
     title: {
-      label: i18n("自动聚焦", "Auto focus"),
-      tip: i18n("自动获取焦点", "Auto focus")
+      label: "Auto focus",
+      tip: "Auto focus"
     },
     propType: 'bool',
     defaultValue: false,
@@ -27,8 +26,8 @@ export default {
   }, {
     name: 'checked',
     title: {
-      label: i18n("当前值", "Current value"),
-      tip: i18n("指定当前是否选中", "Specify whether it is currently selected")
+      label: "Current value",
+      tip: "Specify whether it is currently selected"
     },
     propType: 'bool',
     defaultValue: false,
@@ -37,8 +36,8 @@ export default {
   }, {
     name: 'defaultChecked',
     title: {
-      label: i18n("默认值", "Default value"),
-      tip: i18n("初始是否选中", "Is it initially selected?")
+      label: "Default value",
+      tip: "Is it initially selected?"
     },
     propType: 'bool',
     defaultValue: false,
@@ -47,8 +46,8 @@ export default {
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -57,8 +56,8 @@ export default {
   }, {
     name: 'indeterminate',
     title: {
-      label: i18n("不确定状态", "Not OKStatus"),
-      tip: i18n("indeterminate状态", "indeterminateStatus")
+      label: "Not OKStatus",
+      tip: "indeterminateStatus"
     },
     propType: 'bool',
     defaultValue: false,
@@ -67,8 +66,8 @@ export default {
   }, {
     name: 'onChange',
     title: {
-      label: i18n("变化时回调函数", "Callback on change"),
-      tip: i18n("变化时回调函数", "Callback on change")
+      label: "Callback on change",
+      tip: "Callback on change"
     },
     propType: 'func'
   }],

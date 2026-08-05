@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Dropdown',
-  title: i18n("下拉菜单", "Dropdown"),
+  title: "Dropdown",
   category: "Navigation",
   props: [{
     name: 'open',
     title: {
-      label: i18n("菜单是否显示", "Menu visible"),
-      tip: i18n("菜单是否显示", "Menu visible")
+      label: "Menu visible",
+      tip: "Menu visible"
     },
     propType: {
       type: 'oneOf',
@@ -20,13 +19,13 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("默认非受控", "Uncontrolled by default"),
+          title: "Uncontrolled by default",
           value: '-'
         }, {
-          title: i18n("显示", "Show"),
+          title: "Show",
           value: true
         }, {
-          title: i18n("不显示", "Hide"),
+          title: "Hide",
           value: false
         }]
       }
@@ -56,16 +55,16 @@ export default {
   }, {
     name: 'arrow',
     title: {
-      label: i18n("显示下拉箭头", "Show drop down arrow"),
-      tip: i18n("是否显示下拉箭头", "Show arrow")
+      label: "Show drop down arrow",
+      tip: "Show arrow"
     },
     propType: 'bool',
     defaultValue: false
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool'
   },
@@ -81,8 +80,8 @@ export default {
   {
     name: 'overlay',
     title: {
-      label: i18n("菜单", "Menu"),
-      tip: i18n("菜单", "Menu")
+      label: "Menu",
+      tip: "Menu"
     },
     propType: {
       type: 'oneOfType',
@@ -102,8 +101,8 @@ export default {
   {
     name: 'placement',
     title: {
-      label: i18n("弹出位置", "popup position"),
-      tip: i18n("菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight`", "Menu pop-up position: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight`")
+      label: "popup position",
+      tip: "Menu pop-up position: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight`"
     },
     propType: {
       type: 'oneOf',
@@ -112,8 +111,8 @@ export default {
   }, {
     name: 'trigger',
     title: {
-      label: i18n("触发下拉的行为", "The behavior that triggers the drop-down"),
-      tip: i18n("触发下拉的行为, 移动端不支持 hover", "Trigger drop-down behavior, mobile version does not support hover")
+      label: "The behavior that triggers the drop-down",
+      tip: "Trigger drop-down behavior, mobile version does not support hover"
     },
     propType: {
       type: 'arrayOf',
@@ -125,8 +124,8 @@ export default {
   }, {
     name: 'onOpenChange',
     title: {
-      label: i18n("显示状态回调", "ShowStatuscallback"),
-      tip: i18n("菜单显示状态改变时调用，参数为 `open`", "Called when the menu display status changes, the parameter is `open`")
+      label: "ShowStatuscallback",
+      tip: "Called when the menu display status changes, the parameter is `open`"
     },
     propType: 'func'
   }],

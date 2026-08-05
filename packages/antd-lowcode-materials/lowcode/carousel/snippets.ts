@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("走马灯", "Carousel"),
+  title: "Carousel",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/carousel-1.jpg',
   schema: {
     componentName: 'Carousel',

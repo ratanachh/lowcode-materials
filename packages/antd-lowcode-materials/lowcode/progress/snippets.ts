@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("进度条", "Progress"),
+  title: "Progress",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/progress-1.png',
   schema: {
     componentName: 'Progress',
@@ -10,7 +9,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("进度圈", "progress circle"),
+  title: "progress circle",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/progress-2.png',
   schema: {
     componentName: 'Progress',

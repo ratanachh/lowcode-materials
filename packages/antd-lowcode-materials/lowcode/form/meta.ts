@@ -1,16 +1,15 @@
 import snippets from './snippets';
 import { uuid } from '../_utils/utils';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Form',
-  title: i18n("表单容器", "Form"),
+  title: "Form",
   category: "Data Entry",
   props: [{
     name: 'ref',
     title: {
       label: 'ref',
-      tip: i18n("ref | 通过 this.$('xxx') 获取到组件实例", "ref | 通过 this.$('xxx') 获取到组件实例")
+      tip: "ref | Get component instance through this.$('xxx')"
     },
     defaultValue: () => {
       return `form_${uuid()}`;
@@ -20,8 +19,8 @@ export default {
   }, {
     name: 'values',
     title: {
-      label: i18n("表单数据源", "Form values"),
-      tip: i18n("表单数据源", "Form values")
+      label: "Form values",
+      tip: "Form values"
     },
     propType: 'object',
     setter: 'JsonSetter',
@@ -29,7 +28,7 @@ export default {
   }, {
     name: 'colon',
     title: {
-      label: i18n("展示冒号", "Colon"),
+      label: "Colon",
       tip: ''
     },
     propType: 'bool',
@@ -39,8 +38,8 @@ export default {
   }, {
     name: 'hideRequiredMark',
     title: {
-      label: i18n("隐藏必填标记", "Hide required mark"),
-      tip: i18n("隐藏必填标记", "Hide required mark")
+      label: "Hide required mark",
+      tip: "Hide required mark"
     },
     propType: 'bool',
     defaultValue: false,
@@ -48,11 +47,11 @@ export default {
     supportVariable: true
   }, {
     type: 'group',
-    title: i18n("布局", "Layout"),
+    title: "Layout",
     display: 'accordion',
     items: [{
       name: 'labelCol',
-      title: i18n("标签栅格布局设置", "Label col settings"),
+      title: "Label col settings",
       display: 'inline',
       setter: {
         componentName: 'ObjectSetter',
@@ -60,7 +59,7 @@ export default {
           config: {
             items: [{
               name: 'span',
-              title: i18n("宽度", "Width"),
+              title: "Width",
               setter: {
                 componentName: 'NumberSetter',
                 props: {
@@ -70,7 +69,7 @@ export default {
               }
             }, {
               name: 'offset',
-              title: i18n("偏移", "Offset"),
+              title: "Offset",
               setter: {
                 componentName: 'NumberSetter',
                 props: {
@@ -85,7 +84,7 @@ export default {
       description: "label label layout, same as `<Col>` component, set span offset value, such as {span: 8, offset: 16}, this item is only valid in vertical form"
     }, {
       name: 'wrapperCol',
-      title: i18n("\b内容栅格布局设置", "\bWrapper col settings"),
+      title: "\bWrapper col settings",
       display: 'inline',
       setter: {
         componentName: 'ObjectSetter',
@@ -93,7 +92,7 @@ export default {
           config: {
             items: [{
               name: 'span',
-              title: i18n("宽度", "Width"),
+              title: "Width",
               setter: {
                 componentName: 'NumberSetter',
                 props: {
@@ -103,7 +102,7 @@ export default {
               }
             }, {
               name: 'offset',
-              title: i18n("偏移", "Offset"),
+              title: "Offset",
               setter: {
                 componentName: 'NumberSetter',
                 props: {
@@ -120,17 +119,17 @@ export default {
   }, {
     name: 'labelAlign',
     title: {
-      label: i18n("标签对齐", "label alignment"),
-      tip: i18n("label 标签的文本对齐方式", "label Tag TextAlign")
+      label: "label alignment",
+      tip: "label Tag TextAlign"
     },
     setter: {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("左", "Left"),
+          title: "Left",
           value: 'left'
         }, {
-          title: i18n("右", "Right"),
+          title: "Right",
           value: 'right'
         }]
       }
@@ -143,20 +142,20 @@ export default {
   }, {
     name: 'layout',
     title: {
-      label: i18n("表单布局", "Data EntryLayout"),
-      tip: i18n("表单布局", "Data EntryLayout")
+      label: "Data EntryLayout",
+      tip: "Data EntryLayout"
     },
     setter: {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("水平", "Horizontal"),
+          title: "Horizontal",
           value: 'horizontal'
         }, {
-          title: i18n("垂直", "Vertical"),
+          title: "Vertical",
           value: 'vertical'
         }, {
-          title: i18n("行内", "Inline"),
+          title: "Inline",
           value: 'inline'
         }]
       }
@@ -169,8 +168,8 @@ export default {
   }, {
     name: 'name',
     title: {
-      label: i18n("表单名称", "Data EntryName"),
-      tip: i18n("表单名称，会作为表单字段 `id` 前缀使用", "Form name, will be used as the `id` prefix of the form field")
+      label: "Data EntryName",
+      tip: "Form name, will be used as the `id` prefix of the form field"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -178,8 +177,8 @@ export default {
   }, {
     name: 'preserve',
     title: {
-      label: i18n("删除时保留值", "Keep value when deleting"),
-      tip: i18n("当字段被删除时保留字段值", "Keep field value when field is deleted")
+      label: "Keep value when deleting",
+      tip: "Keep field value when field is deleted"
     },
     propType: 'bool',
     defaultValue: true,
@@ -188,8 +187,8 @@ export default {
   }, {
     name: 'scrollToFirstError',
     title: {
-      label: i18n("滚至错误", "roll to error"),
-      tip: i18n("提交失败自动滚动到第一个错误字段", "Automatically scroll to the first error field if the submission fails")
+      label: "roll to error",
+      tip: "Automatically scroll to the first error field if the submission fails"
     },
     propType: 'bool',
     defaultValue: true,
@@ -198,8 +197,8 @@ export default {
   }, {
     name: 'size',
     title: {
-      label: i18n("字段组件尺寸", "FieldComponentSize"),
-      tip: i18n("设置字段组件的尺寸（仅限 antd 组件）", "Set the size of the field component (antd component only)")
+      label: "FieldComponentSize",
+      tip: "Set the size of the field component (antd component only)"
     },
     propType: {
       type: 'oneOf',
@@ -209,13 +208,13 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("大", "Large"),
+          title: "Large",
           value: 'large'
         }, {
-          title: i18n("中", "Middle"),
+          title: "Middle",
           value: 'middle'
         }, {
-          title: i18n("小", "Small"),
+          title: "Small",
           value: 'small'
         }]
       }
@@ -224,18 +223,18 @@ export default {
   }, {
     name: 'validateMessages',
     title: {
-      label: i18n("验证提示模板", "Authentication prompt template"),
-      tip: i18n("验证提示模板", "Authentication prompt template")
+      label: "Authentication prompt template",
+      tip: "Authentication prompt template"
     },
     setter: 'JsonSetter',
     defaultValue: {
-      required: i18n("'${name}' 不能为空", "'${name}' is required")
+      required: "'${name}' is required"
     }
   }, {
     name: 'validateTrigger',
     title: {
-      label: i18n("校验时机", "Verification timing"),
-      tip: i18n("所有字段校验触发时机", "All field verification trigger timing")
+      label: "Verification timing",
+      tip: "All field verification trigger timing"
     },
     propType: {
       type: 'oneOf',
@@ -245,10 +244,10 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("当前值变化时", "On values change"),
+          title: "On values change",
           value: 'onChange'
         }, {
-          title: i18n("失去焦点时", "On blur"),
+          title: "On blur",
           value: 'onBlur'
         }]
       }
@@ -256,29 +255,29 @@ export default {
   }, {
     name: 'onFinish',
     title: {
-      label: i18n("提交表单且数据验证成功后回调事件", "Callback event after the form is submitted and data verification is successful"),
-      tip: i18n("提交表单且数据验证成功后回调事件", "Callback event after the form is submitted and data verification is successful")
+      label: "Callback event after the form is submitted and data verification is successful",
+      tip: "Callback event after the form is submitted and data verification is successful"
     },
     propType: 'func'
   }, {
     name: 'onFinishFailed',
     title: {
-      label: i18n("提交表单且数据验证失败后回调事件", "Callback event after the form is submitted and data validation fails"),
-      tip: i18n("提交表单且数据验证失败后回调事件", "Callback event after the form is submitted and data validation fails")
+      label: "Callback event after the form is submitted and data validation fails",
+      tip: "Callback event after the form is submitted and data validation fails"
     },
     propType: 'func'
   }, {
     name: 'onFieldsChange',
     title: {
-      label: i18n("字段更新时触发回调事件", "A callback event is triggered when a field is updated"),
-      tip: i18n("字段更新时触发回调事件", "A callback event is triggered when a field is updated")
+      label: "A callback event is triggered when a field is updated",
+      tip: "A callback event is triggered when a field is updated"
     },
     propType: 'func'
   }, {
     name: 'onValuesChange',
     title: {
-      label: i18n("字段值更新时触发回调事件", "A callback event is triggered when the field value is updated"),
-      tip: i18n("字段值更新时触发回调事件", "A callback event is triggered when the field value is updated")
+      label: "A callback event is triggered when the field value is updated",
+      tip: "A callback event is triggered when the field value is updated"
     },
     propType: 'func'
   }],
@@ -314,7 +313,7 @@ export default {
           const layoutPNode = currentNode.document.createNode({
             componentName: 'Form.Item',
             props: {
-              label: i18n("表单项: ", "Form Item:")
+              label: "Form Item:"
             },
             children: [dragment.exportSchema()]
           });

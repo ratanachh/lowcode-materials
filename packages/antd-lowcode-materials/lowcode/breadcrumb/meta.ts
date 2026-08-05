@@ -1,19 +1,18 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Breadcrumb',
-  title: i18n("面包屑", "Breadcrumb"),
+  title: "Breadcrumb",
   category: "Navigation",
   props: [{
-    title: i18n("基础", "General"),
+    title: "General",
     display: 'block',
     type: 'group',
     items: [{
       name: 'routes',
       title: {
-        label: i18n("路由栈信息", "Routes"),
-        tip: i18n("router 的路由栈信息", "router Routes")
+        label: "Routes",
+        tip: "router Routes"
       },
       propType: {
         type: 'arrayOf',
@@ -38,8 +37,8 @@ export default {
                 items: [{
                   name: 'path',
                   title: {
-                    label: i18n("路由路径", "routing path"),
-                    tip: i18n("path | 路由路径", "path | routing path")
+                    label: "routing path",
+                    tip: "path | routing path"
                   },
                   propType: 'string',
                   setter: 'StringSetter',
@@ -47,8 +46,8 @@ export default {
                 }, {
                   name: 'breadcrumbName',
                   title: {
-                    label: i18n("路由名称", "Route name"),
-                    tip: i18n("breadcrumbName | 路由名称", "breadcrumbName | route name")
+                    label: "Route name",
+                    tip: "breadcrumbName | route name"
                   },
                   propType: 'string',
                   setter: 'StringSetter',
@@ -66,16 +65,16 @@ export default {
     }, {
       name: 'params',
       title: {
-        label: i18n("路由的参数", "Route parameters"),
-        tip: i18n("路由的参数", "Route parameters")
+        label: "Route parameters",
+        tip: "Route parameters"
       },
       propType: 'object',
       setter: 'JsonSetter'
     }, {
       name: 'separator',
       title: {
-        label: i18n("分隔符自定义", "Separator customization"),
-        tip: i18n("分隔符自定义", "Separator customization")
+        label: "Separator customization",
+        tip: "Separator customization"
       },
       propType: {
         type: 'oneOfType',
@@ -90,14 +89,14 @@ export default {
       }, 'VariableSetter']
     }]
   }, {
-    title: i18n("扩展", "Extra"),
+    title: "Extra",
     display: 'block',
     type: 'group',
     items: [{
       name: 'itemRender',
       title: {
-        label: i18n("自定义渲染", "CustomRender"),
-        tip: i18n("itemRender | 自定义渲染", "itemRender | CustomRender")
+        label: "CustomRender",
+        tip: "itemRender | CustomRender"
       },
       propType: {
         type: 'oneOfType',
@@ -105,7 +104,7 @@ export default {
       },
       setter: [{
         componentName: 'SlotSetter',
-        title: i18n("自定义渲染插槽", "Custom render slot"),
+        title: "Custom render slot",
         initialValue: {
           type: 'JSSlot',
           params: ['route', 'params', 'routes', 'paths'],

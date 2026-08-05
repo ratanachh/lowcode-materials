@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("锚点", "Anchor"),
+  title: "Anchor",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/anchor-1.png',
   schema: {
     componentName: 'Anchor',

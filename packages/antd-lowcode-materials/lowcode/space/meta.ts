@@ -1,17 +1,16 @@
 import { ComponentMetadata } from "@rchh/lowcode-types";
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 
 const SpaceMeta: ComponentMetadata | any = {
   snippets,
   componentName: 'Space',
-  title: i18n("间距", "Space"),
+  title: "Space",
   category: "Layout",
   props: [{
     name: 'align',
     title: {
-      label: i18n("对齐方式", "Align"),
-      tip: i18n("对齐方式", "Align")
+      label: "Align",
+      tip: "Align"
     },
     propType: {
       type: 'oneOf',
@@ -20,8 +19,8 @@ const SpaceMeta: ComponentMetadata | any = {
   }, {
     name: 'direction',
     title: {
-      label: i18n("间距方向", "SpaceDirection"),
-      tip: i18n("间距方向", "SpaceDirection")
+      label: "SpaceDirection",
+      tip: "SpaceDirection"
     },
     propType: {
       type: 'oneOf',
@@ -30,8 +29,8 @@ const SpaceMeta: ComponentMetadata | any = {
   }, {
     name: 'size',
     title: {
-      label: i18n("间距大小", "SpaceSize"),
-      tip: i18n("间距大小", "SpaceSize")
+      label: "SpaceSize",
+      tip: "SpaceSize"
     },
     propType: {
       type: 'oneOfType',
@@ -44,8 +43,8 @@ const SpaceMeta: ComponentMetadata | any = {
   }, {
     name: 'wrap',
     title: {
-      label: i18n("是否自动换行", "Auto wrap"),
-      tip: i18n("是否自动换行", "Auto wrap")
+      label: "Auto wrap",
+      tip: "Auto wrap"
     },
     propType: "bool",
     condition: {
@@ -55,8 +54,8 @@ const SpaceMeta: ComponentMetadata | any = {
   }, {
     name: 'split',
     title: {
-      label: i18n("间隔组件", "GutterComponent"),
-      tip: i18n("间隔组件,可拖组件进来， 常用的有竖向分隔线", "Spacer components can be dragged in. Commonly used are vertical dividers.")
+      label: "GutterComponent",
+      tip: "Spacer components can be dragged in. Commonly used are vertical dividers."
     },
     propType: "node"
   }],

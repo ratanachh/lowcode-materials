@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("普通型", "Normal"),
+  title: "Normal",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tabs-1.jpg',
   schema: {
     componentName: 'Tabs',
@@ -24,7 +23,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("卡片型", "card type"),
+  title: "card type",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tabs-2.jpg',
   schema: {
     componentName: 'Tabs',
@@ -48,7 +47,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("可编辑卡片", "Can EditCard"),
+  title: "Can EditCard",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tabs-3.jpg',
   schema: {
     componentName: 'Tabs',

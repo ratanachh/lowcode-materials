@@ -76,7 +76,7 @@
     }
   ],
   "componentConfig": {
-    "materialSchema": "https://cdn.jsdelivr.net/npm/@rchh/lowcode-materials@1.2.1/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@rchh/lowcode-materials@1.2.2/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "homepage": "https://ratanachh.github.io/lowcode-engine/",

@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("辅助提示输入框", "AutoComplete"),
+  title: "AutoComplete",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/auto-complete-1.png',
   schema: {
     componentName: 'AutoComplete',

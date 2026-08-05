@@ -1,19 +1,18 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Pagination',
-  title: i18n("分页", "Pagination"),
+  title: "Pagination",
   category: "Navigation",
   props: [{
-    title: i18n("数据", "Data"),
+    title: "Data",
     display: 'block',
     type: 'group',
     items: [{
       name: 'defaultPageSize',
       title: {
-        label: i18n("默认每页条数", "DefaultPage size"),
-        tip: i18n("defaultPageSize | 默认每页条数", "defaultPageSize | DefaultPage size")
+        label: "DefaultPage size",
+        tip: "defaultPageSize | DefaultPage size"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -21,8 +20,8 @@ export default {
     }, {
       name: 'pageSize',
       title: {
-        label: i18n("每页条数", "Page size"),
-        tip: i18n("pageSize | 每页条数", "pageSize | Page size")
+        label: "Page size",
+        tip: "pageSize | Page size"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -30,8 +29,8 @@ export default {
     }, {
       name: 'total',
       title: {
-        label: i18n("数据总数", "Total"),
-        tip: i18n("total | 数据总数", "total | Total")
+        label: "Total",
+        tip: "total | Total"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -39,8 +38,8 @@ export default {
     }, {
       name: 'defaultCurrent',
       title: {
-        label: i18n("默认当前页", "Default current page"),
-        tip: i18n("defaultCurrent | 默认的当前页数", "defaultCurrent | Default Current page")
+        label: "Default current page",
+        tip: "defaultCurrent | Default Current page"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -48,22 +47,22 @@ export default {
     }, {
       name: 'current',
       title: {
-        label: i18n("当前页数", "Current page"),
-        tip: i18n("current | 当前页数", "current | Current page")
+        label: "Current page",
+        tip: "current | Current page"
       },
       propType: 'number',
       setter: 'NumberSetter',
       defaultValue: 1
     }]
   }, {
-    title: i18n("功能", "Function"),
+    title: "Function",
     display: 'block',
     type: 'group',
     items: [{
       name: 'disabled',
       title: {
-        label: i18n("是否禁用", "Disabled"),
-        tip: i18n("disabled | 是否禁用", "disabled | Disabled")
+        label: "Disabled",
+        tip: "disabled | Disabled"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -71,8 +70,8 @@ export default {
     }, {
       name: 'showSizeChanger',
       title: {
-        label: i18n("页数切换", "Page size changer"),
-        tip: i18n("showSizeChanger | 是否展示 pageSize 切换器", "showSizeChanger | Whether to display pageSize switcher")
+        label: "Page size changer",
+        tip: "showSizeChanger | Whether to display pageSize switcher"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -80,8 +79,8 @@ export default {
     }, {
       name: 'showQuickJumper',
       title: {
-        label: i18n("快速跳转", "Quick jumper"),
-        tip: i18n("showQuickJumper | 是否可以快速跳转至某页", "showQuickJumper | Whether you can quickly jump to a page")
+        label: "Quick jumper",
+        tip: "showQuickJumper | Whether you can quickly jump to a page"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -89,8 +88,8 @@ export default {
     }, {
       name: 'hideOnSinglePage',
       title: {
-        label: i18n("单页隐藏", "Single page hidden"),
-        tip: i18n("hideOnSinglePage | 只有一页时是否隐藏分页器", "hideOnSinglePage | Whether to hide the pager when there is only one page")
+        label: "Single page hidden",
+        tip: "hideOnSinglePage | Whether to hide the pager when there is only one page"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -98,8 +97,8 @@ export default {
     }, {
       name: 'showLessItems',
       title: {
-        label: i18n("显示较少页面", "Show fewer pages"),
-        tip: i18n("showLessItems | 是否显示较少页面内容", "showLessItems | Whether to display less page content")
+        label: "Show fewer pages",
+        tip: "showLessItems | Whether to display less page content"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -107,21 +106,21 @@ export default {
     }, {
       name: 'pageSizeOptions',
       title: {
-        label: i18n("可选分页数", "Optional number of pages"),
-        tip: i18n("pageSizeOptions | 指定 pageSize切换器 可选择的每页条数", "pageSizeOptions | Specify the number of items per page that can be selected by the pageSize switcher")
+        label: "Optional number of pages",
+        tip: "pageSizeOptions | Specify the number of items per page that can be selected by the pageSize switcher"
       },
       propType: 'object',
       setter: 'JsonSetter'
     }]
   }, {
-    title: i18n("外观", "Appearance"),
+    title: "Appearance",
     display: 'block',
     type: 'group',
     items: [{
       name: 'simple',
       title: {
-        label: i18n("简单分页", "Simple pagination"),
-        tip: i18n("simple | 简单分页", "simple | Simple pagination")
+        label: "Simple pagination",
+        tip: "simple | Simple pagination"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -129,8 +128,8 @@ export default {
     }, {
       name: 'size',
       title: {
-        label: i18n("分页尺寸", "Pagination size"),
-        tip: i18n("size | 分页尺寸", "size | Pagination size")
+        label: "Pagination size",
+        tip: "size | Pagination size"
       },
       propType: {
         type: 'oneOf',
@@ -140,10 +139,10 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("默认", "Default"),
+            title: "Default",
             value: 'default'
           }, {
-            title: i18n("小", "Small"),
+            title: "Small",
             value: 'small'
           }]
         }
@@ -152,8 +151,8 @@ export default {
     }, {
       name: 'showTotal',
       title: {
-        label: i18n("显示总数", "Show total"),
-        tip: i18n("showTotal | 用于显示数据总量和当前数据顺序", "showTotal | Used to display the total amount of data and the current data sequence")
+        label: "Show total",
+        tip: "showTotal | Used to display the total amount of data and the current data sequence"
       },
       propType: 'func',
       setter: [{
@@ -165,8 +164,8 @@ export default {
     }, {
       name: 'showTitle',
       title: {
-        label: i18n("页码提示", "Page number hint"),
-        tip: i18n("showTitle | 是否显示原生 tooltip 页码提示", "showTitle | Whether to display the native tooltip page number prompt")
+        label: "Page number hint",
+        tip: "showTitle | Whether to display the native tooltip page number prompt"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -174,8 +173,8 @@ export default {
     }, {
       name: 'responsive',
       title: {
-        label: i18n("宽度自适应", "WidthAuto"),
-        tip: i18n("responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸", "responsive | When size is not specified, automatically adjust the size according to the screen width")
+        label: "WidthAuto",
+        tip: "responsive | When size is not specified, automatically adjust the size according to the screen width"
       },
       propType: 'bool',
       setter: 'BoolSetter',

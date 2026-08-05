@@ -1,17 +1,16 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 export default {
   snippets,
   componentName: 'Col',
-  title: i18n("栅格-列", "Grid-Col"),
+  title: "Grid-Col",
   props: [{
     name: 'span',
     title: {
-      label: i18n("占位格数", "Number of placeholders"),
-      tip: i18n("栅格占位格数", "Number of grid occupancy cells")
+      label: "Number of placeholders",
+      tip: "Number of grid occupancy cells"
     },
     propType: 'number',
     setter: {
@@ -24,15 +23,15 @@ export default {
   }, {
     name: 'order',
     title: {
-      label: i18n("栅格顺序", "grid order"),
-      tip: i18n("栅格顺序", "grid order")
+      label: "grid order",
+      tip: "grid order"
     },
     propType: 'number'
   }, {
     name: 'pull',
     title: {
-      label: i18n("右侧偏移", "RightOffset"),
-      tip: i18n("栅格往右移动格数", "Move the grid to the right by the number of cells")
+      label: "RightOffset",
+      tip: "Move the grid to the right by the number of cells"
     },
     propType: 'number',
     setter: {
@@ -45,8 +44,8 @@ export default {
   }, {
     name: 'push',
     title: {
-      label: i18n("左侧偏移", "LeftOffset"),
-      tip: i18n("栅格往左移动格数", "Move the grid to the left by the number of cells")
+      label: "LeftOffset",
+      tip: "Move the grid to the left by the number of cells"
     },
     propType: 'number',
     setter: {

@@ -1,21 +1,20 @@
 import snippets from './snippets';
-import { i18n } from '../_utils/i18n';
 
 export default {
   componentName: 'Button',
-  title: i18n('按钮', 'Button'),
+  title: "Button",
   category: 'General',
   props: [
     {
-      title: i18n('功能', 'Function'),
+      title: "Function",
       display: 'block',
       type: 'group',
       items: [
         {
           name: 'children',
           title: {
-            label: i18n('内容', 'Content'),
-            tip: i18n('children | 内容', 'children | Content'),
+            label: "Content",
+            tip: "children | Content",
           },
           propType: {
             type: 'oneOfType',
@@ -26,9 +25,9 @@ export default {
         {
           name: 'htmlType',
           title: {
-            label: i18n('原生类型', 'HTML type'),
+            label: "HTML type",
             tip: i18n(
-              'htmlType | 设置 `button` 原生的 `type` 值',
+              'htmlType | Set the original `type` of `button`',
               'htmlType | Set native `button` `type`',
             ),
           },
@@ -63,9 +62,9 @@ export default {
         {
           name: 'href',
           title: {
-            label: i18n('跳转地址', 'Href'),
+            label: "Href",
             tip: i18n(
-              'href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致',
+              'href | Redirect address',
               'href | Link URL; when set, button behaves like an anchor',
             ),
           },
@@ -77,7 +76,7 @@ export default {
           title: {
             label: 'Target',
             tip: i18n(
-              'target | 相当于 a 链接的 target 属性，href 存在时生效',
+              'target | Equivalent to a link target',
               'target | Same as anchor target; effective when href is set',
             ),
           },
@@ -91,19 +90,19 @@ export default {
               props: {
                 options: [
                   {
-                    title: i18n('本窗口跳转', 'Same window'),
+                    title: "Same window",
                     value: '_self',
                   },
                   {
-                    title: i18n('打开新标签页', 'New tab'),
+                    title: "New tab",
                     value: '_blank',
                   },
                   {
-                    title: i18n('父窗口跳转', 'Parent frame'),
+                    title: "Parent frame",
                     value: '_parent',
                   },
                   {
-                    title: i18n('顶层窗口跳转', 'Top frame'),
+                    title: "Top frame",
                     value: '_top',
                   },
                 ],
@@ -120,15 +119,15 @@ export default {
       ],
     },
     {
-      title: i18n('外观', 'Appearance'),
+      title: "Appearance",
       display: 'block',
       type: 'group',
       items: [
         {
           name: 'type',
           title: {
-            label: i18n('类型', 'Type'),
-            tip: i18n('type | 设置按钮类型', 'type | Button type'),
+            label: "Type",
+            tip: "type | Button type",
           },
           propType: {
             type: 'oneOf',
@@ -140,23 +139,23 @@ export default {
               props: {
                 options: [
                   {
-                    title: i18n('主按钮', 'Primary'),
+                    title: "Primary",
                     value: 'primary',
                   },
                   {
-                    title: i18n('虚线框按钮', 'Dashed'),
+                    title: "Dashed",
                     value: 'dashed',
                   },
                   {
-                    title: i18n('危险按钮', 'Danger'),
+                    title: "Danger",
                     value: 'danger',
                   },
                   {
-                    title: i18n('链接按钮', 'Link'),
+                    title: "Link",
                     value: 'link',
                   },
                   {
-                    title: i18n('类文本按钮', 'Text'),
+                    title: "Text",
                     value: 'text',
                   },
                 ],
@@ -168,8 +167,8 @@ export default {
         {
           name: 'size',
           title: {
-            label: i18n('尺寸', 'Size'),
-            tip: i18n('size | 设置按钮大小', 'size | Button size'),
+            label: "Size",
+            tip: "size | Button size",
           },
           propType: { type: 'oneOf', value: ['large', 'middle', 'small'] },
           setter: [
@@ -178,15 +177,15 @@ export default {
               props: {
                 options: [
                   {
-                    title: i18n('大', 'Large'),
+                    title: "Large",
                     value: 'large',
                   },
                   {
-                    title: i18n('中', 'Middle'),
+                    title: "Middle",
                     value: 'middle',
                   },
                   {
-                    title: i18n('小', 'Small'),
+                    title: "Small",
                     value: 'small',
                   },
                 ],
@@ -199,9 +198,9 @@ export default {
         {
           name: 'shape',
           title: {
-            label: i18n('形状', 'Shape'),
+            label: "Shape",
             tip: i18n(
-              'shape | 设置按钮形状，可选值为 `circle`、 `round` 或者不设',
+              'shape | Set button shape, optional `circle`, `round` or unset',
               'shape | Button shape: `circle`, `round`, or default',
             ),
           },
@@ -213,15 +212,15 @@ export default {
               props: {
                 options: [
                   {
-                    title: i18n('默认', 'Default'),
+                    title: "Default",
                     value: 'default',
                   },
                   {
-                    title: i18n('圆形', 'Circle'),
+                    title: "Circle",
                     value: 'circle',
                   },
                   {
-                    title: i18n('圆角', 'Round'),
+                    title: "Round",
                     value: 'round',
                   },
                 ],
@@ -233,8 +232,8 @@ export default {
         {
           name: 'icon',
           title: {
-            label: i18n('图标', 'Icon'),
-            tip: i18n('icon | 设置按钮的图标组件', 'icon | Button icon'),
+            label: "Icon",
+            tip: "icon | Button icon",
           },
           propType: 'node',
           setter: {
@@ -258,9 +257,9 @@ export default {
         {
           name: 'block',
           title: {
-            label: i18n('自适应', 'Block'),
+            label: "Block",
             tip: i18n(
-              'block | 将按钮宽度调整为其父宽度的选项',
+              'block | Option to fit button width to its parent width',
               'block | Fit button width to parent',
             ),
           },
@@ -271,8 +270,8 @@ export default {
         {
           name: 'danger',
           title: {
-            label: i18n('危险按钮', 'Danger'),
-            tip: i18n('danger | 设置危险按钮', 'danger | Danger button'),
+            label: "Danger",
+            tip: "danger | Danger button",
           },
           propType: 'bool',
           setter: 'BoolSetter',
@@ -281,9 +280,9 @@ export default {
         {
           name: 'ghost',
           title: {
-            label: i18n('幽灵属性', 'Ghost'),
+            label: "Ghost",
             tip: i18n(
-              'ghost | 幽灵属性，使按钮背景透明',
+              'ghost | Ghost property, makes button background transparent',
               'ghost | Transparent background',
             ),
           },
@@ -294,15 +293,15 @@ export default {
       ],
     },
     {
-      title: i18n('状态', 'State'),
+      title: "State",
       display: 'block',
       type: 'group',
       items: [
         {
           name: 'loading',
           title: {
-            label: i18n('载入状态', 'Loading'),
-            tip: i18n('loading | 设置按钮载入状态', 'loading | Loading state'),
+            label: "Loading",
+            tip: "loading | Loading state",
           },
           propType: 'bool',
           setter: ['BoolSetter', 'VariableSetter'],
@@ -310,8 +309,8 @@ export default {
         {
           name: 'disabled',
           title: {
-            label: i18n('是否禁用', 'Disabled'),
-            tip: i18n('disabled | 是否为禁用状态', 'disabled | Whether disabled'),
+            label: "Disabled",
+            tip: "disabled | Whether disabled",
           },
           propType: 'bool',
           setter: ['BoolSetter', 'VariableSetter'],
@@ -322,8 +321,8 @@ export default {
     {
       name: 'onClick',
       title: {
-        label: i18n('点击回调', 'On click'),
-        tip: i18n('点击按钮时的回调', 'Callback when button is clicked'),
+        label: "On click",
+        tip: "Callback when button is clicked",
       },
       propType: 'func',
     },

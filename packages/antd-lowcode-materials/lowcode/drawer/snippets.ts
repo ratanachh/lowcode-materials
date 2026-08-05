@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("侧边抽屉", "Side drawer"),
+  title: "Side drawer",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/drawer-1.png',
   schema: {
     componentName: 'Drawer',
@@ -16,7 +15,7 @@ export default [{
     }]
   }
 }, {
-  title: i18n("底部抽屉", "BottomDrawer"),
+  title: "BottomDrawer",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/drawer-2.png',
   schema: {
     componentName: 'Drawer',

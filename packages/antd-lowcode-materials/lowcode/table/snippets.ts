@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("表格", "Table"),
+  title: "Table",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/table-1.png',
   schema: {
     componentName: 'Table',
@@ -9,12 +8,12 @@ export default [{
         id: '1',
         name: "Hu Yanbin",
         age: 32,
-        address: i18n("西湖区湖底公园1号", "No. 1, Hudi Park, Xihu District")
+        address: "No. 1, Hudi Park, Xihu District"
       }, {
         id: '2',
         name: "Wang Yibo",
         age: 28,
-        address: i18n("滨江区网商路699号", "No. 699, Wangshang Road, Binjiang District")
+        address: "No. 699, Wangshang Road, Binjiang District"
       }],
       columns: [{
         title: "Name",

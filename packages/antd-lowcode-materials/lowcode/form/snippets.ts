@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  "title": i18n("表单容器", "Form"),
+  "title": "Form",
   "screenshot": "https://alifd.alicdn.com/fusion-cool/icons/icon-antd/form-1.png",
   "schema": {
     "componentName": "Form",

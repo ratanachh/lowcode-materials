@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Row',
-  title: i18n("栅格-行", "Grid-Row"),
+  title: "Grid-Row",
   category: "Layout",
   props: [{
     name: 'align',
     title: {
-      label: i18n("垂直对齐方式", "VerticalAlign"),
-      tip: i18n("垂直对齐方式", "VerticalAlign")
+      label: "VerticalAlign",
+      tip: "VerticalAlign"
     },
     propType: {
       type: 'oneOf',
@@ -18,8 +17,8 @@ export default {
   }, {
     name: 'h-gutter',
     title: {
-      label: i18n("水平间隔", "HorizontalGutter"),
-      tip: i18n("栅格水平间隔，单位为像素(px)", "Grid horizontal interval, unit is pixel (px)")
+      label: "HorizontalGutter",
+      tip: "Grid horizontal interval, unit is pixel (px)"
     },
     propType: 'number',
     setter: {
@@ -58,8 +57,8 @@ export default {
   }, {
     name: 'v-gutter',
     title: {
-      label: i18n("垂直间隔", "VerticalGutter"),
-      tip: i18n("栅格垂直间隔，单位为像素(px)", "Grid vertical spacing in pixels (px)")
+      label: "VerticalGutter",
+      tip: "Grid vertical spacing in pixels (px)"
     },
     propType: 'number',
     setter: {
@@ -98,8 +97,8 @@ export default {
   }, {
     name: 'justify',
     title: {
-      label: i18n("水平排列方式", "horizontal arrangement"),
-      tip: i18n("水平排列方式", "horizontal arrangement")
+      label: "horizontal arrangement",
+      tip: "horizontal arrangement"
     },
     propType: {
       type: 'oneOf',
@@ -108,8 +107,8 @@ export default {
   }, {
     name: 'wrap',
     title: {
-      label: i18n("自动换行", "Automatic line wrapping"),
-      tip: i18n("是否自动换行", "Auto wrap")
+      label: "Automatic line wrapping",
+      tip: "Auto wrap"
     },
     propType: 'bool',
     defaultValue: true

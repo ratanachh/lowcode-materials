@@ -1,5 +1,4 @@
 import { uuid } from '../_utils/utils';
-import { i18n } from "../_utils/i18n";
 export const itemsExtraProps = {
   getValue(target, fieldValue) {
     const map = target.node.children.map(child => {
@@ -63,7 +62,7 @@ export const itemsExtraProps = {
                 items: itemProps.items && itemProps.items.length === 0 ? itemProps.items : [{
                   key: `item-${uuid()}`,
                   category: 'Menu.Item',
-                  children: i18n("子菜单名", "Submenu name")
+                  children: "Submenu name"
                 }]
               }
             });

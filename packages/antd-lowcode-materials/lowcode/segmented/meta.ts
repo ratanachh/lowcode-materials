@@ -1,16 +1,15 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Segmented',
-  title: i18n("分段控制器", "Segmentation controller"),
+  title: "Segmentation controller",
   category: "Data Display",
   group: "Atomic Components",
   props: [{
     name: 'block',
     title: {
       label: 'block ',
-      tip: i18n("将宽度调整为父元素宽度的选项 ", "Option to adjust width to parent element width")
+      tip: "Option to adjust width to parent element width"
     },
     propType: 'bool',
     defaultValue: false,
@@ -18,15 +17,15 @@ export default {
   }, {
     name: 'defaultValue',
     title: {
-      label: i18n("默认值", "Default value"),
-      tip: i18n("默认的选中项", "Default selected keys")
+      label: "Default value",
+      tip: "Default selected keys"
     },
     setter: ['StringSetter', 'NumberSetter']
   }, {
     name: 'disabled',
     title: {
-      label: i18n("禁用", "Disabled"),
-      tip: i18n("是否禁用", "Disabled")
+      label: "Disabled",
+      tip: "Disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -34,15 +33,15 @@ export default {
   }, {
     name: 'options',
     title: {
-      label: i18n("配置内容", "configContent"),
-      tip: i18n("数据化配置选项内容", "Data configuration options content")
+      label: "configContent",
+      tip: "Data configuration options content"
     },
     setter: ['JsonSetter', 'VariableSetter']
   }, {
     name: 'size',
     title: {
-      label: i18n("控件尺寸", "Control size"),
-      tip: i18n("控件尺寸", "Control size")
+      label: "Control size",
+      tip: "Control size"
     },
     propType: {
       type: 'oneOf',
@@ -52,13 +51,13 @@ export default {
       componentName: 'SelectSetter',
       props: {
         options: [{
-          title: i18n("大", "Large"),
+          title: "Large",
           value: 'large'
         }, {
-          title: i18n("中", "Middle"),
+          title: "Middle",
           value: 'middle'
         }, {
-          title: i18n("小", "Small"),
+          title: "Small",
           value: 'small'
         }]
       }

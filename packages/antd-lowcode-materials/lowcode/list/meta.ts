@@ -1,19 +1,18 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'List',
-  title: i18n("列表", "List"),
+  title: "List",
   category: "Data Display",
   props: [{
-    title: i18n("数据源", "Data source"),
+    title: "Data source",
     display: 'block',
     type: 'group',
     items: [{
       name: 'dataSource',
       title: {
-        label: i18n("列表数据源", "ListData source"),
-        tip: i18n("列表数据源", "ListData source")
+        label: "ListData source",
+        tip: "ListData source"
       },
       propType: {
         type: 'arrayOf',
@@ -23,8 +22,8 @@ export default {
     }, {
       name: 'loading',
       title: {
-        label: i18n("是否加载中", "YesNoLoading"),
-        tip: i18n("loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位", "loading | When the card content is still loading, you can use loading to display a placeholder")
+        label: "YesNoLoading",
+        tip: "loading | When the card content is still loading, you can use loading to display a placeholder"
       },
       propType: 'bool',
       defaultValue: false,
@@ -32,8 +31,8 @@ export default {
     }, {
       name: 'rowKey',
       title: {
-        label: i18n("行Key", "RowKey"),
-        tip: i18n("rowKey | 当 renderItem 自定义渲染列表项有效时，自定义每一行的 key 的获取方式", "rowKey | When the renderItem custom rendering list item is valid, customize the way to obtain the key of each row")
+        label: "RowKey",
+        tip: "rowKey | When the renderItem custom rendering list item is valid, customize the way to obtain the key of each row"
       },
       propType: {
         type: 'oneOfType',
@@ -48,14 +47,14 @@ export default {
       }, 'VariableSetter']
     }]
   }, {
-    title: i18n("外观", "Appearance"),
+    title: "Appearance",
     display: 'block',
     type: 'group',
     items: [{
       name: 'itemLayout',
       title: {
-        label: i18n("尺寸", "Size"),
-        tip: i18n("itemLayout  | 设置 List.Item 布局, 设置成 vertical 则竖直样式显示, 默认横排", "itemLayout | Set the List.Item layout. If set to vertical, the vertical style will be displayed. The default is horizontal.")
+        label: "Size",
+        tip: "itemLayout | Set the List.Item layout. If set to vertical, the vertical style will be displayed. The default is horizontal."
       },
       propType: {
         type: 'oneOf',
@@ -66,10 +65,10 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("水平", "Horizontal"),
+            title: "Horizontal",
             value: 'horizontal'
           }, {
-            title: i18n("垂直", "Vertical"),
+            title: "Vertical",
             value: 'vertical'
           }]
         }
@@ -77,8 +76,8 @@ export default {
     }, {
       name: 'size',
       title: {
-        label: i18n("尺寸", "Size"),
-        tip: i18n("size  | 列表的尺寸", "size | List Size")
+        label: "Size",
+        tip: "size | List Size"
       },
       propType: {
         type: 'oneOf',
@@ -89,13 +88,13 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("默认", "Default"),
+            title: "Default",
             value: 'default'
           }, {
-            title: i18n("大", "Large"),
+            title: "Large",
             value: 'large'
           }, {
-            title: i18n("小", "Small"),
+            title: "Small",
             value: 'small'
           }]
         }
@@ -103,8 +102,8 @@ export default {
     }, {
       name: 'bordered',
       title: {
-        label: i18n("显示边框", "Show border"),
-        tip: i18n("bordered | 是否展示边框", "bordered | whether to display borders")
+        label: "Show border",
+        tip: "bordered | whether to display borders"
       },
       propType: 'bool',
       defaultValue: true,
@@ -112,22 +111,22 @@ export default {
     }, {
       name: 'split',
       title: {
-        label: i18n("展示分割线", "Show dividing line"),
-        tip: i18n("split | 是否展示分割线", "split | whether to display the dividing line")
+        label: "Show dividing line",
+        tip: "split | whether to display the dividing line"
       },
       propType: 'bool',
       defaultValue: true,
       setter: 'BoolSetter'
     }]
   }, {
-    title: i18n("栅格", "Grid"),
+    title: "Grid",
     display: 'block',
     type: 'group',
     items: [{
       name: 'gridEnable',
       title: {
-        label: i18n("启用栅格", "enabledGrid"),
-        tip: i18n("grid | 是否启用栅格", "grid | YesNoenabledGrid")
+        label: "enabledGrid",
+        tip: "grid | YesNoenabledGrid"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -144,8 +143,8 @@ export default {
     }, {
       name: 'grid.column',
       title: {
-        label: i18n("列数", "Number of columns"),
-        tip: i18n("grid.column | 栅格的列数", "grid.column | The number of columns in the grid")
+        label: "Number of columns",
+        tip: "grid.column | The number of columns in the grid"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -157,8 +156,8 @@ export default {
     }, {
       name: 'grid.gutter',
       title: {
-        label: i18n("间隔", "Gutter"),
-        tip: i18n("grid.gutter | 栅格的间隔", "grid.gutter | Grid Gutter")
+        label: "Gutter",
+        tip: "grid.gutter | Grid Gutter"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -169,14 +168,14 @@ export default {
       }
     }]
   }, {
-    title: i18n("分页", "Pagination"),
+    title: "Pagination",
     display: 'block',
     type: 'group',
     items: [{
       name: 'pagination',
       title: {
-        label: i18n("显示分页", "ShowPagination"),
-        tip: i18n("pagination | 显示分页", "pagination | ShowPagination")
+        label: "ShowPagination",
+        tip: "pagination | ShowPagination"
       },
       propType: 'object',
       setter: 'BoolSetter',
@@ -192,8 +191,8 @@ export default {
     }, {
       name: 'pagination.pageSize',
       title: {
-        label: i18n("每页条数", "Page size"),
-        tip: i18n("pagination.pageSize | 每页条数", "pagination.pageSize | Page size")
+        label: "Page size",
+        tip: "pagination.pageSize | Page size"
       },
       setter: 'NumberSetter',
       condition: {
@@ -203,8 +202,8 @@ export default {
     }, {
       name: 'pagination.total',
       title: {
-        label: i18n("数据总数", "Total"),
-        tip: i18n("pagination.total | 数据总数", "pagination.total | Total")
+        label: "Total",
+        tip: "pagination.total | Total"
       },
       setter: 'NumberSetter',
       condition: {
@@ -235,8 +234,8 @@ export default {
     {
       name: 'pagination.current',
       title: {
-        label: i18n("当前页数", "Current page"),
-        tip: i18n("pagination.current | 当前页数", "pagination.current | Current page")
+        label: "Current page",
+        tip: "pagination.current | Current page"
       },
       setter: 'NumberSetter',
       condition: {
@@ -246,8 +245,8 @@ export default {
     }, {
       name: 'pagination.showTotal',
       title: {
-        label: i18n("显示总数", "Show total"),
-        tip: i18n("pagination.showTotal | 用于显示数据总量和当前数据顺序", "pagination.showTotal | Used to display the total amount of data and the current data sequence")
+        label: "Show total",
+        tip: "pagination.showTotal | Used to display the total amount of data and the current data sequence"
       },
       propType: 'func',
       setter: [{
@@ -263,8 +262,8 @@ export default {
     }, {
       name: 'pagination.showSizeChanger',
       title: {
-        label: i18n("页数切换", "Page size changer"),
-        tip: i18n("pagination.showSizeChanger | 是否展示 pageSize 切换器", "pagination.showSizeChanger | Whether to display pageSize switcher")
+        label: "Page size changer",
+        tip: "pagination.showSizeChanger | Whether to display pageSize switcher"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -276,8 +275,8 @@ export default {
     }, {
       name: 'pagination.showQuickJumper',
       title: {
-        label: i18n("快速跳转", "Quick jumper"),
-        tip: i18n("pagination.showQuickJumper | 是否可以快速跳转至某页", "pagination.showQuickJumper | Whether you can quickly jump to a page")
+        label: "Quick jumper",
+        tip: "pagination.showQuickJumper | Whether you can quickly jump to a page"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -289,8 +288,8 @@ export default {
     }, {
       name: 'pagination.simple',
       title: {
-        label: i18n("简单分页", "Simple pagination"),
-        tip: i18n("pagination.simple | 简单分页", "pagination.simple | Simple pagination")
+        label: "Simple pagination",
+        tip: "pagination.simple | Simple pagination"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -302,8 +301,8 @@ export default {
     }, {
       name: 'pagination.size',
       title: {
-        label: i18n("分页尺寸", "Pagination size"),
-        tip: i18n("pagination.size | 分页尺寸", "pagination.size | Pagination size")
+        label: "Pagination size",
+        tip: "pagination.size | Pagination size"
       },
       propType: {
         type: 'oneOf',
@@ -313,10 +312,10 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("默认", "Default"),
+            title: "Default",
             value: 'default'
           }, {
-            title: i18n("小", "Small"),
+            title: "Small",
             value: 'small'
           }]
         }
@@ -329,20 +328,20 @@ export default {
     }, {
       name: 'pagination.position',
       title: {
-        label: i18n("分页位置", "PaginationPosition"),
-        tip: i18n("pagination.position | 分页位置", "pagination.position | PaginationPosition")
+        label: "PaginationPosition",
+        tip: "pagination.position | PaginationPosition"
       },
       setter: {
         componentName: 'SelectSetter',
         props: {
           options: [{
-            title: i18n("上", "Top"),
+            title: "Top",
             value: 'top'
           }, {
-            title: i18n("下", "Bottom"),
+            title: "Bottom",
             value: 'bottom'
           }, {
-            title: i18n("上下", "TopBottom"),
+            title: "TopBottom",
             value: 'both'
           }]
         },
@@ -354,19 +353,19 @@ export default {
       }
     }]
   }, {
-    title: i18n("扩展", "Extra"),
+    title: "Extra",
     display: 'block',
     type: 'group',
     items: [{
       name: 'renderItem',
       title: {
-        label: i18n("渲染函数", "render function"),
-        tip: i18n("renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项", "renderItem | When using dataSource, you can use `renderItem` to customize the rendering list items")
+        label: "render function",
+        tip: "renderItem | When using dataSource, you can use `renderItem` to customize the rendering list items"
       },
       propType: 'func',
       setter: [{
         componentName: 'SlotSetter',
-        title: i18n("渲染函数插槽", "Render function slot"),
+        title: "Render function slot",
         initialValue: {
           type: 'JSSlot',
           params: ['item'],
@@ -393,8 +392,8 @@ export default {
     }, {
       name: 'header',
       title: {
-        label: i18n("列表头部", "List header"),
-        tip: i18n("header | 列表头部", "header | List header")
+        label: "List header",
+        tip: "header | List header"
       },
       propType: 'node',
       setter: {
@@ -404,7 +403,7 @@ export default {
           value: [{
             componentName: 'Typography.Text',
             props: {
-              children: i18n("列表头部", "List header")
+              children: "List header"
             }
           }]
         }
@@ -412,8 +411,8 @@ export default {
     }, {
       name: 'footer',
       title: {
-        label: i18n("列表底部", "List footer"),
-        tip: i18n("footer | 列表底部", "footer | List footer")
+        label: "List footer",
+        tip: "footer | List footer"
       },
       propType: 'node',
       setter: {
@@ -423,7 +422,7 @@ export default {
           value: [{
             componentName: 'Typography.Text',
             props: {
-              children: i18n("列表底部", "List footer")
+              children: "List footer"
             }
           }]
         }
@@ -431,8 +430,8 @@ export default {
     }, {
       name: 'loadMore',
       title: {
-        label: i18n("加载更多", "LoadingMore"),
-        tip: i18n("loadMore | 加载更多", "loadMore | LoadingMore")
+        label: "LoadingMore",
+        tip: "loadMore | LoadingMore"
       },
       propType: 'node',
       setter: {

@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Popconfirm',
-  title: i18n("气泡确认框", "Popconfirm"),
+  title: "Popconfirm",
   category: "Feedback",
   props: [{
     name: 'title',
     title: {
-      label: i18n("确认框内容", "Confirmation box content"),
-      tip: i18n("确认框内容", "Confirmation box content")
+      label: "Confirmation box content",
+      tip: "Confirmation box content"
     },
     propType: {
       type: 'oneOfType',
@@ -18,8 +17,8 @@ export default {
   }, {
     name: 'okText',
     title: {
-      label: i18n("确认按钮文字", "OK text"),
-      tip: i18n("确认按钮文字", "OK text")
+      label: "OK text",
+      tip: "OK text"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -27,8 +26,8 @@ export default {
   }, {
     name: 'cancelText',
     title: {
-      label: i18n("取消按钮文字", "Cancel text"),
-      tip: i18n("取消按钮文字", "Cancel text")
+      label: "Cancel text",
+      tip: "Cancel text"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -36,8 +35,8 @@ export default {
   }, {
     name: 'onConfirm',
     title: {
-      label: i18n("点击确认回调", "Click OKcallback"),
-      tip: i18n("点击确认回调", "Click OKcallback")
+      label: "Click OKcallback",
+      tip: "Click OKcallback"
     },
     propType: 'func'
   }

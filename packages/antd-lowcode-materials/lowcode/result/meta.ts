@@ -1,29 +1,28 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Result',
-  title: i18n("结果", "Result"),
+  title: "Result",
   category: "Feedback",
   props: [{
     name: 'title',
     title: {
-      label: i18n("标题", "Title"),
-      tip: i18n("title 文字", "title Text")
+      label: "Title",
+      tip: "title Text"
     },
     propType: 'node'
   }, {
     name: 'subTitle',
     title: {
-      label: i18n("副标题", "subtitle"),
-      tip: i18n("subTitle 文字", "subTitle Text")
+      label: "subtitle",
+      tip: "subTitle Text"
     },
     propType: 'node'
   }, {
     name: 'status',
     title: {
-      label: i18n("状态", "Status"),
-      tip: i18n("结果的状态，决定图标和颜色", "The status of the result, which determines the icon and color")
+      label: "Status",
+      tip: "The status of the result, which determines the icon and color"
     },
     propType: {
       type: 'oneOf',
@@ -32,15 +31,15 @@ export default {
   }, {
     name: 'icon',
     title: {
-      label: i18n("自定义 icon", "Custom icon"),
-      tip: i18n("自定义 icon", "Custom icon")
+      label: "Custom icon",
+      tip: "Custom icon"
     },
     propType: 'node'
   }, {
     name: 'extra',
     title: {
-      label: i18n("操作区", "Actions"),
-      tip: i18n("操作区", "Actions")
+      label: "Actions",
+      tip: "Actions"
     },
     propType: 'node'
   }],

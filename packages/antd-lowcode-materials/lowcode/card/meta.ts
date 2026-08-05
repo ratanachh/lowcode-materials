@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Card',
-  title: i18n("卡片", "Card"),
+  title: "Card",
   category: "Data Display",
   props: [{
     name: 'title',
     title: {
-      label: i18n("卡片标题", "Card title"),
-      tip: i18n("卡片标题", "Card title")
+      label: "Card title",
+      tip: "Card title"
     },
     propType: {
       type: 'oneOfType',
@@ -34,23 +33,23 @@ export default {
   {
     name: 'bordered',
     title: {
-      label: i18n("显示边框", "Show border"),
-      tip: i18n("是否有边框", "Whether bordered")
+      label: "Show border",
+      tip: "Whether bordered"
     },
     propType: 'bool',
     defaultValue: true
   }, {
     name: 'cover',
     title: {
-      label: i18n("卡片封面", "card cover"),
-      tip: i18n("卡片封面", "card cover")
+      label: "card cover",
+      tip: "card cover"
     },
     propType: 'node'
   }, {
     name: 'extra',
     title: {
-      label: i18n("额外元素", "Extra"),
-      tip: i18n("卡片右上角的操作区域", "The operation area in the upper right corner of the card")
+      label: "Extra",
+      tip: "The operation area in the upper right corner of the card"
     },
     propType: {
       type: 'oneOfType',
@@ -59,8 +58,8 @@ export default {
   }, {
     name: 'hoverable',
     title: {
-      label: i18n("可浮起", "can float"),
-      tip: i18n("鼠标移过时可浮起", "Can float when mouse moves over")
+      label: "can float",
+      tip: "Can float when mouse moves over"
     },
     propType: 'bool',
     defaultValue: false
@@ -68,15 +67,15 @@ export default {
     name: 'loading',
     title: {
       label: 'loading',
-      tip: i18n("当卡片内容还在加载中时，可以用 loading 展示一个占位", "When the card content is still loading, you can use loading to display a placeholder")
+      tip: "When the card content is still loading, you can use loading to display a placeholder"
     },
     propType: 'bool',
     defaultValue: false
   }, {
     name: 'size',
     title: {
-      label: i18n("尺寸", "Size"),
-      tip: i18n("card 的尺寸", "Card size")
+      label: "Size",
+      tip: "Card size"
     },
     propType: {
       type: 'oneOf',
@@ -86,8 +85,8 @@ export default {
   }, {
     name: 'type',
     title: {
-      label: i18n("卡片类型", "CardType"),
-      tip: i18n("卡片类型", "CardType")
+      label: "CardType",
+      tip: "CardType"
     },
     propType: {
       type: 'oneOf',

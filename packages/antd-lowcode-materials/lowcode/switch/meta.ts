@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Switch',
-  title: i18n("开关", "Switch"),
+  title: "Switch",
   category: "Data Entry",
   props: [{
     name: 'defaultChecked',
     title: {
-      label: i18n("默认选中", "Selected by default"),
-      tip: i18n("默认是否选中", "Is it selected by default?")
+      label: "Selected by default",
+      tip: "Is it selected by default?"
     },
     propType: 'bool',
     defaultValue: false,
@@ -17,8 +16,8 @@ export default {
   }, {
     name: 'checked',
     title: {
-      label: i18n("是否选中", "Check or not"),
-      tip: i18n("当前是否选中", "Is it currently selected?")
+      label: "Check or not",
+      tip: "Is it currently selected?"
     },
     propType: 'bool',
     defaultValue: false,
@@ -27,8 +26,8 @@ export default {
   }, {
     name: 'autoFocus',
     title: {
-      label: i18n("自动聚焦", "Auto focus"),
-      tip: i18n("组件自动获取焦点", "ComponentAuto focus")
+      label: "Auto focus",
+      tip: "ComponentAuto focus"
     },
     propType: 'bool',
     defaultValue: false,
@@ -36,24 +35,24 @@ export default {
   }, {
     name: 'checkedChildren',
     title: {
-      label: i18n("选中时内容", "Content when selected"),
-      tip: i18n("选中时的内容", "Content when selected")
+      label: "Content when selected",
+      tip: "Content when selected"
     },
     propType: 'string',
     setter: 'StringSetter'
   }, {
     name: 'unCheckedChildren',
     title: {
-      label: i18n("非选中时内容", "Content when unselected"),
-      tip: i18n("非选中时的内容", "Content when unselected")
+      label: "Content when unselected",
+      tip: "Content when unselected"
     },
     propType: 'string',
     setter: 'StringSetter'
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -61,8 +60,8 @@ export default {
   }, {
     name: 'loading',
     title: {
-      label: i18n("加载中", "Loading"),
-      tip: i18n("加载中", "Loading")
+      label: "Loading",
+      tip: "Loading"
     },
     propType: 'bool',
     defaultValue: false,
@@ -70,8 +69,8 @@ export default {
   }, {
     name: 'size',
     title: {
-      label: i18n("尺寸", "Size"),
-      tip: i18n("开关大小", "SwitchSize")
+      label: "Size",
+      tip: "SwitchSize"
     },
     propType: {
       type: 'oneOf',
@@ -81,10 +80,10 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("默认", "Default"),
+          title: "Default",
           value: 'default'
         }, {
-          title: i18n("小", "Small"),
+          title: "Small",
           value: 'small'
         }]
       }
@@ -93,15 +92,15 @@ export default {
   }, {
     name: 'onChange',
     title: {
-      label: i18n("变化时回调函数", "Callback on change"),
-      tip: i18n("变化时回调函数", "Callback on change")
+      label: "Callback on change",
+      tip: "Callback on change"
     },
     propType: 'func'
   }, {
     name: 'onClick',
     title: {
-      label: i18n("点击时回调函数", "callback function when clicked"),
-      tip: i18n("点击时回调函数", "callback function when clicked")
+      label: "callback function when clicked",
+      tip: "callback function when clicked"
     },
     propType: 'func'
   }

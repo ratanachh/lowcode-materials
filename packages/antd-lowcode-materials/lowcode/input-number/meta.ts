@@ -1,31 +1,30 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'InputNumber',
-  title: i18n("数字输入框", "InputNumber"),
+  title: "InputNumber",
   category: "Data Entry",
   props: [{
     name: 'defaultValue',
     title: {
-      label: i18n("默认值", "Default value"),
-      tip: i18n("默认值", "Default value")
+      label: "Default value",
+      tip: "Default value"
     },
     propType: 'number',
     setter: 'NumberSetter'
   }, {
     name: 'value',
     title: {
-      label: i18n("当前值", "Current value"),
-      tip: i18n("当前值", "Current value")
+      label: "Current value",
+      tip: "Current value"
     },
     propType: 'number',
     setter: 'NumberSetter'
   }, {
     name: 'autoFocus',
     title: {
-      label: i18n("自动聚焦", "Auto focus"),
-      tip: i18n("自动获取焦点", "Auto focus")
+      label: "Auto focus",
+      tip: "Auto focus"
     },
     propType: 'bool',
     defaultValue: false,
@@ -33,8 +32,8 @@ export default {
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -42,8 +41,8 @@ export default {
   }, {
     name: 'placeholder',
     title: {
-      label: i18n("占位提示", "Placeholder"),
-      tip: i18n("占位提示", "Placeholder")
+      label: "Placeholder",
+      tip: "Placeholder"
     },
     propType: 'string',
     defaultValue: "Please enter",
@@ -51,8 +50,8 @@ export default {
   }, {
     name: 'controls',
     title: {
-      label: i18n("是否显示增减按钮", "Whether to display increase and decrease buttons"),
-      tip: i18n("是否显示增减按钮", "Whether to display increase and decrease buttons")
+      label: "Whether to display increase and decrease buttons",
+      tip: "Whether to display increase and decrease buttons"
     },
     propType: 'bool',
     defaultValue: true,
@@ -60,8 +59,8 @@ export default {
   }, {
     name: 'bordered',
     title: {
-      label: i18n("显示边框", "Show border"),
-      tip: i18n("是否有边框", "Whether bordered")
+      label: "Show border",
+      tip: "Whether bordered"
     },
     propType: 'bool',
     defaultValue: true,
@@ -69,8 +68,8 @@ export default {
   }, {
     name: 'addonAfter',
     title: {
-      label: i18n("后置标签", "Addon after"),
-      tip: i18n("后置标签", "Addon after")
+      label: "Addon after",
+      tip: "Addon after"
     },
     propType: {
       type: 'oneOfType',
@@ -79,8 +78,8 @@ export default {
   }, {
     name: 'addonBefore',
     title: {
-      label: i18n("前置标签", "Addon before"),
-      tip: i18n("前置标签", "Addon before")
+      label: "Addon before",
+      tip: "Addon before"
     },
     propType: {
       type: 'oneOfType',
@@ -98,24 +97,24 @@ export default {
   {
     name: 'max',
     title: {
-      label: i18n("最大值", "Max"),
-      tip: i18n("最大值", "Max")
+      label: "Max",
+      tip: "Max"
     },
     propType: 'number',
     setter: 'NumberSetter'
   }, {
     name: 'min',
     title: {
-      label: i18n("最小值", "Min"),
-      tip: i18n("最小值", "Min")
+      label: "Min",
+      tip: "Min"
     },
     propType: 'number',
     setter: 'NumberSetter'
   }, {
     name: 'precision',
     title: {
-      label: i18n("数值精度", "Precision"),
-      tip: i18n("数值精度", "Precision")
+      label: "Precision",
+      tip: "Precision"
     },
     propType: 'number',
     setter: 'NumberSetter'
@@ -128,8 +127,8 @@ export default {
   {
     name: 'size',
     title: {
-      label: i18n("尺寸", "Size"),
-      tip: i18n("输入框大小", "InputSize")
+      label: "Size",
+      tip: "InputSize"
     },
     propType: {
       type: 'oneOf',
@@ -139,13 +138,13 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("大", "Large"),
+          title: "Large",
           value: 'large'
         }, {
-          title: i18n("中", "Middle"),
+          title: "Middle",
           value: 'middle'
         }, {
-          title: i18n("小", "Small"),
+          title: "Small",
           value: 'small'
         }]
       }
@@ -154,58 +153,58 @@ export default {
   }, {
     name: 'step',
     title: {
-      label: i18n("单步长", "single step size"),
-      tip: i18n("每次改变步数", "Change the number of steps each time")
+      label: "single step size",
+      tip: "Change the number of steps each time"
     },
     propType: 'number',
     setter: 'NumberSetter'
   }, {
     name: 'onChange',
     title: {
-      label: i18n("变化回调", "Change callback"),
-      tip: i18n("变化回调", "Change callback")
+      label: "Change callback",
+      tip: "Change callback"
     },
     propType: 'func'
   }, {
     name: 'onPressEnter',
     title: {
-      label: i18n("按下回车的回调", "Callback on press Enter"),
-      tip: i18n("按下回车的回调", "Callback on press Enter")
+      label: "Callback on press Enter",
+      tip: "Callback on press Enter"
     },
     propType: 'func'
   }, {
     name: 'onFocus',
     title: {
-      label: i18n("获取焦点回调", "Callback on focus"),
-      tip: i18n("获取焦点回调", "Callback on focus")
+      label: "Callback on focus",
+      tip: "Callback on focus"
     },
     propType: 'func'
   }, {
     name: 'onKeyDown',
     title: {
-      label: i18n("按键按下时的回调", "Callback on key down"),
-      tip: i18n("按键按下时的回调", "Callback on key down")
+      label: "Callback on key down",
+      tip: "Callback on key down"
     },
     propType: 'func'
   }, {
     name: 'onKeyPress',
     title: {
-      label: i18n("按键按下后的回调", "Callback on key press"),
-      tip: i18n("按键按下之后释放之前的回调", "Callback between key down and key up")
+      label: "Callback on key press",
+      tip: "Callback between key down and key up"
     },
     propType: 'func'
   }, {
     name: 'onKeyUp',
     title: {
-      label: i18n("按键释放回调", "Callback on key up"),
-      tip: i18n("按键释放之后的回调", "Callback after key up")
+      label: "Callback on key up",
+      tip: "Callback after key up"
     },
     propType: 'func'
   }, {
     name: 'onBlur',
     title: {
-      label: i18n("失去焦点回调", "Callback on blur"),
-      tip: i18n("失去焦点回调", "Callback on blur")
+      label: "Callback on blur",
+      tip: "Callback on blur"
     },
     propType: 'func'
   }],

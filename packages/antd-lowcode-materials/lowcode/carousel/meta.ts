@@ -1,38 +1,37 @@
 import { uuid } from '../_utils/utils';
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Carousel',
-  title: i18n("走马灯", "Carousel"),
+  title: "Carousel",
   category: "Data Display",
   props: [{
     name: 'afterChange',
     title: {
-      label: i18n("切换面板的回调", "Callback when panel switches"),
-      tip: i18n("切换面板的回调", "Callback when panel switches")
+      label: "Callback when panel switches",
+      tip: "Callback when panel switches"
     },
     propType: 'func'
   }, {
     name: 'autoplay',
     title: {
-      label: i18n("是否自动切换", "Whether to switch automatically"),
-      tip: i18n("是否自动切换", "Whether to switch automatically")
+      label: "Whether to switch automatically",
+      tip: "Whether to switch automatically"
     },
     propType: 'bool',
     defaultValue: false
   }, {
     name: 'beforeChange',
     title: {
-      label: i18n("切换面板的回调", "Callback when panel switches"),
-      tip: i18n("切换面板的回调", "Callback when panel switches")
+      label: "Callback when panel switches",
+      tip: "Callback when panel switches"
     },
     propType: 'func'
   }, {
     name: 'dotPosition',
     title: {
-      label: i18n("指示点位置", "Pointer location"),
-      tip: i18n("面板指示点位置，可选 `top` `bottom` `left` `right`", "Panel indication point position, optional `top` `bottom` `left` `right`")
+      label: "Pointer location",
+      tip: "Panel indication point position, optional `top` `bottom` `left` `right`"
     },
     propType: {
       type: 'oneOf',
@@ -41,8 +40,8 @@ export default {
   }, {
     name: 'dots',
     title: {
-      label: i18n("显示指示点", "Show indicator point"),
-      tip: i18n("是否显示面板指示点", "Whether to display panel indicator points")
+      label: "Show indicator point",
+      tip: "Whether to display panel indicator points"
     },
     propType: {
       type: 'oneOfType',
@@ -51,15 +50,15 @@ export default {
   }, {
     name: 'easing',
     title: {
-      label: i18n("动画效果", "Animation"),
-      tip: i18n("动画效果", "Animation")
+      label: "Animation",
+      tip: "Animation"
     },
     propType: 'string'
   }, {
     name: 'effect',
     title: {
-      label: i18n("动画效果函数", "Animation effect function"),
-      tip: i18n("动画效果函数", "Animation effect function")
+      label: "Animation effect function",
+      tip: "Animation effect function"
     },
     propType: {
       type: 'oneOf',
@@ -67,7 +66,7 @@ export default {
     }
   }, {
     name: 'items',
-    title: i18n("折叠项", "Collapse item"),
+    title: "Collapse item",
     setter: {
       componentName: 'ArraySetter',
       props: {

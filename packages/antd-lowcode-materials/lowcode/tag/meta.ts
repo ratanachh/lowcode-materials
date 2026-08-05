@@ -1,30 +1,29 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Tag',
-  title: i18n("标签", "Tag"),
+  title: "Tag",
   category: "Data Display",
   props: [{
     name: 'children',
     title: {
-      label: i18n("内容", "Content"),
-      tip: i18n("内容", "Content")
+      label: "Content",
+      tip: "Content"
     },
     propType: 'string'
   }, {
     name: 'closable',
     title: {
-      label: i18n("可关闭", "Can Off"),
-      tip: i18n("标签是否可以关闭", "TagYesNoCan Off")
+      label: "Can Off",
+      tip: "TagYesNoCan Off"
     },
     propType: 'bool',
     defaultValue: false
   }, {
     name: 'color',
     title: {
-      label: i18n("标签色", "Label color"),
-      tip: i18n("标签色", "Label color")
+      label: "Label color",
+      tip: "Label color"
     },
     propType: 'string'
   },
@@ -36,8 +35,8 @@ export default {
   {
     name: 'onClose',
     title: {
-      label: i18n("关闭时的回调", "Off on callback"),
-      tip: i18n("关闭时的回调", "Off on callback")
+      label: "Off on callback",
+      tip: "Off on callback"
     },
     propType: 'func'
   },
@@ -50,8 +49,8 @@ export default {
   {
     name: 'icon',
     title: {
-      label: i18n("设置图标", "Set Icon"),
-      tip: i18n("设置图标", "Set Icon")
+      label: "Set Icon",
+      tip: "Set Icon"
     },
     propType: 'node'
   }],

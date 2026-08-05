@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("两栏", "two columns"),
+  title: "two columns",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1.png',
   schema: {
     componentName: 'Row',
@@ -18,7 +17,7 @@ export default [{
     }]
   }
 }, {
-  title: i18n("三栏", "three columns"),
+  title: "three columns",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1-1.png',
   schema: {
     componentName: 'Row',
@@ -41,7 +40,7 @@ export default [{
     }]
   }
 }, {
-  title: i18n("四栏", "four columns"),
+  title: "four columns",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1-1-1.png',
   schema: {
     componentName: 'Row',

@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("单选框", "Radio"),
+  title: "Radio",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/radio-1.png',
   schema: {
     componentName: 'Radio',
@@ -9,7 +8,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("单选框组", "radio button group"),
+  title: "radio button group",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/radio-group-1.png',
   schema: {
     componentName: 'Radio.Group',

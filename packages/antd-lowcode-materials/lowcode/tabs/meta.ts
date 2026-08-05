@@ -1,14 +1,13 @@
 import { uuid } from '../_utils/utils';
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Tabs',
-  title: i18n("标签页", "Tabs"),
+  title: "Tabs",
   category: "Data Display",
   props: [{
     name: 'items',
-    title: i18n("标签项", "Tab item"),
+    title: "Tab item",
     setter: {
       componentName: 'ArraySetter',
       props: {
@@ -24,9 +23,9 @@ export default {
                 supportVariable: true
               }, {
                 name: 'label',
-                title: i18n("标题", "Title"),
+                title: "Title",
                 setter: 'StringSetter',
-                initialValue: i18n("标签项", "Tab item"),
+                initialValue: "Tab item",
                 supportVariable: true
               },
               // {
@@ -40,20 +39,20 @@ export default {
               // },
               {
                 name: 'disabled',
-                title: i18n("禁用", "Disabled"),
+                title: "Disabled",
                 setter: 'BoolSetter',
                 initialValue: false,
                 supportVariable: true
               }, {
                 name: 'forceRender',
-                title: i18n("隐藏时保留", "Force render"),
+                title: "Force render",
                 propType: 'bool',
                 setter: 'BoolSetter',
                 initialValue: false,
                 supportVariable: true
               }, {
                 name: 'children',
-                title: i18n("内容", "Content"),
+                title: "Content",
                 setter: {
                   componentName: 'SlotSetter',
                   initialValue: {
@@ -67,7 +66,7 @@ export default {
           initialValue: () => {
             return {
               key: uuid(),
-              label: i18n("标签项", "Tab item"),
+              label: "Tab item",
               disabled: false,
               forceRender: false,
               children: {
@@ -217,8 +216,8 @@ export default {
   {
     name: 'animated',
     title: {
-      label: i18n("切换动画", "Switch animation"),
-      tip: i18n("是否使用动画切换Tabs", "Whether to use animation to switch Tabs")
+      label: "Switch animation",
+      tip: "Whether to use animation to switch Tabs"
     },
     propType: 'bool',
     setter: 'BoolSetter',
@@ -232,8 +231,8 @@ export default {
   {
     name: 'defaultActiveKey',
     title: {
-      label: i18n("初始选中", "Initial selection"),
-      tip: i18n("初始化选中面板的key，如果没有设置activeKey", "Initialize the key of the selected panel, if activeKey is not set")
+      label: "Initial selection",
+      tip: "Initialize the key of the selected panel, if activeKey is not set"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -247,8 +246,8 @@ export default {
   {
     name: 'hideAdd',
     title: {
-      label: i18n("隐藏加号", "Hide plus sign"),
-      tip: i18n("是否隐藏加号图标，在`type=\"editable-card\"`时有效", "Whether to hide the plus icon, valid when `type=\"editable-card\"`")
+      label: "Hide plus sign",
+      tip: "Whether to hide the plus icon, valid when `type=\"editable-card\"`"
     },
     condition(target) {
       return target.getProps().getPropValue('type') === 'editable-card';
@@ -260,8 +259,8 @@ export default {
   }, {
     name: 'size',
     title: {
-      label: i18n("尺寸", "Size"),
-      tip: i18n("大小，提供 `large` `default` 和 `small` 三种大小", "Size, providing `large` `default` and `small` three sizes")
+      label: "Size",
+      tip: "Size, providing `large` `default` and `small` three sizes"
     },
     propType: {
       type: 'oneOf',
@@ -271,8 +270,8 @@ export default {
   }, {
     name: 'centered',
     title: {
-      label: i18n("标签居中", "TagCenter"),
-      tip: i18n("标签居中展示", "Labels are displayed in the center")
+      label: "TagCenter",
+      tip: "Labels are displayed in the center"
     },
     propType: 'bool',
     defaultValue: false,
@@ -281,15 +280,15 @@ export default {
   }, {
     name: 'tabBarExtraContent',
     title: {
-      label: i18n("额外元素", "Extra"),
-      tip: i18n("tab bar上额外的元素", "extra elements on tab bar")
+      label: "Extra",
+      tip: "extra elements on tab bar"
     },
     propType: 'node'
   }, {
     name: 'tabBarGutter',
     title: {
-      label: i18n("标签间隙", "label gap"),
-      tip: i18n("tabs之间的间隙", "gaps between tabs")
+      label: "label gap",
+      tip: "gaps between tabs"
     },
     propType: 'number',
     setter: 'NumberSetter',
@@ -303,8 +302,8 @@ export default {
   {
     name: 'tabPosition',
     title: {
-      label: i18n("页签位置", "Tab position"),
-      tip: i18n("页签位置", "Tab position")
+      label: "Tab position",
+      tip: "Tab position"
     },
     propType: {
       type: 'oneOf',
@@ -314,8 +313,8 @@ export default {
   }, {
     name: 'type',
     title: {
-      label: i18n("页签样式", "Tab style"),
-      tip: i18n("页签的基本样式，可选`line`、`card`、`editable-card`类型", "The basic style of the page label, optional `line`, `card`, `editable-card` types")
+      label: "Tab style",
+      tip: "The basic style of the page label, optional `line`, `card`, `editable-card` types"
     },
     propType: {
       type: 'oneOf',
@@ -325,15 +324,15 @@ export default {
   }, {
     name: 'onChange',
     title: {
-      label: i18n("切换面板的回调", "Callback when panel switches"),
-      tip: i18n("切换面板的回调", "Callback when panel switches")
+      label: "Callback when panel switches",
+      tip: "Callback when panel switches"
     },
     propType: 'func'
   }, {
     name: 'onEdit',
     title: {
-      label: i18n("新增删除回调", "AddDeletecallback"),
-      tip: i18n("新增和删除页签的回调，在`type=\"editable-card\"`时有效", "Callbacks for adding and deleting tabs, valid when `type=\"editable-card\"`")
+      label: "AddDeletecallback",
+      tip: "Callbacks for adding and deleting tabs, valid when `type=\"editable-card\"`"
     },
     condition(target) {
       return target.getProps().getPropValue('type') === 'editable-card';
@@ -342,22 +341,22 @@ export default {
   }, {
     name: 'onTabClick',
     title: {
-      label: i18n("tab点击回调", "tabClick callback"),
-      tip: i18n("tab被点击的回调", "tab Click callback")
+      label: "tabClick callback",
+      tip: "tab Click callback"
     },
     propType: 'func'
   }, {
     name: 'onTabScroll',
     title: {
-      label: i18n("tab滚动触发", "tabScroll Trigger"),
-      tip: i18n("tab滚动时触发", "tabScroll trigger")
+      label: "tabScroll Trigger",
+      tip: "tabScroll trigger"
     },
     propType: 'func'
   }, {
     name: 'keyboard',
     title: {
-      label: i18n("键盘切换", "Keyboard switching"),
-      tip: i18n("开启键盘切换功能", "Enable keyboard switching")
+      label: "Keyboard switching",
+      tip: "Enable keyboard switching"
     },
     propType: 'bool',
     defaultValue: true

@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Radio',
-  title: i18n("单选框", "Radio"),
+  title: "Radio",
   category: "Data Entry",
   props: [{
     name: 'children',
     title: {
-      label: i18n("内容", "Content"),
-      tip: i18n("内容", "Content")
+      label: "Content",
+      tip: "Content"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -17,8 +16,8 @@ export default {
   }, {
     name: 'autoFocus',
     title: {
-      label: i18n("自动聚焦", "Auto focus"),
-      tip: i18n("自动获取焦点", "Auto focus")
+      label: "Auto focus",
+      tip: "Auto focus"
     },
     propType: 'bool',
     defaultValue: false,
@@ -27,8 +26,8 @@ export default {
   }, {
     name: 'defaultChecked',
     title: {
-      label: i18n("默认选中", "Selected by default"),
-      tip: i18n("初始是否选中", "Is it initially selected?")
+      label: "Selected by default",
+      tip: "Is it initially selected?"
     },
     propType: 'bool',
     defaultValue: false,
@@ -37,8 +36,8 @@ export default {
   }, {
     name: 'checked',
     title: {
-      label: i18n("是否选中", "Check or not"),
-      tip: i18n("指定当前是否选中", "Specify whether it is currently selected")
+      label: "Check or not",
+      tip: "Specify whether it is currently selected"
     },
     propType: 'bool',
     defaultValue: false,
@@ -47,8 +46,8 @@ export default {
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,

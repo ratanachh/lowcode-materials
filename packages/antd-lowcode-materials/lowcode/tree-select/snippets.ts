@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("树选择", "TreeSelect"),
+  title: "TreeSelect",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tree-select-1.png',
   schema: {
     componentName: 'TreeSelect',

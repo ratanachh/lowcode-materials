@@ -1,14 +1,13 @@
 import { uuid } from '../_utils/utils';
-import { i18n } from "../_utils/i18n";
 export default {
   componentName: 'Checkbox.Group',
-  title: i18n("多选框组", "Checkbox group"),
+  title: "Checkbox group",
   category: "Data Entry",
   props: [{
     name: 'defaultValue',
     title: {
-      label: i18n("默认值", "Default value"),
-      tip: i18n("默认选中值", "Default selected value")
+      label: "Default value",
+      tip: "Default selected value"
     },
     propType: {
       type: 'arrayOf',
@@ -27,8 +26,8 @@ export default {
   }, {
     name: 'value',
     title: {
-      label: i18n("当前值", "Current value"),
-      tip: i18n("当前选中的选项", "Currently selected option")
+      label: "Current value",
+      tip: "Currently selected option"
     },
     propType: {
       type: 'arrayOf',
@@ -46,8 +45,8 @@ export default {
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -56,8 +55,8 @@ export default {
   }, {
     name: 'name',
     title: {
-      label: i18n("name属性", "name prop"),
-      tip: i18n("name属性", "name prop")
+      label: "name prop",
+      tip: "name prop"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -65,8 +64,8 @@ export default {
   }, {
     name: 'options',
     title: {
-      label: i18n("指定可选项", "Options"),
-      tip: i18n("指定可选项", "Options")
+      label: "Options",
+      tip: "Options"
     },
     propType: {
       type: 'arrayOf',
@@ -99,24 +98,24 @@ export default {
             config: {
               items: [{
                 name: 'label',
-                title: i18n("选项名", "Option label"),
+                title: "Option label",
                 setter: 'StringSetter',
                 isRequired: true
               }, {
                 name: 'value',
-                title: i18n("选项值", "Option value"),
+                title: "Option value",
                 setter: 'StringSetter',
                 isRequired: true
               }, {
                 name: 'disabled',
-                title: i18n("是否禁用", "Disabled"),
+                title: "Disabled",
                 setter: 'BoolSetter'
               }]
             }
           },
           initialValue: () => {
             return {
-              label: i18n("选项名", "Option label"),
+              label: "Option label",
               value: uuid(),
               disabled: false
             };
@@ -128,8 +127,8 @@ export default {
   }, {
     name: 'onChange',
     title: {
-      label: i18n("变化时回调函数", "Callback on change"),
-      tip: i18n("变化时回调函数", "Callback on change")
+      label: "Callback on change",
+      tip: "Callback on change"
     },
     propType: 'func'
   }],

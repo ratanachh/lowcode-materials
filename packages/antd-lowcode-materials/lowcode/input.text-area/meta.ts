@@ -1,31 +1,30 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Input.TextArea',
-  title: i18n("长文本", "long text"),
+  title: "long text",
   category: "Data Entry",
   props: [{
     name: 'defaultValue',
     title: {
-      label: i18n("默认值", "Default value"),
-      tip: i18n("默认内容", "Default content")
+      label: "Default value",
+      tip: "Default content"
     },
     propType: 'string',
     setter: 'TextAreaSetter'
   }, {
     name: 'value',
     title: {
-      label: i18n("当前值", "Current value"),
-      tip: i18n("当前值", "Current value")
+      label: "Current value",
+      tip: "Current value"
     },
     propType: 'string',
     setter: 'TextAreaSetter'
   }, {
     name: 'bordered',
     title: {
-      label: i18n("显示边框", "Show border"),
-      tip: i18n("是否有边框", "Whether bordered")
+      label: "Show border",
+      tip: "Whether bordered"
     },
     propType: 'bool',
     defaultValue: true,
@@ -33,8 +32,8 @@ export default {
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -42,8 +41,8 @@ export default {
   }, {
     name: 'placeholder',
     title: {
-      label: i18n("占位提示", "Placeholder"),
-      tip: i18n("占位提示", "Placeholder")
+      label: "Placeholder",
+      tip: "Placeholder"
     },
     propType: 'string',
     defaultValue: "Please enter",
@@ -51,8 +50,8 @@ export default {
   }, {
     name: 'showCount',
     title: {
-      label: i18n("展示字数", "display word count"),
-      tip: i18n("是否展示字数", "Whether to display word count")
+      label: "display word count",
+      tip: "Whether to display word count"
     },
     propType: 'bool',
     defaultValue: false,
@@ -60,24 +59,24 @@ export default {
   }, {
     name: 'id',
     title: {
-      label: i18n("输入框ID", "Input ID"),
-      tip: i18n("输入框的ID", "Input ID")
+      label: "Input ID",
+      tip: "Input ID"
     },
     propType: 'string',
     setter: 'StringSetter'
   }, {
     name: 'maxLength',
     title: {
-      label: i18n("最大长度", "Max length"),
-      tip: i18n("最大长度", "Max length")
+      label: "Max length",
+      tip: "Max length"
     },
     propType: 'number',
     setter: 'NumberSetter'
   }, {
     name: 'size',
     title: {
-      label: i18n("控件大小", "Control size"),
-      tip: i18n("控件大小", "Control size")
+      label: "Control size",
+      tip: "Control size"
     },
     propType: {
       type: 'oneOf',
@@ -87,13 +86,13 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("大", "Large"),
+          title: "Large",
           value: 'large'
         }, {
-          title: i18n("中", "Middle"),
+          title: "Middle",
           value: 'middle'
         }, {
-          title: i18n("小", "Small"),
+          title: "Small",
           value: 'small'
         }]
       }
@@ -102,8 +101,8 @@ export default {
   }, {
     name: 'autoSize',
     title: {
-      label: i18n("高度自适应设置", "HeightAutoSet"),
-      tip: i18n("高度自适应设置", "HeightAutoSet")
+      label: "HeightAutoSet",
+      tip: "HeightAutoSet"
     },
     propType: {
       type: 'oneOfType',
@@ -111,12 +110,12 @@ export default {
         type: 'shape',
         value: [{
           name: 'minRows',
-          title: i18n("最小行数", "Minimum number of rows"),
+          title: "Minimum number of rows",
           setter: 'NumberSetter',
           defaultValue: 3
         }, {
           name: 'maxRows',
-          title: i18n("最大行数", "Maximum number of rows"),
+          title: "Maximum number of rows",
           setter: 'NumberSetter',
           defaultValue: 3
         }]
@@ -126,57 +125,57 @@ export default {
   }, {
     name: 'onChange',
     title: {
-      label: i18n("输入框内容变化时的回调", "Callback when input content changes"),
-      tip: i18n("输入框内容变化时的回调", "Callback when input content changes")
+      label: "Callback when input content changes",
+      tip: "Callback when input content changes"
     },
     propType: 'func'
   }, {
     name: 'onPressEnter',
     title: {
-      label: i18n("按下回车的回调", "Callback on press Enter"),
-      tip: i18n("按下回车的回调", "Callback on press Enter")
+      label: "Callback on press Enter",
+      tip: "Callback on press Enter"
     },
     propType: 'func'
   }, {
     name: 'onResize',
     title: {
-      label: i18n("resize 回调", "Resize callback"),
-      tip: i18n("resize 回调", "Resize callback")
+      label: "Resize callback",
+      tip: "Resize callback"
     },
     propType: 'func'
   }, {
     name: 'onFocus',
     title: {
-      label: i18n("获取焦点回调", "Callback on focus"),
-      tip: i18n("获取焦点回调", "Callback on focus")
+      label: "Callback on focus",
+      tip: "Callback on focus"
     },
     propType: 'func'
   }, {
     name: 'onKeyDown',
     title: {
-      label: i18n("按键按下时的回调", "Callback on key down"),
-      tip: i18n("按键按下时的回调", "Callback on key down")
+      label: "Callback on key down",
+      tip: "Callback on key down"
     },
     propType: 'func'
   }, {
     name: 'onKeyPress',
     title: {
-      label: i18n("按键按下后的回调", "Callback on key press"),
-      tip: i18n("按键按下之后释放之前的回调", "Callback between key down and key up")
+      label: "Callback on key press",
+      tip: "Callback between key down and key up"
     },
     propType: 'func'
   }, {
     name: 'onKeyUp',
     title: {
-      label: i18n("按键释放回调", "Callback on key up"),
-      tip: i18n("按键释放之后的回调", "Callback after key up")
+      label: "Callback on key up",
+      tip: "Callback after key up"
     },
     propType: 'func'
   }, {
     name: 'onBlur',
     title: {
-      label: i18n("失去焦点回调", "Callback on blur"),
-      tip: i18n("失去焦点回调", "Callback on blur")
+      label: "Callback on blur",
+      tip: "Callback on blur"
     },
     propType: 'func'
   }],

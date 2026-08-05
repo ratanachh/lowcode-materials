@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("成功提示", "SuccessTip"),
+  title: "SuccessTip",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-1.png',
   schema: {
     componentName: 'Alert',
@@ -12,7 +11,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("信息提示", "InfoTip"),
+  title: "InfoTip",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-2.png',
   schema: {
     componentName: 'Alert',
@@ -24,7 +23,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("警告提示", "Alert"),
+  title: "Alert",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-3.png',
   schema: {
     componentName: 'Alert',
@@ -36,7 +35,7 @@ export default [{
     }
   }
 }, {
-  title: i18n("错误提示", "ErrorTip"),
+  title: "ErrorTip",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-4.png',
   schema: {
     componentName: 'Alert',

@@ -17,14 +17,8 @@ function propConfigToFieldConfig(
   supportVariable: boolean,
 ): FieldConfig {
   const { name, description } = propConfig;
-  const descriptionText =
-    typeof description === 'string' ? description : name;
   const title = {
-    label: {
-      type: 'i18n',
-      en_US: name,
-      zh_CN: descriptionText.slice(0, 10) || name,
-    },
+    label: name,
     tip: typeof description === 'string' ? `${name} | ${description}` : undefined,
   };
 

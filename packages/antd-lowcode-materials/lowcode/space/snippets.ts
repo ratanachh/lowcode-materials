@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("间距", "Space"),
+  title: "Space",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/space-1.png',
   schema: {
     componentName: 'Space',

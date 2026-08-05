@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("导航菜单", "NavigationMenu"),
+  title: "NavigationMenu",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
   schema: {
     componentName: 'Menu',

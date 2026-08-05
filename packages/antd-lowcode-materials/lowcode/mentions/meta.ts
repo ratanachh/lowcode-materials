@@ -1,23 +1,22 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Mentions',
-  title: i18n("提及", "Mentions"),
+  title: "Mentions",
   category: "Data Entry",
   props: [{
     name: 'defaultValue',
     title: {
-      label: i18n("默认值", "Default value"),
-      tip: i18n("默认值", "Default value")
+      label: "Default value",
+      tip: "Default value"
     },
     propType: 'string',
     setter: 'StringSetter'
   }, {
     name: 'autoFocus',
     title: {
-      label: i18n("自动聚焦", "Auto focus"),
-      tip: i18n("自动获得焦点", "Auto focus")
+      label: "Auto focus",
+      tip: "Auto focus"
     },
     propType: 'bool',
     defaultValue: false,
@@ -25,8 +24,8 @@ export default {
   }, {
     name: 'filterOption',
     title: {
-      label: i18n("自定义过滤逻辑", "Custom filtering logic"),
-      tip: i18n("自定义过滤逻辑", "Custom filtering logic")
+      label: "Custom filtering logic",
+      tip: "Custom filtering logic"
     },
     propType: {
       type: 'oneOfType',
@@ -35,15 +34,15 @@ export default {
   }, {
     name: 'notFoundContent',
     title: {
-      label: i18n("空值展示", "Null value display"),
-      tip: i18n("当下拉列表为空时显示的内容", "What is displayed when the drop-down list is empty")
+      label: "Null value display",
+      tip: "What is displayed when the drop-down list is empty"
     },
     propType: 'node'
   }, {
     name: 'placement',
     title: {
-      label: i18n("弹出层展示位置", "Pop-up placement"),
-      tip: i18n("弹出层展示位置", "Pop-up placement")
+      label: "Pop-up placement",
+      tip: "Pop-up placement"
     },
     propType: {
       type: 'oneOf',
@@ -53,10 +52,10 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("上", "Top"),
+          title: "Top",
           value: 'top'
         }, {
-          title: i18n("下", "Bottom"),
+          title: "Bottom",
           value: 'bottom'
         }]
       }
@@ -64,8 +63,8 @@ export default {
   }, {
     name: 'prefix',
     title: {
-      label: i18n("设置触发关键字", "Set trigger keywords"),
-      tip: i18n("设置触发关键字", "Set trigger keywords")
+      label: "Set trigger keywords",
+      tip: "Set trigger keywords"
     },
     propType: {
       type: 'oneOfType',
@@ -77,15 +76,15 @@ export default {
   }, {
     name: 'split',
     title: {
-      label: i18n("设置选中项前后分隔符", "Set the separator before and after the selected item"),
-      tip: i18n("设置选中项前后分隔符", "Set the separator before and after the selected item")
+      label: "Set the separator before and after the selected item",
+      tip: "Set the separator before and after the selected item"
     },
     propType: 'string'
   }, {
     name: 'validateSearch',
     title: {
-      label: i18n("自定义触发验证逻辑", "Custom trigger verification logic"),
-      tip: i18n("自定义触发验证逻辑", "Custom trigger verification logic")
+      label: "Custom trigger verification logic",
+      tip: "Custom trigger verification logic"
     },
     propType: 'func'
   },
@@ -97,36 +96,36 @@ export default {
   {
     name: 'onChange',
     title: {
-      label: i18n("值改变时触发", "ValueChange trigger"),
-      tip: i18n("值改变时触发", "ValueChange trigger")
+      label: "ValueChange trigger",
+      tip: "ValueChange trigger"
     },
     propType: 'func'
   }, {
     name: 'onSelect',
     title: {
-      label: i18n("选择选项时触发", "Select Option trigger"),
-      tip: i18n("选择选项时触发", "Select Option trigger")
+      label: "Select Option trigger",
+      tip: "Select Option trigger"
     },
     propType: 'func'
   }, {
     name: 'onSearch',
     title: {
-      label: i18n("搜索时触发", "Search trigger"),
-      tip: i18n("搜索时触发", "Search trigger")
+      label: "Search trigger",
+      tip: "Search trigger"
     },
     propType: 'func'
   }, {
     name: 'onFocus',
     title: {
-      label: i18n("获得焦点时触发", "Triggered when focus is obtained"),
-      tip: i18n("获得焦点时触发", "Triggered when focus is obtained")
+      label: "Triggered when focus is obtained",
+      tip: "Triggered when focus is obtained"
     },
     propType: 'func'
   }, {
     name: 'onBlur',
     title: {
-      label: i18n("失去焦点时触发", "On blurTrigger"),
-      tip: i18n("失去焦点时触发", "On blurTrigger")
+      label: "On blurTrigger",
+      tip: "On blurTrigger"
     },
     propType: 'func'
   },
@@ -141,8 +140,8 @@ export default {
   {
     name: 'autoSize',
     title: {
-      label: i18n("内容高度", "ContentHeight"),
-      tip: i18n("自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }", "Adaptive content height, can be set to true | false or object: { minRows: 2, maxRows: 6 }")
+      label: "ContentHeight",
+      tip: "Adaptive content height, can be set to true | false or object: { minRows: 2, maxRows: 6 }"
     },
     propType: {
       type: 'oneOfType',
@@ -151,8 +150,8 @@ export default {
   }, {
     name: 'onResize',
     title: {
-      label: i18n("resize 回调", "Resize callback"),
-      tip: i18n("resize 回调", "Resize callback")
+      label: "Resize callback",
+      tip: "Resize callback"
     },
     propType: 'func'
   }],

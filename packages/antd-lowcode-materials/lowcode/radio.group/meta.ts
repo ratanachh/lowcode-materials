@@ -1,14 +1,13 @@
 import { uuid } from '../_utils/utils';
-import { i18n } from "../_utils/i18n";
 export default {
   componentName: 'Radio.Group',
-  title: i18n("单选框组", "radio button group"),
+  title: "radio button group",
   category: "Data Entry",
   props: [{
     name: 'defaultValue',
     title: {
-      label: i18n("默认值", "Default value"),
-      tip: i18n("默认选中值", "Default selected value")
+      label: "Default value",
+      tip: "Default selected value"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -16,8 +15,8 @@ export default {
   }, {
     name: 'value',
     title: {
-      label: i18n("当前值", "Current value"),
-      tip: i18n("指定选中的选项", "Specify selected options")
+      label: "Current value",
+      tip: "Specify selected options"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -25,8 +24,8 @@ export default {
   }, {
     name: 'disabled',
     title: {
-      label: i18n("是否禁用", "Disabled"),
-      tip: i18n("是否为禁用状态", "Whether disabled")
+      label: "Disabled",
+      tip: "Whether disabled"
     },
     propType: 'bool',
     defaultValue: false,
@@ -35,8 +34,8 @@ export default {
   }, {
     name: 'name',
     title: {
-      label: i18n("name 属性", "name prop"),
-      tip: i18n("RadioGroup 下所有 input[type=\"radio\"] 的 name 属性", "name for all radio inputs under RadioGroup")
+      label: "name prop",
+      tip: "name for all radio inputs under RadioGroup"
     },
     propType: 'string',
     setter: 'StringSetter',
@@ -44,8 +43,8 @@ export default {
   }, {
     name: 'options',
     title: {
-      label: i18n("指定可选项", "Options"),
-      tip: i18n("指定可选项", "Options")
+      label: "Options",
+      tip: "Options"
     },
     propType: {
       type: 'arrayOf',
@@ -78,24 +77,24 @@ export default {
             config: {
               items: [{
                 name: 'label',
-                title: i18n("选项名", "Option label"),
+                title: "Option label",
                 setter: 'StringSetter',
                 isRequired: true
               }, {
                 name: 'value',
-                title: i18n("选项值", "Option value"),
+                title: "Option value",
                 setter: 'StringSetter',
                 isRequired: true
               }, {
                 name: 'disabled',
-                title: i18n("是否禁用", "Disabled"),
+                title: "Disabled",
                 setter: 'BoolSetter'
               }]
             }
           },
           initialValue: () => {
             return {
-              label: i18n("选项名", "Option label"),
+              label: "Option label",
               value: uuid(),
               disabled: false
             };
@@ -106,8 +105,8 @@ export default {
   }, {
     name: 'optionType',
     title: {
-      label: i18n("类型", "Type"),
-      tip: i18n("类型", "Type")
+      label: "Type",
+      tip: "Type"
     },
     propType: {
       type: 'oneOf',
@@ -117,10 +116,10 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("默认类型", "DefaultType"),
+          title: "DefaultType",
           value: 'default'
         }, {
-          title: i18n("按钮类型", "ButtonType"),
+          title: "ButtonType",
           value: 'button'
         }]
       }
@@ -129,8 +128,8 @@ export default {
   }, {
     name: 'size',
     title: {
-      label: i18n("尺寸", "Size"),
-      tip: i18n("大小，只对按钮样式生效", "Size, only takes effect for button styles")
+      label: "Size",
+      tip: "Size, only takes effect for button styles"
     },
     condition(target) {
       return target.getProps().getPropValue('optionType') === 'button';
@@ -143,13 +142,13 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("大", "Large"),
+          title: "Large",
           value: 'large'
         }, {
-          title: i18n("中", "Middle"),
+          title: "Middle",
           value: 'middle'
         }, {
-          title: i18n("小", "Small"),
+          title: "Small",
           value: 'small'
         }]
       }
@@ -158,8 +157,8 @@ export default {
   }, {
     name: 'buttonStyle',
     title: {
-      label: i18n("按钮风格", "button style"),
-      tip: i18n("RadioButton 的风格样式，目前有描边和填色两种风格", "RadioButton style: outline or solid")
+      label: "button style",
+      tip: "RadioButton style: outline or solid"
     },
     condition(target) {
       return target.getProps().getPropValue('optionType') === 'button';
@@ -172,10 +171,10 @@ export default {
       componentName: 'RadioGroupSetter',
       props: {
         options: [{
-          title: i18n("描边", "Stroke"),
+          title: "Stroke",
           value: 'outline'
         }, {
-          title: i18n("填色", "Coloring"),
+          title: "Coloring",
           value: 'solid'
         }]
       }
@@ -184,8 +183,8 @@ export default {
   }, {
     name: 'onChange',
     title: {
-      label: i18n("变化时回调函数", "Callback on change"),
-      tip: i18n("变化时回调函数", "Callback on change")
+      label: "Callback on change",
+      tip: "Callback on change"
     },
     propType: 'func'
   }],

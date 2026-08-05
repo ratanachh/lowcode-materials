@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("加载中", "Loading"),
+  title: "Loading",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/spin-1.png',
   schema: {
     componentName: 'Spin',

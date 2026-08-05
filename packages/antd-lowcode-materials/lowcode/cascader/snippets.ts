@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("级联选择", "Cascader"),
+  title: "Cascader",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/cascader-1.png',
   schema: {
     componentName: 'Cascader',

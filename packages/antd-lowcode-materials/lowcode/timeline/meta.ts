@@ -1,14 +1,13 @@
 import { uuid } from '../_utils/utils';
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Timeline',
-  title: i18n("时间轴", "Timeline"),
+  title: "Timeline",
   category: "Data Display",
   props: [{
     name: 'steps',
-    title: i18n("步骤配置", "Step config"),
+    title: "Step config",
     setter: {
       componentName: 'ArraySetter',
       props: {
@@ -23,21 +22,21 @@ export default {
                 initialValue: val => val || uuid()
               }, {
                 name: 'color',
-                title: i18n("圆圈颜色", "circle color"),
+                title: "circle color",
                 setter: 'StringSetter'
               }, {
                 name: 'dot',
-                title: i18n("自定义时间轴点", "Custom timeline points"),
+                title: "Custom timeline points",
                 setter: 'node'
               }, {
                 name: 'label',
-                title: i18n("设置标签", "Set Tag"),
+                title: "Set Tag",
                 setter: 'StringSetter'
               }, {
                 name: 'position',
                 title: {
-                  label: i18n("自定义节点位置", "CustomNodePosition"),
-                  tip: i18n("自定义节点位置", "CustomNodePosition")
+                  label: "CustomNodePosition",
+                  tip: "CustomNodePosition"
                 },
                 propType: {
                   type: 'oneOf',
@@ -61,7 +60,7 @@ export default {
           initialValue: () => {
             return {
               key: `timeLine${uuid()}`,
-              label: i18n("时间轴", "Timeline")
+              label: "Timeline"
             };
           }
         }
@@ -124,8 +123,8 @@ export default {
   }, {
     name: 'mode',
     title: {
-      label: i18n("模式", "Mode"),
-      tip: i18n("通过设置 `mode` 可以改变时间轴和内容的相对位置", "By setting `mode` you can change the relative position of the timeline and content")
+      label: "Mode",
+      tip: "By setting `mode` you can change the relative position of the timeline and content"
     },
     propType: {
       type: 'oneOf',
@@ -134,15 +133,15 @@ export default {
   }, {
     name: 'pending',
     title: {
-      label: i18n("存在最后节点", "The last node exists"),
-      tip: i18n("指定最后一个幽灵节点是否存在", "Specifies whether the last ghost node exists")
+      label: "The last node exists",
+      tip: "Specifies whether the last ghost node exists"
     },
     propType: 'bool'
   }, {
     name: 'pendingDot',
     title: {
-      label: i18n("当最后一个幽灵节点存在時，指定其时间图点", "When the last ghost node exists, specify its time graph point"),
-      tip: i18n("当最后一个幽灵节点存在時，指定其时间图点", "When the last ghost node exists, specify its time graph point")
+      label: "When the last ghost node exists, specify its time graph point",
+      tip: "When the last ghost node exists, specify its time graph point"
     },
     propType: {
       type: 'oneOfType',
@@ -151,8 +150,8 @@ export default {
   }, {
     name: 'reverse',
     title: {
-      label: i18n("节点排序", "NodeSort"),
-      tip: i18n("节点排序", "NodeSort")
+      label: "NodeSort",
+      tip: "NodeSort"
     },
     propType: 'bool',
     defaultValue: false

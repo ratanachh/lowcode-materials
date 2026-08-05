@@ -1,16 +1,15 @@
 import { uuid } from '../_utils/utils';
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Collapse',
-  title: i18n("折叠面板", "Collapse"),
+  title: "Collapse",
   category: "Data Display",
   props: [{
     name: 'bordered',
     title: {
-      label: i18n("显示边框", "Show border"),
-      tip: i18n("带边框风格的折叠面板", "Folding panel with border style")
+      label: "Show border",
+      tip: "Folding panel with border style"
     },
     propType: 'bool',
     defaultValue: true,
@@ -19,8 +18,8 @@ export default {
   }, {
     name: 'accordion',
     title: {
-      label: i18n("手风琴模式", "accordion mode"),
-      tip: i18n("手风琴模式", "accordion mode")
+      label: "accordion mode",
+      tip: "accordion mode"
     },
     propType: 'bool',
     defaultValue: false,
@@ -28,7 +27,7 @@ export default {
     supportVariable: true
   }, {
     name: 'collapsible',
-    title: i18n("可折叠触发区域", "Collapsible trigger area"),
+    title: "Collapsible trigger area",
     propType: {
       type: 'oneOf',
       value: ['-', 'header', 'disabled']
@@ -42,8 +41,8 @@ export default {
   {
     name: 'expandIconPosition',
     title: {
-      label: i18n("图标位置", "IconPosition"),
-      tip: i18n("设置图标位置", "Set IconPosition")
+      label: "IconPosition",
+      tip: "Set IconPosition"
     },
     propType: {
       type: 'oneOf',
@@ -52,8 +51,8 @@ export default {
   }, {
     name: 'destroyInactivePanel',
     title: {
-      label: i18n("隐藏时销毁", "Destroyed when hidden"),
-      tip: i18n("销毁折叠隐藏的面板", "Destroy collapsed hidden panels")
+      label: "Destroyed when hidden",
+      tip: "Destroy collapsed hidden panels"
     },
     propType: 'bool',
     defaultValue: false,
@@ -62,8 +61,8 @@ export default {
   }, {
     name: 'ghost',
     title: {
-      label: i18n("透明无边框", "Transparent borderless"),
-      tip: i18n("使折叠面板透明且无边框", "Make an accordion transparent and borderless")
+      label: "Transparent borderless",
+      tip: "Make an accordion transparent and borderless"
     },
     propType: 'bool',
     defaultValue: false,
@@ -71,7 +70,7 @@ export default {
     supportVariable: true
   }, {
     name: 'collapses',
-    title: i18n("折叠项", "Collapse item"),
+    title: "Collapse item",
     setter: {
       componentName: 'ArraySetter',
       props: {
@@ -86,16 +85,16 @@ export default {
                 initialValue: val => val || uuid()
               }, {
                 name: 'header',
-                title: i18n("面板头内容", "Panel header content"),
+                title: "Panel header content",
                 setter: 'StringSetter',
-                initialValue: i18n("折叠项", "Collapse item")
+                initialValue: "Collapse item"
               }]
             }
           },
           initialValue: () => {
             return {
               key: uuid(),
-              header: i18n("折叠项", "Collapse item"),
+              header: "Collapse item",
               showArrow: true,
               collapsible: undefined,
               forceRender: false
@@ -166,8 +165,8 @@ export default {
   }, {
     name: 'defaultActiveKey',
     title: {
-      label: i18n("初始化选中面板的 key", "Initialize the key of the selected panel"),
-      tip: i18n("初始化选中面板的 key", "Initialize the key of the selected panel")
+      label: "Initialize the key of the selected panel",
+      tip: "Initialize the key of the selected panel"
     },
     propType: {
       type: 'oneOfType',
@@ -182,8 +181,8 @@ export default {
   }, {
     name: 'activeKey',
     title: {
-      label: i18n("当前激活 tab 面板的 key", "Current Active tab Panel key"),
-      tip: i18n("当前激活 tab 面板的 key", "Current Active tab Panel key")
+      label: "Current Active tab Panel key",
+      tip: "Current Active tab Panel key"
     },
     propType: {
       type: 'oneOfType',

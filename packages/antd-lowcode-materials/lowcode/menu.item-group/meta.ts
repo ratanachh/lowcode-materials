@@ -1,14 +1,13 @@
 import { uuid } from '../_utils/utils';
 import { itemsExtraProps } from '../menu/utils';
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Menu.ItemGroup',
-  title: i18n("菜单组", "menu group"),
+  title: "menu group",
   props: [{
     name: 'items',
-    title: i18n("菜单组项", "menu group item"),
+    title: "menu group item",
     setter: {
       componentName: 'ArraySetter',
       props: {
@@ -23,13 +22,13 @@ export default {
                 initialValue: val => val || uuid()
               }, {
                 name: 'children',
-                tite: i18n("菜单名", "Menu name"),
+                tite: "Menu name",
                 setter: 'StringSetter'
               }, {
                 name: 'category',
                 title: {
-                  label: i18n("类型", "Type"),
-                  tip: i18n("菜单项类型", "Menu item type")
+                  label: "Type",
+                  tip: "Menu item type"
                 },
                 propType: {
                   type: 'oneOf',
@@ -57,7 +56,7 @@ export default {
             return {
               key: `item-${uuid()}`,
               category: 'Menu.Item',
-              children: i18n("子菜单名", "Submenu name")
+              children: "Submenu name"
             };
           }
         }
@@ -67,8 +66,8 @@ export default {
   }, {
     name: 'children',
     title: {
-      label: i18n("分组的菜单项", "Grouped menu items"),
-      tip: i18n("分组的菜单项", "Grouped menu items")
+      label: "Grouped menu items",
+      tip: "Grouped menu items"
     },
     propType: {
       type: 'oneOfType',
@@ -77,8 +76,8 @@ export default {
   }, {
     name: 'title',
     title: {
-      label: i18n("分组标题", "Group title"),
-      tip: i18n("分组标题", "Group title")
+      label: "Group title",
+      tip: "Group title"
     },
     propType: {
       type: 'oneOfType',

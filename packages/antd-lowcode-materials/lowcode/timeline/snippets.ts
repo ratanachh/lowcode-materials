@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("时间轴", "Timeline"),
+  title: "Timeline",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/timeline-1.jpg',
   schema: {
     componentName: 'Timeline',

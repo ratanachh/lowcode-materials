@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Timeline.Item',
-  title: i18n("时间轴项", "Timeline Item"),
+  title: "Timeline Item",
   category: '',
   props: [{
     name: 'color',
     title: {
-      label: i18n("颜色", "Color"),
-      tip: i18n("颜色", "Color")
+      label: "Color",
+      tip: "Color"
     },
     propType: 'string',
     defaultValue: '#00f',
@@ -17,15 +16,15 @@ export default {
   }, {
     name: 'dot',
     title: {
-      label: i18n("时间轴点", "timeline point"),
-      tip: i18n("时间轴点", "timeline point")
+      label: "timeline point",
+      tip: "timeline point"
     },
     propType: 'node'
   }, {
     name: 'label',
     title: {
-      label: i18n("标签", "Tag"),
-      tip: i18n("标签", "Tag")
+      label: "Tag",
+      tip: "Tag"
     },
     propType: {
       type: 'oneOfType',
@@ -34,8 +33,8 @@ export default {
   }, {
     name: 'position',
     title: {
-      label: i18n("位置", "Position"),
-      tip: i18n("位置", "Position")
+      label: "Position",
+      tip: "Position"
     },
     propType: {
       type: 'oneOf',

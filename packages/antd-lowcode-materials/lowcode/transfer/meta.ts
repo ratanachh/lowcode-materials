@@ -1,16 +1,15 @@
 import { uuid } from '../_utils/utils';
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Transfer',
-  title: i18n("穿梭框", "Transfer"),
+  title: "Transfer",
   category: "Data Entry",
   props: [{
     name: 'dataSource',
     title: {
-      label: i18n("数据源", "Data source"),
-      tip: i18n("数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外", "The data source whose data will be rendered into the left column, except those specified in `targetKeys`")
+      label: "Data source",
+      tip: "The data source whose data will be rendered into the left column, except those specified in `targetKeys`"
     },
     propType: {
       type: 'arrayOf',
@@ -40,11 +39,11 @@ export default {
                 isRequired: true
               }, {
                 name: 'description',
-                title: i18n("描述", "describe"),
+                title: "describe",
                 setter: 'StringSetter'
               }, {
                 name: 'disabled',
-                title: i18n("禁止穿梭", "no shuttle"),
+                title: "no shuttle",
                 setter: ['BoolSetter', 'FunctionSetter']
               }]
             }
@@ -55,8 +54,8 @@ export default {
   }, {
     name: 'selectedKeys',
     title: {
-      label: i18n("选中项", "Selected items"),
-      tip: i18n("设置哪些项应该被选中", "Set which items should be selected")
+      label: "Selected items",
+      tip: "Set which items should be selected"
     },
     propType: {
       type: 'arrayOf',
@@ -72,8 +71,8 @@ export default {
   }, {
     name: 'targetKeys',
     title: {
-      label: i18n("右侧框数据", "Right box data"),
-      tip: i18n("显示在右侧框数据的 key 集合", "The key collection of data displayed in the right box")
+      label: "Right box data",
+      tip: "The key collection of data displayed in the right box"
     },
     propType: {
       type: 'arrayOf',
@@ -87,14 +86,14 @@ export default {
     },
     supportVariable: true
   }, {
-    title: i18n("常用设置", "Common settings"),
+    title: "Common settings",
     display: 'block',
     type: 'group',
     items: [{
       name: 'oneWay',
       title: {
-        label: i18n("展示为单向样式", "Shown as one-way style"),
-        tip: i18n("展示为单向样式", "Shown as one-way style")
+        label: "Shown as one-way style",
+        tip: "Shown as one-way style"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -102,8 +101,8 @@ export default {
     }, {
       name: 'disabled',
       title: {
-        label: i18n("是否禁用", "Disabled"),
-        tip: i18n("是否为禁用状态", "Whether disabled")
+        label: "Disabled",
+        tip: "Whether disabled"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -111,8 +110,8 @@ export default {
     }, {
       name: 'showSearch',
       title: {
-        label: i18n("是否显示搜索框", "YesNoShowSearch"),
-        tip: i18n("是否显示搜索框", "YesNoShowSearch")
+        label: "YesNoShowSearch",
+        tip: "YesNoShowSearch"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -120,8 +119,8 @@ export default {
     }, {
       name: 'showSelectAll',
       title: {
-        label: i18n("是否展示全选勾选框", "Whether to display the Select All checkbox"),
-        tip: i18n("是否展示全选勾选框", "Whether to display the Select All checkbox")
+        label: "Whether to display the Select All checkbox",
+        tip: "Whether to display the Select All checkbox"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -129,8 +128,8 @@ export default {
     }, {
       name: 'pagination',
       title: {
-        label: i18n("分页设置", "PaginationSet"),
-        tip: i18n("使用分页样式，自定义渲染列表下无效", "Using paging style, it is invalid under custom rendering list")
+        label: "PaginationSet",
+        tip: "Using paging style, it is invalid under custom rendering list"
       },
       setter: ['BoolSetter', {
         componentName: 'ObjectSetter',
@@ -138,15 +137,15 @@ export default {
           config: {
             items: [{
               name: 'pageSize',
-              title: i18n("单页条数", "Number of items on a single page"),
+              title: "Number of items on a single page",
               setter: 'NumberSetter'
             }, {
               name: 'simple',
-              title: i18n("简单模式", "Simple mode"),
+              title: "Simple mode",
               setter: 'BoolSetter'
             }, {
               name: 'showSizeChanger',
-              title: i18n("展示条数切换器", "Display number switcher"),
+              title: "Display number switcher",
               setter: 'BoolSetter'
             }]
           }
@@ -160,8 +159,8 @@ export default {
     }, {
       name: 'render',
       title: {
-        label: i18n("每行数据渲染函数", "Data rendering function for each row"),
-        tip: i18n("每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title", "Each row of data rendering function, the input parameter of this function is the item in `dataSource`, and the return value is ReactElement. Or return a normal object, where the `label` field is ReactElement and the `value` field is title")
+        label: "Data rendering function for each row",
+        tip: "Each row of data rendering function, the input parameter of this function is the item in `dataSource`, and the return value is ReactElement. Or return a normal object, where the `label` field is ReactElement and the `value` field is title"
       },
       propType: 'func',
       setter: [{
@@ -173,8 +172,8 @@ export default {
     }, {
       name: 'filterOption',
       title: {
-        label: i18n("过滤选项", "Filter options"),
-        tip: i18n("接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false", "Receives two parameters: `inputValue` and `option`. When `option` meets the filtering conditions, it should return true, otherwise it should return false.")
+        label: "Filter options",
+        tip: "Receives two parameters: `inputValue` and `option`. When `option` meets the filtering conditions, it should return true, otherwise it should return false."
       },
       propType: 'func',
       setter: [{
@@ -186,8 +185,8 @@ export default {
     }, {
       name: 'footer',
       title: {
-        label: i18n("底部", "Bottom"),
-        tip: i18n("footer | 底部", "footer | Bottom")
+        label: "Bottom",
+        tip: "footer | Bottom"
       },
       propType: 'func',
       setter: [{
@@ -197,7 +196,7 @@ export default {
         }
       }, {
         componentName: 'SlotSetter',
-        title: i18n("渲染函数插槽", "Render function slot"),
+        title: "Render function slot",
         initialValue: {
           type: 'JSSlot',
           value: [],
@@ -220,8 +219,8 @@ export default {
   {
     name: 'operations',
     title: {
-      label: i18n("操作文案", "Operational copy"),
-      tip: i18n("操作文案集合，顺序从上至下", "A collection of operation documents, in order from top to bottom")
+      label: "Operational copy",
+      tip: "A collection of operation documents, in order from top to bottom"
     },
     propType: {
       type: 'arrayOf',
@@ -230,8 +229,8 @@ export default {
   }, {
     name: 'titles',
     title: {
-      label: i18n("标题集合", "title collection"),
-      tip: i18n("标题集合，顺序从左至右", "A collection of titles, ordered from left to right")
+      label: "title collection",
+      tip: "A collection of titles, ordered from left to right"
     },
     propType: {
       type: 'arrayOf',
@@ -240,8 +239,8 @@ export default {
   }, {
     name: 'selectAllLabels',
     title: {
-      label: i18n("多选框标题集合", "Multiple selection box title collection"),
-      tip: i18n("自定义顶部多选框标题的集合", "Collection of custom top checkbox titles")
+      label: "Multiple selection box title collection",
+      tip: "Collection of custom top checkbox titles"
     },
     propType: {
       type: 'arrayOf',

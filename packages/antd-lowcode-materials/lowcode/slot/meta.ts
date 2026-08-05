@@ -14,7 +14,7 @@ module.exports = {
       title: {
         type: 'i18n',
         en_US: 'Slot Title',
-        zh_CN: '插槽标题'
+        zh_CN: 'Slot Title'
       },
       setter: 'StringSetter',
       defaultValue: "Slot Container"
@@ -23,7 +23,7 @@ module.exports = {
       title: {
         type: 'i18n',
         en_US: 'Slot Params',
-        zh_CN: '插槽入参'
+        zh_CN: 'Slot Params'
       },
       setter: {
         componentName: 'ArraySetter',
@@ -31,11 +31,7 @@ module.exports = {
           itemSetter: {
             componentName: 'StringSetter',
             props: {
-              placeholder: {
-                type: 'i18n',
-                zh_CN: '参数名称',
-                en_US: 'Argument Name'
-              }
+              placeholder: "Argument Name"
             }
           }
         }

@@ -1,48 +1,47 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'DatePicker.RangePicker',
-  title: i18n("日期区间选择", "Date range selection"),
+  title: "Date range selection",
   category: "Data Entry",
   props: [{
-    title: i18n("值设置", "ValueSet"),
+    title: "ValueSet",
     display: 'block',
     type: 'group',
     items: [{
       name: 'defaultValue',
       title: {
-        label: i18n("默认值", "Default value"),
-        tip: i18n("defaultValue | 默认值", "defaultValue | Default value")
+        label: "Default value",
+        tip: "defaultValue | Default value"
       },
       propType: 'object',
       setter: 'JsonSetter'
     }, {
       name: 'value',
       title: {
-        label: i18n("当前值", "Current value"),
-        tip: i18n("value | 当前值", "value | Current value")
+        label: "Current value",
+        tip: "value | Current value"
       },
       propType: 'object',
       setter: 'JsonSetter'
     }, {
       name: 'defaultPickerValue',
       title: {
-        label: i18n("默认面板日期", "DefaultPanelDate"),
-        tip: i18n("defaultPickerValue | 默认面板日期", "defaultPickerValue | DefaultPanelDate")
+        label: "DefaultPanelDate",
+        tip: "defaultPickerValue | DefaultPanelDate"
       },
       propType: 'object',
       setter: 'JsonSetter'
     }]
   }, {
-    title: i18n("功能选项", "FunctionOption"),
+    title: "FunctionOption",
     display: 'block',
     type: 'group',
     items: [{
       name: 'size',
       title: {
-        label: i18n("尺寸", "Size"),
-        tip: i18n("size | 输入框大小，large 高度为 40px，small 为 24px，默认是 32px", "size | InputSize，large Height 40px，small 24px，DefaultYes 32px")
+        label: "Size",
+        tip: "size | InputSize，large Height 40px，small 24px，DefaultYes 32px"
       },
       propType: {
         type: 'oneOf',
@@ -52,13 +51,13 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("大", "Large"),
+            title: "Large",
             value: 'large'
           }, {
-            title: i18n("中", "Middle"),
+            title: "Middle",
             value: 'middle'
           }, {
-            title: i18n("小", "Small"),
+            title: "Small",
             value: 'small'
           }]
         }
@@ -67,8 +66,8 @@ export default {
     }, {
       name: 'picker',
       title: {
-        label: i18n("选择器类型", "SelectType"),
-        tip: i18n("picker | 设置选择器类型", "picker | Set SelectType")
+        label: "SelectType",
+        tip: "picker | Set SelectType"
       },
       propType: {
         type: 'oneOf',
@@ -79,19 +78,19 @@ export default {
         componentName: 'SelectSetter',
         props: {
           options: [{
-            title: i18n("日期", "Date"),
+            title: "Date",
             value: 'date'
           }, {
-            title: i18n("周", "Week"),
+            title: "Week",
             value: 'week'
           }, {
-            title: i18n("月份", "Month"),
+            title: "Month",
             value: 'month'
           }, {
-            title: i18n("季度", "quarter"),
+            title: "quarter",
             value: 'quarter'
           }, {
-            title: i18n("年份", "Year"),
+            title: "Year",
             value: 'year'
           }]
         }
@@ -99,8 +98,8 @@ export default {
     }, {
       name: 'mode',
       title: {
-        label: i18n("面板模式", "PanelMode"),
-        tip: i18n("mode | 日期面板的状态", "mode | DatePanel Status")
+        label: "PanelMode",
+        tip: "mode | DatePanel Status"
       },
       propType: {
         type: 'oneOf',
@@ -110,19 +109,19 @@ export default {
         componentName: 'SelectSetter',
         props: {
           options: [{
-            title: i18n("日期", "Date"),
+            title: "Date",
             value: 'date'
           }, {
-            title: i18n("周", "Week"),
+            title: "Week",
             value: 'week'
           }, {
-            title: i18n("月份", "Month"),
+            title: "Month",
             value: 'month'
           }, {
-            title: i18n("年份", "Year"),
+            title: "Year",
             value: 'year'
           }, {
-            title: i18n("十年间隔", "ten years interval"),
+            title: "ten years interval",
             value: 'decade'
           }]
         }
@@ -130,24 +129,24 @@ export default {
     }, {
       name: 'format',
       title: {
-        label: i18n("日期格式", "DateFormat"),
-        tip: i18n("format | 展示的日期格式，配置参考 moment.js", "format | Displayed date format, configuration reference moment.js")
+        label: "DateFormat",
+        tip: "format | Displayed date format, configuration reference moment.js"
       },
       propType: 'string',
       setter: 'StringSetter'
     }, {
       name: 'placeholder',
       title: {
-        label: i18n("提示文字", "Tip text"),
-        tip: i18n("placeholder | 输入框提示文字", "placeholder | Input placeholderText")
+        label: "Tip text",
+        tip: "placeholder | Input placeholderText"
       },
       propType: 'string',
       setter: 'StringSetter'
     }, {
       name: 'allowClear',
       title: {
-        label: i18n("支持清除", "Allow clear"),
-        tip: i18n("allowClear | 是否允许清除", "allowClear | Whether allow clear")
+        label: "Allow clear",
+        tip: "allowClear | Whether allow clear"
       },
       propType: 'bool',
       defaultValue: true,
@@ -155,8 +154,8 @@ export default {
     }, {
       name: 'bordered',
       title: {
-        label: i18n("显示边框", "Show border"),
-        tip: i18n("bordered | 是否有边框", "bordered | Whether bordered")
+        label: "Show border",
+        tip: "bordered | Whether bordered"
       },
       propType: 'bool',
       defaultValue: true,
@@ -164,8 +163,8 @@ export default {
     }, {
       name: 'autoFocus',
       title: {
-        label: i18n("自动聚焦", "Auto focus"),
-        tip: i18n("autoFocus | 自动获取焦点", "autoFocus | Auto focus")
+        label: "Auto focus",
+        tip: "autoFocus | Auto focus"
       },
       propType: 'bool',
       defaultValue: false,
@@ -173,8 +172,8 @@ export default {
     }, {
       name: 'disabled',
       title: {
-        label: i18n("是否禁用", "Disabled"),
-        tip: i18n("disabled | 是否为禁用状态", "disabled | Whether disabled")
+        label: "Disabled",
+        tip: "disabled | Whether disabled"
       },
       propType: 'bool',
       defaultValue: false,
@@ -192,8 +191,8 @@ export default {
     {
       name: 'showTime',
       title: {
-        label: i18n("时间选择", "TimeSelect"),
-        tip: i18n("showTime | 时间选择", "showTime | TimeSelect")
+        label: "TimeSelect",
+        tip: "showTime | TimeSelect"
       },
       propType: 'bool',
       defaultValue: false,
@@ -201,30 +200,30 @@ export default {
     }, {
       name: 'inputReadOnly',
       title: {
-        label: i18n("输入框只读", "Input box read only"),
-        tip: i18n("inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘）", "inputReadOnly | Set the input box to be read-only (avoid opening the virtual keyboard on mobile devices)")
+        label: "Input box read only",
+        tip: "inputReadOnly | Set the input box to be read-only (avoid opening the virtual keyboard on mobile devices)"
       },
       propType: 'bool',
       defaultValue: false,
       setter: 'BoolSetter'
     }]
   }, {
-    title: i18n("高级", "Advanced"),
+    title: "Advanced",
     display: 'block',
     type: 'group',
     items: [{
       name: 'ranges',
       title: {
-        label: i18n("预设范围", "Default range"),
-        tip: i18n("ranges | 预设时间范围快捷选择", "ranges | Quick selection of preset time ranges")
+        label: "Default range",
+        tip: "ranges | Quick selection of preset time ranges"
       },
       propType: 'object',
       setter: 'JsonSetter'
     }, {
       name: 'disabledDate',
       title: {
-        label: i18n("不可选日期", "Disabled date"),
-        tip: i18n("disabledDate | 不可选择的日期", "disabledDate | Unselectable date")
+        label: "Disabled date",
+        tip: "disabledDate | Unselectable date"
       },
       propType: 'func',
       setter: [{

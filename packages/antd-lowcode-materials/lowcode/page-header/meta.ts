@@ -1,15 +1,14 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'PageHeader',
-  title: i18n("页头", "PageHeader"),
+  title: "PageHeader",
   category: "Navigation",
   props: [{
     name: 'title',
     title: {
-      label: i18n("标题", "Title"),
-      tip: i18n("自定义标题文字", "CustomTitleText")
+      label: "Title",
+      tip: "CustomTitleText"
     },
     propType: {
       type: 'oneOfType',
@@ -18,8 +17,8 @@ export default {
   }, {
     name: 'subTitle',
     title: {
-      label: i18n("二级标题", "Level 2 heading"),
-      tip: i18n("自定义的二级标题文字", "Custom Level 2 headingText")
+      label: "Level 2 heading",
+      tip: "Custom Level 2 headingText"
     },
     propType: {
       type: 'oneOfType',
@@ -28,8 +27,8 @@ export default {
   }, {
     name: 'ghost',
     title: {
-      label: i18n("ghost风格", "Ghost"),
-      tip: i18n("ghost风格", "Ghost")
+      label: "Ghost",
+      tip: "Ghost"
     },
     propType: 'bool',
     defaultValue: true
@@ -45,29 +44,29 @@ export default {
   {
     name: 'tags',
     title: {
-      label: i18n("tag 列表", "tag List"),
-      tip: i18n("title 旁的 tag 列表", "tag list next to title")
+      label: "tag List",
+      tip: "tag list next to title"
     },
     propType: 'node'
   }, {
     name: 'extra',
     title: {
-      label: i18n("操作区", "Actions"),
-      tip: i18n("操作区，位于 title 行的行尾", "The operating area, located at the end of the title line")
+      label: "Actions",
+      tip: "The operating area, located at the end of the title line"
     },
     propType: 'node'
   }, {
     name: 'footer',
     title: {
-      label: i18n("页脚", "Footer"),
-      tip: i18n("PageHeader 的页脚，一般用于渲染 TabBar", "PageHeader footer, usually for TabBar")
+      label: "Footer",
+      tip: "PageHeader footer, usually for TabBar"
     },
     propType: 'node'
   }, {
     name: 'avatar',
     title: {
-      label: i18n("头像", "Avatar"),
-      tip: i18n("标题栏旁的头像", "Avatar next to title bar")
+      label: "Avatar",
+      tip: "Avatar next to title bar"
     },
     propType: 'object',
     supportVariable: false,
@@ -78,8 +77,8 @@ export default {
           items: [{
             name: 'src',
             title: {
-              label: i18n("地址", "Address"),
-              tip: i18n("头像地址", "AvatarAddress")
+              label: "Address",
+              tip: "AvatarAddress"
             },
             setter: {
               componentName: 'StringSetter'
@@ -91,8 +90,8 @@ export default {
   }, {
     name: 'breadcrumb',
     title: {
-      label: i18n("面包屑的配置", "Breadcrumb config"),
-      tip: i18n("面包屑的配置", "Breadcrumb config")
+      label: "Breadcrumb config",
+      tip: "Breadcrumb config"
     },
     propType: 'object',
     supportVariable: false,
@@ -103,8 +102,8 @@ export default {
           items: [{
             name: 'routes',
             title: {
-              label: i18n("路由栈信息", "Routes"),
-              tip: i18n("路由栈信息", "Routes")
+              label: "Routes",
+              tip: "Routes"
             },
             setter: {
               componentName: 'ArraySetter',
@@ -122,16 +121,16 @@ export default {
                         name: 'path',
                         defaultValue: 'path',
                         title: {
-                          label: i18n("路径", "path"),
-                          tip: i18n("path | 路径", "path | path")
+                          label: "path",
+                          tip: "path | path"
                         },
                         setter: 'StringSetter'
                       }, {
                         name: 'breadcrumbName',
                         defaultValue: 'pathName',
                         title: {
-                          label: i18n("名称", "Name"),
-                          tip: i18n("breadcrumbName | 名称", "breadcrumbName | Name")
+                          label: "Name",
+                          tip: "breadcrumbName | Name"
                         },
                         setter: 'StringSetter'
                       }]
@@ -147,8 +146,8 @@ export default {
   }, {
     name: 'onBack',
     title: {
-      label: i18n("返回按钮的点击事件", "Return button click event"),
-      tip: i18n("返回按钮的点击事件", "Return button click event")
+      label: "Return button click event",
+      tip: "Return button click event"
     },
     propType: 'func'
   }],

@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("分页", "Pagination"),
+  title: "Pagination",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/pagination-1.jpg',
   schema: {
     componentName: 'Pagination',

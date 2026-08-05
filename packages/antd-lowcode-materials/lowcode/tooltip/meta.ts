@@ -1,19 +1,18 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Tooltip',
-  title: i18n("文字提示", "Tooltip"),
+  title: "Tooltip",
   category: "Data Display",
   props: [{
-    title: i18n("内容", "Content"),
+    title: "Content",
     display: 'block',
     type: 'group',
     items: [{
       name: 'title',
       title: {
-        label: i18n("提示文字", "Tip text"),
-        tip: i18n("title | 提示文字", "title | Tip text")
+        label: "Tip text",
+        tip: "title | Tip text"
       },
       propType: {
         type: 'oneOfType',
@@ -22,14 +21,14 @@ export default {
       setter: ['StringSetter', 'SlotSetter', 'VariableSetter']
     }]
   }, {
-    title: i18n("控制", "Control"),
+    title: "Control",
     display: 'block',
     type: 'group',
     items: [{
       name: 'defaultOpen',
       title: {
-        label: i18n("默认显隐", "Show or hide by default"),
-        tip: i18n("defaultOpen | 默认是否显隐", "defaultOpen | Whether to show or hide by default")
+        label: "Show or hide by default",
+        tip: "defaultOpen | Whether to show or hide by default"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -37,21 +36,21 @@ export default {
     }, {
       name: 'open',
       title: {
-        label: i18n("当前显隐", "Currently visible"),
-        tip: i18n("open | 当前是否显隐", "open | Whether to show or hide currently")
+        label: "Currently visible",
+        tip: "open | Whether to show or hide currently"
       },
       propType: 'bool',
       setter: 'BoolSetter'
     }]
   }, {
-    title: i18n("外观", "Appearance"),
+    title: "Appearance",
     display: 'block',
     type: 'group',
     items: [{
       name: 'placement',
       title: {
-        label: i18n("气泡位置", "Bubble position"),
-        tip: i18n("placement | 气泡位置", "placement | bubble position")
+        label: "Bubble position",
+        tip: "placement | bubble position"
       },
       propType: {
         type: 'oneOf',
@@ -62,40 +61,40 @@ export default {
         componentName: 'SelectSetter',
         props: {
           options: [{
-            title: i18n("上", "Top"),
+            title: "Top",
             value: 'top'
           }, {
-            title: i18n("左", "Left"),
+            title: "Left",
             value: 'left'
           }, {
-            title: i18n("右", "Right"),
+            title: "Right",
             value: 'right'
           }, {
-            title: i18n("下", "Bottom"),
+            title: "Bottom",
             value: 'bottom'
           }, {
-            title: i18n("上左", "Top left"),
+            title: "Top left",
             value: 'topLeft'
           }, {
-            title: i18n("上右", "Top right"),
+            title: "Top right",
             value: 'topRight'
           }, {
-            title: i18n("下左", "Bottom left"),
+            title: "Bottom left",
             value: 'bottomLeft'
           }, {
-            title: i18n("下右", "Bottom right"),
+            title: "Bottom right",
             value: 'bottomRight'
           }, {
-            title: i18n("左上", "LeftTop"),
+            title: "LeftTop",
             value: 'leftTop'
           }, {
-            title: i18n("左下", "LeftBottom"),
+            title: "LeftBottom",
             value: 'leftBottom'
           }, {
-            title: i18n("右上", "RightTop"),
+            title: "RightTop",
             value: 'rightTop'
           }, {
-            title: i18n("右下", "RightBottom"),
+            title: "RightBottom",
             value: 'rightBottom'
           }]
         }
@@ -103,8 +102,8 @@ export default {
     }, {
       name: 'autoAdjustOverflow',
       title: {
-        label: i18n("自动调整", "automatic adjustment"),
-        tip: i18n("autoAdjustOverflow | 气泡被遮挡时自动调整位置", "autoAdjustOverflow | Automatically adjust the position of the bubble when it is blocked")
+        label: "automatic adjustment",
+        tip: "autoAdjustOverflow | Automatically adjust the position of the bubble when it is blocked"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -112,8 +111,8 @@ export default {
     }, {
       name: 'arrowPointAtCenter',
       title: {
-        label: i18n("指向中心", "Point to center"),
-        tip: i18n("arrowPointAtCenter | 箭头是否指向目标元素中心", "arrowPointAtCenter | Whether the arrow points to the center of the target element")
+        label: "Point to center",
+        tip: "arrowPointAtCenter | Whether the arrow points to the center of the target element"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -121,8 +120,8 @@ export default {
     }, {
       name: 'color',
       title: {
-        label: i18n("背景颜色", "background color"),
-        tip: i18n("color | 背景颜色", "color | background color")
+        label: "background color",
+        tip: "color | background color"
       },
       propType: 'string',
       setter: 'ColorSetter'
@@ -130,14 +129,14 @@ export default {
       name: 'zIndex',
       title: {
         label: 'zIndex',
-        tip: i18n("zIndex | 设置 Tooltip 的 z-index值", "zIndex | Set Tooltip z-indexValue")
+        tip: "zIndex | Set Tooltip z-indexValue"
       },
       propType: 'number',
       setter: 'NumberSetter'
     }]
   }, {
     name: 'overlayStyle',
-    title: i18n("卡片样式", "Card style"),
+    title: "Card style",
     type: 'group',
     extraProps: {
       display: 'entry'
@@ -145,8 +144,8 @@ export default {
     items: [{
       name: 'overlayStyle',
       title: {
-        label: i18n("样式设置", "Style settings"),
-        tip: i18n("overlayStyle | 卡片样式", "overlayStyle | Card style")
+        label: "Style settings",
+        tip: "overlayStyle | Card style"
       },
       setter: 'StyleSetter',
       extraProps: {
@@ -155,7 +154,7 @@ export default {
     }]
   }, {
     name: 'overlayInnerStyle',
-    title: i18n("卡片内容样式", "CardContent style"),
+    title: "CardContent style",
     type: 'group',
     extraProps: {
       display: 'entry'
@@ -163,8 +162,8 @@ export default {
     items: [{
       name: 'overlayInnerStyle',
       title: {
-        label: i18n("样式设置", "Style settings"),
-        tip: i18n("overlayStyle | 卡片内容区域的样式", "overlayStyle | The style of the card content area")
+        label: "Style settings",
+        tip: "overlayStyle | The style of the card content area"
       },
       setter: 'StyleSetter',
       extraProps: {
@@ -172,14 +171,14 @@ export default {
       }
     }]
   }, {
-    title: i18n("行为", "Row"),
+    title: "Row",
     display: 'block',
     type: 'group',
     items: [{
       name: 'trigger',
       title: {
-        label: i18n("触发行为", "Trigger Row"),
-        tip: i18n("trigger | 触发行为", "trigger | Trigger Row")
+        label: "Trigger Row",
+        tip: "trigger | Trigger Row"
       },
       propType: {
         type: 'oneOf',
@@ -190,16 +189,16 @@ export default {
         componentName: 'SelectSetter',
         props: {
           options: [{
-            title: i18n("鼠标悬停", "mouseover"),
+            title: "mouseover",
             value: 'hover'
           }, {
-            title: i18n("获得焦点", "get focus"),
+            title: "get focus",
             value: 'focus'
           }, {
-            title: i18n("鼠标点击", "Mouse Click"),
+            title: "Mouse Click",
             value: 'click'
           }, {
-            title: i18n("右键菜单", "right click menu"),
+            title: "right click menu",
             value: 'contextMenu'
           }]
         }
@@ -207,8 +206,8 @@ export default {
     }, {
       name: 'mouseEnterDelay',
       title: {
-        label: i18n("展示延时", "display delay"),
-        tip: i18n("mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒", "mouseEnterDelay | The delay after the mouse is moved in before the Tooltip is displayed, unit: seconds")
+        label: "display delay",
+        tip: "mouseEnterDelay | The delay after the mouse is moved in before the Tooltip is displayed, unit: seconds"
       },
       propType: 'number',
       defaultValue: 0.1,
@@ -221,8 +220,8 @@ export default {
     }, {
       name: 'mouseLeaveDelay',
       title: {
-        label: i18n("隐藏延时", "Hide delay"),
-        tip: i18n("mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒", "mouseLeaveDelay | The delay after the mouse is moved out before hiding the Tooltip, unit: seconds")
+        label: "Hide delay",
+        tip: "mouseLeaveDelay | The delay after the mouse is moved out before hiding the Tooltip, unit: seconds"
       },
       propType: 'number',
       defaultValue: 0.1,

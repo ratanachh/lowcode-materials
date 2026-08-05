@@ -1,6 +1,5 @@
-import { i18n } from "../_utils/i18n";
 export default [{
-  title: i18n("步骤条", "Steps"),
+  title: "Steps",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/steps-1.png',
   schema: {
     componentName: 'Steps',

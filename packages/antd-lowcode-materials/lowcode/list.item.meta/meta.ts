@@ -1,13 +1,12 @@
-import { i18n } from "../_utils/i18n";
 export default {
   componentName: 'List.Item.Meta',
-  title: i18n("列表项内容", "List itemContent"),
+  title: "List itemContent",
   category: '',
   props: [{
     name: 'avatar',
     title: {
-      label: i18n("列表元素图标", "List element icon"),
-      tip: i18n("列表元素的图标", "List element icon")
+      label: "List element icon",
+      tip: "List element icon"
     },
     propType: {
       type: 'oneOfType',
@@ -16,8 +15,8 @@ export default {
   }, {
     name: 'title',
     title: {
-      label: i18n("列表元素标题", "List element title"),
-      tip: i18n("列表元素的标题", "The title of the list element")
+      label: "List element title",
+      tip: "The title of the list element"
     },
     propType: {
       type: 'oneOfType',
@@ -26,8 +25,8 @@ export default {
   }, {
     name: 'avatar',
     title: {
-      label: i18n("列表元素描述内容", "List element description content"),
-      tip: i18n("列表元素的描述内容", "The description content of the list element")
+      label: "List element description content",
+      tip: "The description content of the list element"
     },
     propType: {
       type: 'oneOfType',

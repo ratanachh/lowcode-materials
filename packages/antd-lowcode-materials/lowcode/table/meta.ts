@@ -1,19 +1,18 @@
 import snippets from './snippets';
-import { i18n } from "../_utils/i18n";
 export default {
   snippets,
   componentName: 'Table',
-  title: i18n("表格", "Table"),
+  title: "Table",
   category: "Data Display",
   props: [{
-    title: i18n("数据源", "Data source"),
+    title: "Data source",
     display: 'block',
     type: 'group',
     items: [{
       name: 'dataSource',
       title: {
-        label: i18n("表格数据", "TableData"),
-        tip: i18n("dataSource | 表格数据", "dataSource | TableData")
+        label: "TableData",
+        tip: "dataSource | TableData"
       },
       propType: 'object',
       setter: 'JsonSetter',
@@ -21,8 +20,8 @@ export default {
     }, {
       name: 'loading',
       title: {
-        label: i18n("加载中", "Loading"),
-        tip: i18n("loading | 是否加载中", "loading | YesNoLoading")
+        label: "Loading",
+        tip: "loading | YesNoLoading"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -31,8 +30,8 @@ export default {
     }, {
       name: 'rowKey',
       title: {
-        label: i18n("行Key", "RowKey"),
-        tip: i18n("rowKey | 表格行 key 的取值，可以是字符串或一个函数", "rowKey | The value of table row key, which can be a string or a function")
+        label: "RowKey",
+        tip: "rowKey | The value of table row key, which can be a string or a function"
       },
       propType: {
         type: 'oneOfType',
@@ -49,8 +48,8 @@ export default {
   }, {
     name: 'columns',
     title: {
-      label: i18n("表格列", "TableCol"),
-      tip: i18n("表格列的配置描述，具体项见下表", "Configuration description of table columns, see the table below for specific items")
+      label: "TableCol",
+      tip: "Configuration description of table columns, see the table below for specific items"
     },
     setter: {
       componentName: 'ArraySetter',
@@ -62,8 +61,8 @@ export default {
               items: [{
                 name: 'title',
                 title: {
-                  label: i18n("列标题", "ColTitle"),
-                  tip: i18n("title | 列标题", "title | ColTitle")
+                  label: "ColTitle",
+                  tip: "title | ColTitle"
                 },
                 propType: {
                   type: 'oneOfType',
@@ -71,7 +70,7 @@ export default {
                 },
                 setter: ['StringSetter', {
                   componentName: 'SlotSetter',
-                  title: i18n("列标题插槽", "Column header slot"),
+                  title: "Column header slot",
                   initialValue: {
                     type: 'JSSlot',
                     params: ['options'],
@@ -81,8 +80,8 @@ export default {
               }, {
                 name: 'dataIndex',
                 title: {
-                  label: i18n("数据字段", "DataField"),
-                  tip: i18n("dataIndex | 数据字段", "dataIndex | DataField")
+                  label: "DataField",
+                  tip: "dataIndex | DataField"
                 },
                 propType: 'string',
                 setter: 'StringSetter',
@@ -91,15 +90,15 @@ export default {
                 name: 'key',
                 title: {
                   label: 'React key',
-                  tip: i18n("key | React需要的key", "key | ReactNeed key")
+                  tip: "key | ReactNeed key"
                 },
                 propType: 'string',
                 setter: 'StringSetter'
               }, {
                 name: 'align',
                 title: {
-                  label: i18n("对齐方式", "Align"),
-                  tip: i18n("align | 对齐方式", "align | Align")
+                  label: "Align",
+                  tip: "align | Align"
                 },
                 propType: {
                   type: 'oneOf',
@@ -124,8 +123,8 @@ export default {
               }, {
                 name: 'fixed',
                 title: {
-                  label: i18n("列是否固定", "ColYesNoFixed"),
-                  tip: i18n("fixed | 列是否固定", "fixed | ColYesNoFixed")
+                  label: "ColYesNoFixed",
+                  tip: "fixed | ColYesNoFixed"
                 },
                 description: "(Invalid under IE) Whether the column is fixed, optional true (equivalent to left) left right",
                 defaultValue: '',
@@ -137,13 +136,13 @@ export default {
                   componentName: 'RadioGroupSetter',
                   props: {
                     options: [{
-                      title: i18n("不固定", "Not Fixed"),
+                      title: "Not Fixed",
                       value: ''
                     }, {
-                      title: i18n("固定在左侧", "Fixed Left"),
+                      title: "Fixed Left",
                       value: 'left'
                     }, {
-                      title: i18n("固定在右侧", "Fixed Right"),
+                      title: "Fixed Right",
                       value: 'right'
                     }]
                   }
@@ -151,16 +150,16 @@ export default {
               }, {
                 name: 'className',
                 title: {
-                  label: i18n("列样式类名", "Col styleclassName"),
-                  tip: i18n("className | 列样式类名", "className | Col styleclassName")
+                  label: "Col styleclassName",
+                  tip: "className | Col styleclassName"
                 },
                 propType: 'string',
                 setter: 'StringSetter'
               }, {
                 name: 'width',
                 title: {
-                  label: i18n("宽度", "Width"),
-                  tip: i18n("width | 宽度", "width | Width")
+                  label: "Width",
+                  tip: "width | Width"
                 },
                 propType: {
                   type: 'oneOfType',
@@ -170,8 +169,8 @@ export default {
               }, {
                 name: 'sorter',
                 title: {
-                  label: i18n("排序规则", "Sorting rules"),
-                  tip: i18n("sorter | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true", "sorter | Sorting function, local sorting uses a function, server-side sorting is required and can be set to true")
+                  label: "Sorting rules",
+                  tip: "sorter | Sorting function, local sorting uses a function, server-side sorting is required and can be set to true"
                 },
                 propType: {
                   type: 'oneOfType',
@@ -181,29 +180,29 @@ export default {
               }, {
                 name: 'hidden',
                 title: {
-                  label: i18n("是否隐藏", "YesNoHide"),
-                  tip: i18n("hidden | 是否隐藏当前列", "hidden | YesNoHide Current Col")
+                  label: "YesNoHide",
+                  tip: "hidden | YesNoHide Current Col"
                 },
                 propType: 'bool',
                 setter: 'BoolSetter'
               }, {
                 name: 'filters',
                 title: {
-                  label: i18n("筛选菜单项", "FilterMenu Item"),
-                  tip: i18n("filters | 表头的筛选菜单项", "filters | Header filter menu items")
+                  label: "FilterMenu Item",
+                  tip: "filters | Header filter menu items"
                 },
                 propType: 'object',
                 setter: 'JsonSetter'
               }, {
                 name: 'render',
                 title: {
-                  label: i18n("自定义渲染", "CustomRender"),
-                  tip: i18n("render | 插槽内的物料表达式可通过this.record获取当前行数据，this.index获取索引", "render | The material expression in the slot can obtain the current row data through this.record and this.index to obtain the index.")
+                  label: "CustomRender",
+                  tip: "render | The material expression in the slot can obtain the current row data through this.record and this.index to obtain the index."
                 },
                 propType: 'func',
                 setter: [{
                   componentName: 'SlotSetter',
-                  title: i18n("单元格插槽", "cell slot"),
+                  title: "cell slot",
                   initialValue: {
                     type: 'JSSlot',
                     params: ['text', 'record', 'index'],
@@ -214,20 +213,20 @@ export default {
             }
           },
           initialValue: {
-            title: i18n("标题", "Title")
+            title: "Title"
           }
         }
       }
     }
   }, {
-    title: i18n("外观", "Appearance"),
+    title: "Appearance",
     display: 'block',
     type: 'group',
     items: [{
       name: 'showHeader',
       title: {
-        label: i18n("显示表头", "Show header"),
-        tip: i18n("showHeader | 是否显示表头", "showHeader | Whether to display the header")
+        label: "Show header",
+        tip: "showHeader | Whether to display the header"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -235,16 +234,16 @@ export default {
     }, {
       name: 'bordered',
       title: {
-        label: i18n("显示边框", "Show border"),
-        tip: i18n("bordered | 是否展示外边框和列边框", "bordered | Whether to display outer borders and column borders")
+        label: "Show border",
+        tip: "bordered | Whether to display outer borders and column borders"
       },
       propType: 'bool',
       setter: 'BoolSetter'
     }, {
       name: 'size',
       title: {
-        label: i18n("表格大小", "TableSize"),
-        tip: i18n("size | 表格大小", "size | TableSize")
+        label: "TableSize",
+        tip: "size | TableSize"
       },
       propType: {
         type: 'oneOf',
@@ -254,13 +253,13 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("默认", "Default"),
+            title: "Default",
             value: 'default'
           }, {
-            title: i18n("中", "Middle"),
+            title: "Middle",
             value: 'middle'
           }, {
-            title: i18n("小", "Small"),
+            title: "Small",
             value: 'small'
           }]
         }
@@ -269,8 +268,8 @@ export default {
     }, {
       name: 'tableLayout',
       title: {
-        label: i18n("表格布局", "TableLayout"),
-        tip: i18n("tableLayout | 表格布局", "tableLayout | TableLayout")
+        label: "TableLayout",
+        tip: "tableLayout | TableLayout"
       },
       defaultValue: '',
       propType: {
@@ -281,27 +280,27 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("默认", "Default"),
+            title: "Default",
             value: ''
           }, {
-            title: i18n("自动", "Auto"),
+            title: "Auto",
             value: 'auto'
           }, {
-            title: i18n("固定", "Fixed"),
+            title: "Fixed",
             value: 'fixed'
           }]
         }
       }, 'VariableSetter']
     }]
   }, {
-    title: i18n("分页", "Pagination"),
+    title: "Pagination",
     display: 'block',
     type: 'group',
     items: [{
       name: 'pagination',
       title: {
-        label: i18n("显示分页", "ShowPagination"),
-        tip: i18n("pagination | 显示分页", "pagination | ShowPagination")
+        label: "ShowPagination",
+        tip: "pagination | ShowPagination"
       },
       propType: 'object',
       setter: 'BoolSetter',
@@ -318,8 +317,8 @@ export default {
     }, {
       name: 'pagination.pageSize',
       title: {
-        label: i18n("每页条数", "Page size"),
-        tip: i18n("pagination.pageSize | 每页条数", "pagination.pageSize | Page size")
+        label: "Page size",
+        tip: "pagination.pageSize | Page size"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -330,8 +329,8 @@ export default {
     }, {
       name: 'pagination.total',
       title: {
-        label: i18n("数据总数", "Total"),
-        tip: i18n("pagination.total | 数据总数", "pagination.total | Total")
+        label: "Total",
+        tip: "pagination.total | Total"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -342,8 +341,8 @@ export default {
     }, {
       name: 'pagination.defaultCurrent',
       title: {
-        label: i18n("默认当前页", "Default current page"),
-        tip: i18n("pagination.defaultCurrent | 默认的当前页数", "pagination.defaultCurrent | Default Current page")
+        label: "Default current page",
+        tip: "pagination.defaultCurrent | Default Current page"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -354,8 +353,8 @@ export default {
     }, {
       name: 'pagination.current',
       title: {
-        label: i18n("当前页数", "Current page"),
-        tip: i18n("pagination.current | 当前页数", "pagination.current | Current page")
+        label: "Current page",
+        tip: "pagination.current | Current page"
       },
       propType: 'number',
       setter: 'NumberSetter',
@@ -366,8 +365,8 @@ export default {
     }, {
       name: 'pagination.showTotal',
       title: {
-        label: i18n("显示总数", "Show total"),
-        tip: i18n("pagination.showTotal | 用于显示数据总量和当前数据顺序", "pagination.showTotal | Used to display the total amount of data and the current data sequence")
+        label: "Show total",
+        tip: "pagination.showTotal | Used to display the total amount of data and the current data sequence"
       },
       propType: 'func',
       setter: [{
@@ -383,8 +382,8 @@ export default {
     }, {
       name: 'pagination.showSizeChanger',
       title: {
-        label: i18n("页数切换", "Page size changer"),
-        tip: i18n("pagination.showSizeChanger | 是否展示 pageSize 切换器", "pagination.showSizeChanger | Whether to display pageSize switcher")
+        label: "Page size changer",
+        tip: "pagination.showSizeChanger | Whether to display pageSize switcher"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -395,8 +394,8 @@ export default {
     }, {
       name: 'pagination.showQuickJumper',
       title: {
-        label: i18n("快速跳转", "Quick jumper"),
-        tip: i18n("pagination.showQuickJumper | 是否可以快速跳转至某页", "pagination.showQuickJumper | Whether you can quickly jump to a page")
+        label: "Quick jumper",
+        tip: "pagination.showQuickJumper | Whether you can quickly jump to a page"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -407,8 +406,8 @@ export default {
     }, {
       name: 'pagination.simple',
       title: {
-        label: i18n("简单分页", "Simple pagination"),
-        tip: i18n("pagination.simple | 简单分页", "pagination.simple | Simple pagination")
+        label: "Simple pagination",
+        tip: "pagination.simple | Simple pagination"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -419,8 +418,8 @@ export default {
     }, {
       name: 'pagination.size',
       title: {
-        label: i18n("分页尺寸", "Pagination size"),
-        tip: i18n("pagination.size | 分页尺寸", "pagination.size | Pagination size")
+        label: "Pagination size",
+        tip: "pagination.size | Pagination size"
       },
       propType: {
         type: 'oneOf',
@@ -430,10 +429,10 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("默认", "Default"),
+            title: "Default",
             value: 'default'
           }, {
-            title: i18n("小", "Small"),
+            title: "Small",
             value: 'small'
           }]
         }
@@ -445,8 +444,8 @@ export default {
     }, {
       name: 'pagination.position',
       title: {
-        label: i18n("分页位置", "PaginationPosition"),
-        tip: i18n("pagination.position | 分页位置", "pagination.position | PaginationPosition")
+        label: "PaginationPosition",
+        tip: "pagination.position | PaginationPosition"
       },
       setter: {
         componentName: 'ArraySetter',
@@ -455,22 +454,22 @@ export default {
             componentName: 'SelectSetter',
             props: {
               options: [{
-                title: i18n("上左", "Top left"),
+                title: "Top left",
                 value: 'topLeft'
               }, {
-                title: i18n("上中", "TopMiddle"),
+                title: "TopMiddle",
                 value: 'topCenter'
               }, {
-                title: i18n("上右", "Top right"),
+                title: "Top right",
                 value: 'topRight'
               }, {
-                title: i18n("下左", "Bottom left"),
+                title: "Bottom left",
                 value: 'bottomLeft'
               }, {
-                title: i18n("下中", "BottomMiddle"),
+                title: "BottomMiddle",
                 value: 'bottomCenter'
               }, {
-                title: i18n("下右", "Bottom right"),
+                title: "Bottom right",
                 value: 'bottomRight'
               }]
             },
@@ -484,14 +483,14 @@ export default {
       }
     }]
   }, {
-    title: i18n("滚动", "Scroll"),
+    title: "Scroll",
     display: 'block',
     type: 'group',
     items: [{
       name: 'scroll.scrollToFirstRowOnChange',
       title: {
-        label: i18n("自动滚动", "Auto Scroll"),
-        tip: i18n("scroll.scrollToFirstRowOnChange | 是否自动滚动到表格顶部", "scroll.scrollToFirstRowOnChange | YesNoAuto Scroll to TableTop")
+        label: "Auto Scroll",
+        tip: "scroll.scrollToFirstRowOnChange | YesNoAuto Scroll to TableTop"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -499,8 +498,8 @@ export default {
     }, {
       name: 'scroll.x',
       title: {
-        label: i18n("横向滚动", "Horizontal scrolling"),
-        tip: i18n("scroll.x | \t设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 max-content", "scroll.x | Set horizontal scrolling, can also be used to specify the width of the scroll area, which can be set to pixel value, percentage, true and max-content")
+        label: "Horizontal scrolling",
+        tip: "scroll.x | Set horizontal scrolling, can also be used to specify the width of the scroll area, which can be set to pixel value, percentage, true and max-content"
       },
       propType: {
         type: 'oneOfType',
@@ -510,21 +509,21 @@ export default {
     }, {
       name: 'scroll.y',
       title: {
-        label: i18n("纵向滚动", "scroll vertically"),
-        tip: i18n("scroll.y | \t设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值", "scroll.y | Set vertical scrolling, can also be used to specify the height of the scroll area, which can be set to a pixel value")
+        label: "scroll vertically",
+        tip: "scroll.y | Set vertical scrolling, can also be used to specify the height of the scroll area, which can be set to a pixel value"
       },
       propType: 'number',
       setter: ['NumberSetter', 'VariableSetter']
     }]
   }, {
-    title: i18n("行选择器", "RowSelect"),
+    title: "RowSelect",
     display: 'block',
     type: 'group',
     items: [{
       name: 'rowSelection',
       title: {
-        label: i18n("行选择", "RowSelect"),
-        tip: i18n("rowSelection | 行选择", "rowSelection | RowSelect")
+        label: "RowSelect",
+        tip: "rowSelection | RowSelect"
       },
       propType: 'object',
       setter: 'BoolSetter',
@@ -540,8 +539,8 @@ export default {
     }, {
       name: 'rowSelection.type',
       title: {
-        label: i18n("行选择类型", "RowSelect Type"),
-        tip: i18n("rowSelection.type | 多选/单选", "rowSelection.type | Multiple/Single")
+        label: "RowSelect Type",
+        tip: "rowSelection.type | Multiple/Single"
       },
       propType: {
         type: 'oneOf',
@@ -551,10 +550,10 @@ export default {
         componentName: 'RadioGroupSetter',
         props: {
           options: [{
-            title: i18n("多选", "Multiple"),
+            title: "Multiple",
             value: 'checkbox'
           }, {
-            title: i18n("单选", "Single"),
+            title: "Single",
             value: 'radio'
           }]
         }
@@ -566,8 +565,8 @@ export default {
     }, {
       name: 'rowSelection.fixed',
       title: {
-        label: i18n("固定左边", "fixed left"),
-        tip: i18n("rowSelection.fixed | 把选择框列固定在左边", "rowSelection.fixed | Fixed the selection box column to the left")
+        label: "fixed left",
+        tip: "rowSelection.fixed | Fixed the selection box column to the left"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -578,8 +577,8 @@ export default {
     }, {
       name: 'rowSelection.selectedRowKeys',
       title: {
-        label: i18n("选中行Key", "Select rowKey"),
-        tip: i18n("rowSelection.selectedRowKeys | 指定选中项的 key 数组", "rowSelection.selectedRowKeys | Specifies the key array of the selected item")
+        label: "Select rowKey",
+        tip: "rowSelection.selectedRowKeys | Specifies the key array of the selected item"
       },
       propType: 'object',
       setter: 'JsonSetter',
@@ -590,8 +589,8 @@ export default {
     }, {
       name: 'rowSelection.preserveSelectedRowKeys',
       title: {
-        label: i18n("保留选项", "Keep options"),
-        tip: i18n("rowSelection.preserveSelectedRowKeys | 当数据被删除时仍然保留选项", "rowSelection.preserveSelectedRowKeys | Preserve options when data is deleted")
+        label: "Keep options",
+        tip: "rowSelection.preserveSelectedRowKeys | Preserve options when data is deleted"
       },
       propType: 'bool',
       setter: 'BoolSetter',
@@ -602,8 +601,8 @@ export default {
     }, {
       name: 'rowSelection.getCheckboxProps',
       title: {
-        label: i18n("默认属性", "Default prop"),
-        tip: i18n("rowSelection.getCheckboxProps | 选择框的默认属性配置", "rowSelection.getCheckboxProps | Default property configuration of selection box")
+        label: "Default prop",
+        tip: "rowSelection.getCheckboxProps | Default property configuration of selection box"
       },
       propType: 'func',
       setter: [{
@@ -618,19 +617,19 @@ export default {
       }
     }]
   }, {
-    title: i18n("行展开", "RowExpand"),
+    title: "RowExpand",
     display: 'block',
     type: 'group',
     items: [{
       name: 'expandable.expandedRowRender',
       title: {
-        label: i18n("展开行渲染", "ExpandRowRender"),
-        tip: i18n("expandable.expandedRowRender | 额外的展开行", "expandable.expandedRowRender | Extra ExpandRow")
+        label: "ExpandRowRender",
+        tip: "expandable.expandedRowRender | Extra ExpandRow"
       },
       propType: 'func',
       setter: [{
         componentName: 'SlotSetter',
-        title: i18n("展开行插槽", "Expand row slot"),
+        title: "Expand row slot",
         initialValue: {
           type: 'JSSlot',
           params: ['record', 'index', 'indent', 'expanded'],
@@ -645,8 +644,8 @@ export default {
     }, {
       name: 'expandable.rowExpandable',
       title: {
-        label: i18n("是否可展开", "YesNoCan Expand"),
-        tip: i18n("expandable.rowExpandable | 行是否可展开", "expandable.rowExpandable | RowYesNoCan Expand")
+        label: "YesNoCan Expand",
+        tip: "expandable.rowExpandable | RowYesNoCan Expand"
       },
       propType: 'func',
       setter: [{
@@ -657,19 +656,19 @@ export default {
       }, 'VariableSetter']
     }]
   }, {
-    title: i18n("扩展", "Extra"),
+    title: "Extra",
     display: 'block',
     type: 'group',
     items: [{
       name: 'title',
       title: {
-        label: i18n("表格标题", "TableTitle"),
-        tip: i18n("title | 表格标题", "title | TableTitle")
+        label: "TableTitle",
+        tip: "title | TableTitle"
       },
       propType: 'func',
       setter: [{
         componentName: 'SlotSetter',
-        title: i18n("表格标题插槽", "table title slot"),
+        title: "table title slot",
         initialValue: {
           type: 'JSSlot',
           params: ['currentPageData'],
@@ -684,13 +683,13 @@ export default {
     }, {
       name: 'footer',
       title: {
-        label: i18n("表格尾部", "TableFooter"),
-        tip: i18n("footer | 表格尾部", "footer | TableFooter")
+        label: "TableFooter",
+        tip: "footer | TableFooter"
       },
       propType: 'func',
       setter: [{
         componentName: 'SlotSetter',
-        title: i18n("表格尾部插槽", "table tail slot"),
+        title: "table tail slot",
         initialValue: {
           type: 'JSSlot',
           params: ['currentPageData'],
@@ -705,8 +704,8 @@ export default {
     }, {
       name: 'onHeaderRow',
       title: {
-        label: i18n("头部行属性", "HeaderRow prop"),
-        tip: i18n("onHeaderRow | 设置头部行属性", "onHeaderRow | Set HeaderRow prop")
+        label: "HeaderRow prop",
+        tip: "onHeaderRow | Set HeaderRow prop"
       },
       propType: 'func',
       setter: [{
@@ -718,8 +717,8 @@ export default {
     }, {
       name: 'onRow',
       title: {
-        label: i18n("行属性", "Row prop"),
-        tip: i18n("onRow | 设置行属性", "onRow | Set Row prop")
+        label: "Row prop",
+        tip: "onRow | Set Row prop"
       },
       propType: 'func',
       setter: [{
@@ -731,8 +730,8 @@ export default {
     }, {
       name: 'rowClassName',
       title: {
-        label: i18n("行类名", "RowclassName"),
-        tip: i18n("rowClassName | 表格行的类名", "rowClassName | TableRow className")
+        label: "RowclassName",
+        tip: "rowClassName | TableRow className"
       },
       propType: 'func',
       setter: [{
